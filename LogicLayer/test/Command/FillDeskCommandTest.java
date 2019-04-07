@@ -26,8 +26,6 @@ class FillDeskCommandTest {
     void execute() {
         try {
             fillDeskCommand.execute();
-            assertNotNull(this.fillDeskCommand.Return());
-            System.out.println(this.deck.getCards().get(0));
             assertNotNull(this.deck);
         } catch (Exception e) {
             e.printStackTrace();
