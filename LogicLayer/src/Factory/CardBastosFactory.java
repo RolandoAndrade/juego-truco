@@ -3,11 +3,13 @@ package Factory;
 import Models.Card.CardBastos;
 import Models.Card.ICard;
 
+import java.util.ArrayList;
+
 
 public class CardBastosFactory extends CardFactory {
 
-    public CardBastosFactory() {
-        super();
+    public CardBastosFactory(ArrayList<ICard> cardList) {
+        super(cardList);
     }
 
     @Override

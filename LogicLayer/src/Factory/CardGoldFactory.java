@@ -2,10 +2,12 @@ package Factory;
 
 import Models.Card.ICard;
 
+import java.util.ArrayList;
+
 public class CardGoldFactory extends CardFactory {
 
-    public CardGoldFactory() {
-        super();
+    public CardGoldFactory(ArrayList<ICard> cardList) {
+        super(cardList);
     }
 
     @Override

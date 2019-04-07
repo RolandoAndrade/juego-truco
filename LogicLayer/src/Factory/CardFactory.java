@@ -5,11 +5,11 @@ import Models.Card.ICard;
 
 import java.util.ArrayList;
 
-public abstract class CardFactory {
+public abstract class CardFactory implements ICardFactory{
     public ArrayList<ICard> cardList;
 
-    public CardFactory() {
-        this.cardList = new ArrayList<>();
+    public CardFactory(ArrayList<ICard> cardList) {
+        this.cardList = new ArrayList<ICard>();
     }
 
     public void crearTodos() {
@@ -25,21 +25,10 @@ public abstract class CardFactory {
         this.cardList.add(crearDoce());
     }
 
-    public abstract ICard crearUno();
-    public abstract ICard crearDos();
-    public abstract ICard crearTres();
-    public abstract ICard crearCuatro();
-    public abstract ICard crearCinco();
-    public abstract ICard crearSeis();
-    public abstract ICard crearSiete();
-    /**
-     * Hay que tener en cuenta que el diez y once
-     * pueden ser el perico dependiendo de la carta
-     * que se voltea
-     * */
-    public abstract ICard crearDiez(); //sota
-    public abstract ICard crearOnce(); //caballo
-    public abstract ICard crearDoce(); //rey
-
-
+    @Override
+    public String toString() {
+        return "CardFactory{" +
+                "cardList=" + cardList +
+                '}';
+    }
 }

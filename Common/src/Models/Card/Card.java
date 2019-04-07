@@ -12,4 +12,14 @@ public abstract class Card implements ICard {
         this.isPerico = isPerico;
         this.isPerica = isPerica;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "number=" + number +
+                ", image='" + image + '\'' +
+                ", isPerico=" + isPerico +
+                ", isPerica=" + isPerica +
+                '}';
+    }
 }
