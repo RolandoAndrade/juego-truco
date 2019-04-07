@@ -8,6 +8,6 @@ public class Deck {
     private ArrayList<ICard> cards;
 
     public Deck(ArrayList<ICard> cards) {
-        this.cards = new ArrayList<>(); //debe llenarse con todas las cartas
+        this.cards = new ArrayList<ICard>(); //debe llenarse con todas las cartas
     }
 }

@@ -1,4 +1,4 @@
-package Logic.Command;
+package Command;
 
 public abstract class Command<T> {
 
