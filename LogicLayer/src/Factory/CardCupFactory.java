@@ -1,5 +1,6 @@
 package Factory;
 
+import Models.Card.CardCup;
 import Models.Card.ICard;
 
 import java.util.ArrayList;
@@ -10,53 +11,44 @@ public class CardCupFactory extends CardFactory {
         super(cardList);
     }
 
-    @Override
+
     public ICard crearUno() {
-        return null;
+        return new CardCup(1, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearDos() {
-        return null;
+        return new CardCup(2, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearTres() {
-        return null;
+        return new CardCup(3, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearCuatro() {
-        return null;
+        return new CardCup(4, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearCinco() {
-        return null;
+        return new CardCup(5, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearSeis() {
-        return null;
+        return new CardCup(6, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearSiete() {
-        return null;
+        return new CardCup(7, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearDiez() {
-        return null;
+        return new CardCup(10, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearOnce() {
-        return null;
+        return new CardCup(11, "rutaImg", false, false);
     }
 
-    @Override
     public ICard crearDoce() {
-        return null;
+        return new CardCup(12, "rutaImg", false, false);
     }
 }
