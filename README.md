@@ -1,16 +1,17 @@
 # Juego de Truco Venezolano
 
-Juego de truco Venezolano en desarrollo por estudiantes de la UCAB, para la asignatura Redes I.
+Juego de truco Venezolano en desarrollo como proyecto de Redes de Computadores I.
 
-## Instrucciones
-
-Abrir IntelliJ
-Open (Selecciona la ubicacion de descarga)
+## Instrucciones 
 
 ![Imagen](https://steemitimages.com/DQmVeDeygtYLqj23BNAJ7LofgRGKqU9UeGeqk77XgGVJTCu/image.png)
 
- [Java](https://www.java.com/) - Lenguaje Utilizado para el desarrollo del juego.
+## Herramientas utilizadas 
 
-## Autor.
+ [Java](https://www.java.com/) - Lenguaje de programación utilizado para el desarrollo del juego.
 
- Jose Cedeno - [Jafjdev](httpsgithub.comjafjdev)
+## Autores.
+
+   Rolando Andrade - [RolandoAndrade](https://github.com/RolandoAndrade)
+   
+   José Cedeño - [Jafjdev](https://github.com/jafjdev)
