@@ -3,22 +3,29 @@ package Models.Card.Eleven;
 import Models.Card.Card;
 
 public class Eleven extends Card {
-    ElevenStrategy isPerico;
+    private ElevenStrategy isPerico;
+    private int value;
 
-    public Eleven(int number, int value, String image) {
-        super(number, value, image);
-        isPerico = new NotPerico(); //Al crear la carta se crea sin ser perico.
+    public Eleven(int number, String image) {
+        super(number,image);
+        this.isPerico = new NotPerico(); //Al crear la carta se crea sin ser perico.
+        this.value = isPerico.getValue();
     }
 
     /**
      * Setter que permitira definir que la carta #11 sera perico.
      */
     public void setPerico() {
-        isPerico = new Perico();
+        this.isPerico = new Perico();
+        this.value = isPerico.getValue();
     }
 
-    public void notPerico(){
-        isPerico = new NotPerico();
+    /**
+     * Setter que permitira definir que la carta #11 NO sera perico.
+     */
+    public void notPerico() {
+        this.isPerico = new NotPerico();
+        this.value = isPerico.getValue();
     }
 
 }

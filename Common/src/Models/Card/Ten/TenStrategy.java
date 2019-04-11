@@ -1,9 +1,9 @@
-package Models.Card.Eleven;
+package Models.Card.Ten;
 
-public abstract class ElevenStrategy {
+public abstract class TenStrategy {
     private final int VALUE;
 
-    protected ElevenStrategy(int VALUE) {
+    protected TenStrategy(int VALUE) {
         this.VALUE = VALUE;
     }
 

@@ -1,8 +1,7 @@
-package Models.Card.Eleven;
+package Models.Card.Ten;
 
-public class NotPerico extends ElevenStrategy {
-
-    protected NotPerico() {
+public class Perica extends TenStrategy {
+    protected Perica() {
         super(10);
     }
 
