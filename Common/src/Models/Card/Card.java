@@ -1,28 +1,52 @@
 package Models.Card;
 
-public abstract class Card implements PlayCard
-{
-    private int number;
-    private String image;
-    private boolean isPerico;
-    private boolean isPerica;
+/**
+ * Clase que define el modelo de una carta, con todos sus
+ * atributos y constructores necesarios para su creacion.
+ *
+ * @author Jose C.
+ * @author Rolando A.
+ * @see PlayCard
+ */
+public abstract class Card implements PlayCard {
+    /**
+     * Final ya que el numero de la carta nunca puede cambiar
+     */
+    private final int number;
 
-    public Card(int number, String image, boolean isPerico, boolean isPerica)
-    {
+    /**
+     * Valor de la carta, este no se define como final ya que si puede cambiar
+     * dependiendo de si la carta es perico o perica, este puede tomar diferentes valores.
+     */
+    private int value;
+    /**
+     * Ruta donde se encuentra la imagen de la carta.
+     */
+    private String image;
+
+    private String type;
+
+
+    /**
+     * Solo se define el tipo de carta que sera ya que el  valor, ruta
+     * de la imagen estaran dentro de la clase concreta
+     **/
+    public Card(int number, String image) {
         this.number = number;
         this.image = image;
-        this.isPerico = isPerico;
-        this.isPerica = isPerica;
     }
 
-    @Override
-    public String toString()
-    {
-        return "Card{" +
-                "number=" + number +
-                ", image='" + image + '\'' +
-                ", isPerico=" + isPerico +
-                ", isPerica=" + isPerica +
-                '}';
+    //Estos constructores seran eliminados proximamente...
+    public Card(int number, String image, String type) {
+        this.number = number;
+        this.image = image;
+        this.type = type;
+    }
+
+
+    public Card(int number, int value, String image) {
+        this.number = number;
+        this.value = value;
+        this.image = image;
     }
 }
