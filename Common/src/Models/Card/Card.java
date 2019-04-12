@@ -24,10 +24,25 @@ public abstract class Card implements PlayCard {
      */
     private String image;
 
+    private String type;
+
+
+    /**
+     * Solo se define el tipo de carta que sera ya que el  valor, ruta
+     * de la imagen estaran dentro de la clase concreta
+     **/
     public Card(int number, String image) {
         this.number = number;
         this.image = image;
     }
+
+    //Estos constructores seran eliminados proximamente...
+    public Card(int number, String image, String type) {
+        this.number = number;
+        this.image = image;
+        this.type = type;
+    }
+
 
     public Card(int number, int value, String image) {
         this.number = number;
