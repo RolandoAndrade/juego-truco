@@ -1,5 +1,5 @@
 package Models.Player;
 
-public interface IPlayer
+public interface PlayPlayer
 {
 }
