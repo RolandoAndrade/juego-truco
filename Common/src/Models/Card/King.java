@@ -1,4 +1,5 @@
 package Models.Card;
 
-public class King {
+public class King
+{
 }
