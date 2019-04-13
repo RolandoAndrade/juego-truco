@@ -1,16 +1,15 @@
 package Models.Player;
 
-import Models.Player.Hand.IHand;
+import Models.Player.Hand.PlayHand;
 
-public class Player implements IPlayer
+public class Player implements PlayPlayer
 {
-    
-    private String _name;
-    private IHand _hand;
-    
-    public Player(String _name, IHand _hand)
+    private String name;
+    private PlayHand hand;
+
+    public Player(String name, PlayHand hand)
     {
-        this._name = _name;
-        this._hand = _hand;
+        this.name = name;
+        this.hand = hand;
     }
 }

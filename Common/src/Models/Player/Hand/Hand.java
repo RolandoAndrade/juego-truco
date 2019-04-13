@@ -4,13 +4,13 @@ import Models.Card.PlayCard;
 
 import java.util.ArrayList;
 
-public class Hand implements IHand
+public class Hand implements PlayHand
 {
-    
-    private ArrayList<PlayCard> _cardList;
-    
-    public Hand(ArrayList<PlayCard> _cardList)
+
+    private ArrayList<PlayCard> cardList;
+
+    public Hand(ArrayList<PlayCard> cardList)
     {
-        this._cardList = _cardList;
+        this.cardList = cardList;
     }
 }

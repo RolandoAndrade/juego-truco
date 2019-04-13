@@ -1,5 +1,5 @@
 package Models.Player.Hand;
 
-public interface IHand
+public interface PlayHand
 {
 }
