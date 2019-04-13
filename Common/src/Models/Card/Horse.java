@@ -1,4 +1,5 @@
 package Models.Card;
 
-public class Horse {
+public class Horse
+{
 }

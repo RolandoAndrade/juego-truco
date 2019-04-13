@@ -1,5 +1,5 @@
 package Models.Deck;
 
-public class Deck {
-
+public class Deck
+{
 }
