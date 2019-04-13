@@ -5,6 +5,6 @@ public class GoldSevenCard extends SevenCard
     @Override
     public int getValue()
     {
-        return 13;
+        return 11;
     }
 }

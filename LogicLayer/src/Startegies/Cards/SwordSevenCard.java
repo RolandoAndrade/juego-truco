@@ -5,6 +5,6 @@ public class SwordSevenCard extends SevenCard
     @Override
     public int getValue()
     {
-        return 14;
+        return 12;
     }
 }
