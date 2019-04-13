@@ -1,9 +1,9 @@
 package Startegies.Cards;
 
-public class FourCard implements PlayCardStrategy
+public class FourCard extends CardStrategy
 {
     @Override
-    public int play()
+    public int getValue()
     {
         return 0;
     }

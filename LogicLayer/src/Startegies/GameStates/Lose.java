@@ -1,5 +1,5 @@
 package Startegies.GameStates;
 
-public class Lose
+public class Lose implements GameState
 {
 }

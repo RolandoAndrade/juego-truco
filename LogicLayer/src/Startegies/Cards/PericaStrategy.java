@@ -1,10 +1,11 @@
 package Startegies.Cards;
 
-public class PericaStrategy implements PlayCardStrategy
+public class PericaStrategy extends CardStrategy
 {
     @Override
-    public int play()
+    public int getValue()
     {
-        return 15;
+        return 30;
     }
+    
 }

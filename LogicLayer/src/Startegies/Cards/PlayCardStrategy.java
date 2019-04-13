@@ -1,8 +1,9 @@
 package Startegies.Cards;
 
-import Models.Card.PlayCard;
+import Startegies.GameStates.GameState;
 
 public interface PlayCardStrategy
 {
-    public int play();
+    public int getValue();
+    public GameState play(PlayCardStrategy rival);
 }
