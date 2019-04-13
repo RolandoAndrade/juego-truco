@@ -3,27 +3,17 @@ package Models.Card;
 import Services.Strategies.Cards.PlayCardStrategy;
 
 /**
- * Clase que define el modelo de una carta, con todos sus
- * atributos y constructores necesarios para su creacion.
- *
- * @author Jose C.
- * @author Rolando A.
- * @see PlayCard
+ * Clase que define el modelo de una carta
  */
 public class Card implements PlayCard
 {
     private final int cardNumber;
     
-    /**
-     * Valor de la carta, este no se define como final ya que si puede cambiar
-     * dependiendo de si la carta es perico o perica, este puede tomar diferentes valores.
-     */
-    
     private PlayCardStrategy cardStrategy;
     
     private String imagePath;
     
-    private String type;
+    private String typeOfCard;
     
     public Card(int cardNumber, String imagePath)
     {
@@ -31,20 +21,20 @@ public class Card implements PlayCard
         this.imagePath = imagePath;
     }
     
-    public Card(int cardNumber, String type, PlayCardStrategy cardStrategy)
+    public Card(int cardNumber, String typeOfCard, PlayCardStrategy cardStrategy)
     {
         this.cardNumber = cardNumber;
-        this.imagePath = type;
-        this.type=type;
+        this.imagePath = "Assets/"+typeOfCard+"/"+cardNumber+".jpeg";
+        this.typeOfCard = typeOfCard;
         this.cardStrategy = cardStrategy;
     }
     
     //Estos constructores seran eliminados proximamente...
-    public Card(int cardNumber, String imagePath, String type)
+    public Card(int cardNumber, String imagePath, String typeOfCard)
     {
         this.cardNumber = cardNumber;
         this.imagePath = imagePath;
-        this.type = type;
+        this.typeOfCard = typeOfCard;
     }
     
     
@@ -57,6 +47,6 @@ public class Card implements PlayCard
     @Override
     public String toString()
     {
-        return this.cardNumber+" of "+this.type;
+        return this.cardNumber+" of "+this.typeOfCard;
     }
 }
