@@ -1,5 +1,6 @@
 package Models.Deck;
 
+import Exceptions.DeckEmptyException;
 import Models.Card.PlayCard;
 
 import java.util.ArrayList;
@@ -21,6 +22,22 @@ public class Deck implements PlayDeck
     }
     
     @Override
+    public PlayCard pickCard() throws DeckEmptyException
+    {
+        int last = this.cards.size()-1;
+        try
+        {
+            PlayCard card = this.cards.get(last);
+            this.cards.remove(last);
+            return card;
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            throw new DeckEmptyException();
+        }
+    }
+    
+    @Override
     public void setCards(ArrayList<PlayCard> cards)
     {
         this.cards = cards;
@@ -36,5 +53,15 @@ public class Deck implements PlayDeck
     public void mix()
     {
         Collections.shuffle(cards);
+    }
+    
+    @Override
+    public String toString()
+    {
+        String s="Deck:\n";
+        for(PlayCard card:this.cards)
+            s+=card.toString()+"\n";
+        s+="\n";
+        return s;
     }
 }
