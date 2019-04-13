@@ -1,8 +1,7 @@
 package Factory;
 
 import Models.Card.*;
-import Models.Card.Eleven.Eleven;
-import Models.Card.Ten.Ten;
+import Services.Strategies.Cards.*;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class CardFactory implements CreateCard
     
     
     @Override
-    public ArrayList<PlayCard> createAll()
+    public ArrayList<PlayCard> createDeck()
     {
         createAllOne();
         createAllTwo();
@@ -36,91 +35,75 @@ public class CardFactory implements CreateCard
     @Override
     public void createAllOne()
     {
-        this.playCards.add(new One(1, "sword"));
-        this.playCards.add(new One(1, "gold"));
-        this.playCards.add(new One(1, "cup"));
-        this.playCards.add(new One(1, "bastos"));
+        this.playCards.add(new Card(1, "sword",new OneCardSword()));
+        this.playCards.add(new Card(1, "gold", new GoldSevenCard()));
+        this.playCards.add(new Card(1, "cup", new OneCardCup()));
+        this.playCards.add(new Card(1, "coarse", new OneCardCoarse()));
+    }
+    
+    private void createSimple(int cardNumber, PlayCardStrategy cardStrategy)
+    {
+        this.playCards.add(new Card(cardNumber, "sword",cardStrategy));
+        this.playCards.add(new Card(cardNumber, "gold",cardStrategy));
+        this.playCards.add(new Card(cardNumber, "cup",cardStrategy));
+        this.playCards.add(new Card(cardNumber, "course",cardStrategy));
     }
     
     @Override
     public void createAllTwo()
     {
-        this.playCards.add(new Two(2, "sword"));
-        this.playCards.add(new Two(2, "gold"));
-        this.playCards.add(new Two(2, "cup"));
-        this.playCards.add(new Two(2, "bastos"));
+        createSimple(2,new TwoCard());
     }
     
     @Override
     public void createAllThree()
     {
-        this.playCards.add(new Three(3, "sword"));
-        this.playCards.add(new Three(3, "gold"));
-        this.playCards.add(new Three(3, "cup"));
-        this.playCards.add(new Three(3, "bastos"));
+        createSimple(3, new TreeCard());
     }
     
     @Override
     public void createAllFour()
     {
-        this.playCards.add(new Four(4, "sword"));
-        this.playCards.add(new Four(4, "gold"));
-        this.playCards.add(new Four(4, "cup"));
-        this.playCards.add(new Four(4, "bastos"));
+        createSimple(4, new FourCard());
     }
     
     @Override
     public void createAllFive()
     {
-        this.playCards.add(new Five(5, "sword"));
-        this.playCards.add(new Five(5, "gold"));
-        this.playCards.add(new Five(5, "cup"));
-        this.playCards.add(new Five(5, "bastos"));
+        createSimple(5, new FiveCard());
     }
     
     @Override
     public void createAllSix()
     {
-        this.playCards.add(new Six(6, "sword"));
-        this.playCards.add(new Six(6, "gold"));
-        this.playCards.add(new Six(6, "cup"));
-        this.playCards.add(new Six(6, "bastos"));
+        createSimple(6, new SixCard());
     }
     
     @Override
     public void createAllSeven()
     {
-        this.playCards.add(new Seven(7, "sword"));
-        this.playCards.add(new Seven(7, "gold"));
-        this.playCards.add(new Seven(7, "cup"));
-        this.playCards.add(new Seven(7, "bastos"));
+        this.playCards.add(new Card(7, "sword",new SwordSevenCard()));
+        this.playCards.add(new Card(7, "gold", new SwordSevenCard()));
+        this.playCards.add(new Card(7, "cup", new SevenCard()));
+        this.playCards.add(new Card(7, "course", new SevenCard()));
     }
     
     @Override
     public void createAllTen()
     {
-        this.playCards.add(new Ten(5, "sword"));
-        this.playCards.add(new Ten(5, "gold"));
-        this.playCards.add(new Ten(5, "cup"));
-        this.playCards.add(new Ten(5, "bastos"));
+        createSimple(10,new TenCard());
     }
     
     @Override
     public void createAllEleven()
     {
-        this.playCards.add(new Eleven(5, "sword"));
-        this.playCards.add(new Eleven(5, "gold"));
-        this.playCards.add(new Eleven(5, "cup"));
-        this.playCards.add(new Eleven(5, "bastos"));
+        createSimple(11, new ElevenCard());
     }
     
     @Override
     public void createAllTwelve()
     {
-        this.playCards.add(new Twelve(5, "sword"));
-        this.playCards.add(new Twelve(5, "gold"));
-        this.playCards.add(new Twelve(5, "cup"));
-        this.playCards.add(new Twelve(5, "bastos"));
+        createSimple(12, new TwelveCard());
     }
     
 }

@@ -10,7 +10,7 @@ import Services.Strategies.Cards.PlayCardStrategy;
  * @author Rolando A.
  * @see PlayCard
  */
-public abstract class Card implements PlayCard
+public class Card implements PlayCard
 {
     private final int cardNumber;
     
@@ -21,21 +21,21 @@ public abstract class Card implements PlayCard
     
     private PlayCardStrategy cardStrategy;
     
-    private int value;
-    
     private String imagePath;
     
     private String type;
     
-    
-    /**
-     * Solo se define el tipo de carta que sera ya que el  valor, ruta
-     * de la imagen estaran dentro de la clase concreta
-     **/
     public Card(int cardNumber, String imagePath)
     {
         this.cardNumber = cardNumber;
         this.imagePath = imagePath;
+    }
+    
+    public Card(int cardNumber, String imagePath, PlayCardStrategy cardStrategy)
+    {
+        this.cardNumber = cardNumber;
+        this.imagePath = imagePath;
+        this.cardStrategy = cardStrategy;
     }
     
     //Estos constructores seran eliminados proximamente...
@@ -50,7 +50,6 @@ public abstract class Card implements PlayCard
     public Card(int cardNumber, int value, String imagePath)
     {
         this.cardNumber = cardNumber;
-        this.value = value;
         this.imagePath = imagePath;
     }
 }
