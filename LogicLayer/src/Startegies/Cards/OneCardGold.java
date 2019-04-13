@@ -5,6 +5,6 @@ public class OneCardGold extends CardStrategy
     @Override
     public int getValue()
     {
-        return 7;
+        return 8;
     }
 }
