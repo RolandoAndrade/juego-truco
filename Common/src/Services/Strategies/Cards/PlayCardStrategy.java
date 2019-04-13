@@ -1,6 +1,6 @@
-package Startegies.Cards;
+package Services.Strategies.Cards;
 
-import Startegies.GameStates.GameState;
+import Services.Strategies.GameStates.GameState;
 
 public interface PlayCardStrategy
 {

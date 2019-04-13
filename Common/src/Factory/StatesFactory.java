@@ -1,9 +1,9 @@
 package Factory;
 
-import Startegies.GameStates.Draw;
-import Startegies.GameStates.GameState;
-import Startegies.GameStates.Lose;
-import Startegies.GameStates.Win;
+import Services.Strategies.GameStates.Draw;
+import Services.Strategies.GameStates.GameState;
+import Services.Strategies.GameStates.Lose;
+import Services.Strategies.GameStates.Win;
 
 public class StatesFactory implements CreateState
 {

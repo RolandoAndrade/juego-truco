@@ -1,7 +1,8 @@
-package Startegies.Cards;
+package Services.Strategies.Cards;
+
 
 import Factory.StatesFactory;
-import Startegies.GameStates.GameState;
+import Services.Strategies.GameStates.GameState;
 
 public abstract class CardStrategy implements PlayCardStrategy
 {

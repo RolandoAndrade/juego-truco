@@ -1,4 +1,4 @@
-package Startegies.Cards;
+package Services.Strategies.Cards;
 
 public class TwelveCard extends CardStrategy
 {

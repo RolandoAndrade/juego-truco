@@ -1,6 +1,6 @@
 package Factory;
 
-import Startegies.GameStates.GameState;
+import Services.Strategies.GameStates.GameState;
 
 public interface CreateState
 {
