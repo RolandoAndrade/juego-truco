@@ -2,24 +2,30 @@ package Factory;
 
 import Models.Card.PlayCard;
 
-public interface CreateCard {
-    PlayCard createOne(String type);
+import java.util.ArrayList;
 
-    PlayCard createTwo(String type);
-
-    PlayCard createThree(String type);
-
-    PlayCard createFour(String type);
-
-    PlayCard createFive(String type);
-
-    PlayCard createSix(String type);
-
-    PlayCard createSeven(String type);
-
-    PlayCard createTen(String type);
-
-    PlayCard createEleven(String type);
-
-    PlayCard createTwelve(String type);
+public interface CreateCard
+{
+    
+    ArrayList<PlayCard> createAll();
+    
+    void createAllOne();
+    
+    void createAllTwo();
+    
+    void createAllThree();
+    
+    void createAllFour();
+    
+    void createAllFive();
+    
+    void createAllSix();
+    
+    void createAllSeven();
+    
+    void createAllTen();
+    
+    void createAllEleven();
+    
+    void createAllTwelve();
 }
