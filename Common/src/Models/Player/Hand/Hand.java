@@ -1,14 +1,16 @@
 package Models.Player.Hand;
 
-import Models.Card.ICard;
+import Models.Card.PlayCard;
 
 import java.util.ArrayList;
 
-public class Hand implements IHand{
+public class Hand implements PlayHand
+{
 
-    private ArrayList<ICard> _cardList;
+    private ArrayList<PlayCard> cardList;
 
-    public Hand(ArrayList<ICard> _cardList) {
-        this._cardList = _cardList;
+    public Hand(ArrayList<PlayCard> cardList)
+    {
+        this.cardList = cardList;
     }
 }
