@@ -7,5 +7,4 @@ public class PericaStrategy extends CardStrategy
     {
         return 30;
     }
-    
 }
