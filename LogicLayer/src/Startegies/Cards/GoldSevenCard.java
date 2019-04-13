@@ -1,10 +1,10 @@
 package Startegies.Cards;
 
-public class SevenCard extends CardStrategy
+public class GoldSevenCard extends SevenCard
 {
     @Override
     public int getValue()
     {
-        return 3;
+        return 13;
     }
 }
