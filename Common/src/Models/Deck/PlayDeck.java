@@ -1,5 +1,6 @@
 package Models.Deck;
 
+import Exceptions.DeckEmptyException;
 import Models.Card.PlayCard;
 
 import java.util.ArrayList;
@@ -13,4 +14,6 @@ public interface PlayDeck
     void mix();
     
     ArrayList<PlayCard> getCards();
+    
+    PlayCard pickCard()throws DeckEmptyException;
 }
