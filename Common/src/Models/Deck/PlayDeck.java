@@ -8,7 +8,9 @@ public interface PlayDeck
 {
     void addPlayCard(PlayCard playCard);
     
-    void setPlayCards(ArrayList<PlayCard> playCards);
+    void setCards(ArrayList<PlayCard> cards);
     
-    ArrayList<PlayCard> getPlayCards();
+    void mix();
+    
+    ArrayList<PlayCard> getCards();
 }

@@ -3,28 +3,38 @@ package Models.Deck;
 import Models.Card.PlayCard;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck implements PlayDeck
 {
-    ArrayList<PlayCard> playCards;
+    private ArrayList<PlayCard> cards;
     
     public Deck()
     {
-        this.playCards = new ArrayList<PlayCard>();
+        this.cards = new ArrayList<PlayCard>();
     }
 
-    public ArrayList<PlayCard> getPlayCards()
+    @Override
+    public ArrayList<PlayCard> getCards()
     {
-        return playCards;
+        return cards;
     }
     
-    public void setPlayCards(ArrayList<PlayCard> playCards)
+    @Override
+    public void setCards(ArrayList<PlayCard> cards)
     {
-        this.playCards = playCards;
+        this.cards = cards;
     }
     
+    @Override
     public void addPlayCard(PlayCard playCard)
     {
-        this.playCards.add(playCard);
+        this.cards.add(playCard);
+    }
+    
+    @Override
+    public void mix()
+    {
+        Collections.shuffle(cards);
     }
 }

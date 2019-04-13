@@ -23,7 +23,7 @@ public class FillDeskCommand extends Command
     public void execute() throws Exception
     {
         CreateCard c = new CardFactory();
-        deck.setPlayCards(c.createDeck());
+        deck.setCards(c.createDeck());
     }
     
     @Override

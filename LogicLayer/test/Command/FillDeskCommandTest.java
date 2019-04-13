@@ -1,6 +1,5 @@
 package Command;
 
-import Models.Card.Card;
 import Models.Card.PlayCard;
 import Models.Deck.Deck;
 import Models.Deck.PlayDeck;
@@ -27,10 +26,11 @@ class FillDeskCommandTest
         try
         {
             fillDeskCommand.execute();
-            for(PlayCard card: this.deck.getPlayCards())
+            this.deck.mix();
+            for(PlayCard card: this.deck.getCards())
                 System.out.println(card);
-            assertNotNull(deck.getPlayCards());
-            assertEquals(40,deck.getPlayCards().size());
+            assertNotNull(deck.getCards());
+            assertEquals(40,deck.getCards().size());
         }
         catch (Exception e)
         {
