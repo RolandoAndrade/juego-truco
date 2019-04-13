@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class FillDeskCommand extends Command
 {
-    PlayDeck deck;
+    private PlayDeck deck;
     
     public FillDeskCommand(PlayDeck deck)
     {

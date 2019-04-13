@@ -1,8 +1,9 @@
 package Command;
 
+import Models.Card.Card;
+import Models.Card.PlayCard;
 import Models.Deck.Deck;
 import Models.Deck.PlayDeck;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,9 +27,12 @@ class FillDeskCommandTest
         try
         {
             fillDeskCommand.execute();
+            for(PlayCard card: this.deck.getPlayCards())
+                System.out.println(card);
             assertNotNull(deck.getPlayCards());
             assertEquals(40,deck.getPlayCards().size());
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             //este catch DEBE ser cambiado
             e.printStackTrace();

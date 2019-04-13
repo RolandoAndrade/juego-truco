@@ -31,10 +31,11 @@ public class Card implements PlayCard
         this.imagePath = imagePath;
     }
     
-    public Card(int cardNumber, String imagePath, PlayCardStrategy cardStrategy)
+    public Card(int cardNumber, String type, PlayCardStrategy cardStrategy)
     {
         this.cardNumber = cardNumber;
-        this.imagePath = imagePath;
+        this.imagePath = type;
+        this.type=type;
         this.cardStrategy = cardStrategy;
     }
     
@@ -51,5 +52,11 @@ public class Card implements PlayCard
     {
         this.cardNumber = cardNumber;
         this.imagePath = imagePath;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return this.cardNumber+" of "+this.type;
     }
 }
