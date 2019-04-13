@@ -1,100 +1,126 @@
 package Factory;
 
-import Models.Card.One;
-import Models.Card.PlayCard;
-import Models.Card.Two;
+import Models.Card.*;
+import Models.Card.Eleven.Eleven;
+import Models.Card.Ten.Ten;
+
+import java.util.ArrayList;
 
 public class CardFactory implements CreateCard
 {
-    @Override
-    public PlayCard createOne(String type)
+    
+    ArrayList<PlayCard> playCards;
+    
+    public CardFactory()
     {
-        if (type.toLowerCase().equals("sword"))
-        {
-            return new One(1, type);
-        }
-        if (type.toLowerCase().equals("gold"))
-        {
-            return new One(1, type);
-        }
-        if (type.toLowerCase().equals("cup"))
-        {
-            return new One(1, type);
-        }
-        if (type.toLowerCase().equals("bastos"))
-        {
-            return new One(1, type);
-        }
-        return null;
+        this.playCards = new ArrayList<PlayCard>();
+    }
+    
+    
+    @Override
+    public ArrayList<PlayCard> createAll()
+    {
+        createAllOne();
+        createAllTwo();
+        createAllThree();
+        createAllFour();
+        createAllFive();
+        createAllSix();
+        createAllSeven();
+        createAllTen();
+        createAllEleven();
+        createAllTwelve();
+        return this.playCards;
     }
     
     @Override
-    public PlayCard createTwo(String type)
+    public void createAllOne()
     {
-        if (type.toLowerCase().equals("sword"))
-        {
-            return new Two(2, type);
-        }
-        if (type.toLowerCase().equals("gold"))
-        {
-            return new Two(2, type);
-        }
-        if (type.toLowerCase().equals("cup"))
-        {
-            return new Two(2, type);
-        }
-        if (type.toLowerCase().equals("bastos"))
-        {
-            return new Two(2, type);
-        }
-        return null;
+        this.playCards.add(new One(1, "sword"));
+        this.playCards.add(new One(1, "gold"));
+        this.playCards.add(new One(1, "cup"));
+        this.playCards.add(new One(1, "bastos"));
     }
     
     @Override
-    public PlayCard createThree(String type)
+    public void createAllTwo()
     {
-        return null;
+        this.playCards.add(new Two(2, "sword"));
+        this.playCards.add(new Two(2, "gold"));
+        this.playCards.add(new Two(2, "cup"));
+        this.playCards.add(new Two(2, "bastos"));
     }
     
     @Override
-    public PlayCard createFour(String type)
+    public void createAllThree()
     {
-        return null;
+        this.playCards.add(new Three(3, "sword"));
+        this.playCards.add(new Three(3, "gold"));
+        this.playCards.add(new Three(3, "cup"));
+        this.playCards.add(new Three(3, "bastos"));
     }
     
     @Override
-    public PlayCard createFive(String type)
+    public void createAllFour()
     {
-        return null;
+        this.playCards.add(new Four(4, "sword"));
+        this.playCards.add(new Four(4, "gold"));
+        this.playCards.add(new Four(4, "cup"));
+        this.playCards.add(new Four(4, "bastos"));
     }
     
     @Override
-    public PlayCard createSix(String type)
+    public void createAllFive()
     {
-        return null;
+        this.playCards.add(new Five(5, "sword"));
+        this.playCards.add(new Five(5, "gold"));
+        this.playCards.add(new Five(5, "cup"));
+        this.playCards.add(new Five(5, "bastos"));
     }
     
     @Override
-    public PlayCard createSeven(String type)
+    public void createAllSix()
     {
-        return null;
+        this.playCards.add(new Six(6, "sword"));
+        this.playCards.add(new Six(6, "gold"));
+        this.playCards.add(new Six(6, "cup"));
+        this.playCards.add(new Six(6, "bastos"));
     }
     
     @Override
-    public PlayCard createTen(String type)
+    public void createAllSeven()
     {
-        return null;
+        this.playCards.add(new Seven(7, "sword"));
+        this.playCards.add(new Seven(7, "gold"));
+        this.playCards.add(new Seven(7, "cup"));
+        this.playCards.add(new Seven(7, "bastos"));
     }
     
     @Override
-    public PlayCard createEleven(String type)
+    public void createAllTen()
     {
-        return null;
+        this.playCards.add(new Ten(5, "sword"));
+        this.playCards.add(new Ten(5, "gold"));
+        this.playCards.add(new Ten(5, "cup"));
+        this.playCards.add(new Ten(5, "bastos"));
     }
     
     @Override
-    public PlayCard createTwelve(String type)
+    public void createAllEleven()
     {
-        return null;
+        this.playCards.add(new Eleven(5, "sword"));
+        this.playCards.add(new Eleven(5, "gold"));
+        this.playCards.add(new Eleven(5, "cup"));
+        this.playCards.add(new Eleven(5, "bastos"));
     }
+    
+    @Override
+    public void createAllTwelve()
+    {
+        this.playCards.add(new Twelve(5, "sword"));
+        this.playCards.add(new Twelve(5, "gold"));
+        this.playCards.add(new Twelve(5, "cup"));
+        this.playCards.add(new Twelve(5, "bastos"));
+    }
+    
 }
