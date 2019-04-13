@@ -1,5 +1,6 @@
 package Startegies.Cards;
 
-public class OneCard
+public class OneCardCoarse
 {
+
 }
