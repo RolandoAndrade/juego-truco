@@ -11,6 +11,8 @@ public interface PlayDeck
     
     void setCards(ArrayList<PlayCard> cards);
     
+    void remove(int i);
+    
     void mix();
     
     ArrayList<PlayCard> getCards();
