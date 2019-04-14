@@ -1,5 +1,5 @@
-package Command;
-
+import Command.Command;
+import Command.FactoryCommand;
 import Exceptions.DeckEmptyException;
 import Models.Card.PlayCard;
 import Models.Deck.Deck;
@@ -58,14 +58,6 @@ class DeckTest
             mixCardsTest();
             distributeCardsCommand.execute(); //Comando que distribuye el deck entre los jugadores.
             assertEquals(24,deck.getCards().size());
-            System.out.println(p1.getHand().toString());
-            System.out.println("----------------------------------------------");
-            System.out.println(p2.getHand().toString());
-            System.out.println("----------------------------------------------");
-            System.out.println(p3.getHand().toString());
-            System.out.println("----------------------------------------------");
-            System.out.println(p4.getHand().toString());
-    
         } catch (Exception e)
         {
             e.printStackTrace();
