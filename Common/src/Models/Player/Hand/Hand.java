@@ -23,4 +23,18 @@ public class Hand implements PlayHand
     {
         this.cardList = cardList;
     }
+    
+    @Override
+    public void addCard(PlayCard card)
+    {
+        this.cardList.add(card);
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Hand{" +
+                "cardList=" + cardList +
+                '}';
+    }
 }

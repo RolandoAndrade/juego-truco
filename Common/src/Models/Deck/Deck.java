@@ -44,6 +44,12 @@ public class Deck implements PlayDeck
     }
     
     @Override
+    public void remove(int i)
+    {
+        this.cards.remove(i);
+    }
+    
+    @Override
     public void addPlayCard(PlayCard playCard)
     {
         this.cards.add(playCard);
