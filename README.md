@@ -4,7 +4,7 @@ Juego de truco Venezolano en desarrollo como proyecto de Redes de Computadores I
 
 ## Instrucciones 
 
-![Imagen](https://steemitimages.com/DQmVeDeygtYLqj23BNAJ7LofgRGKqU9UeGeqk77XgGVJTCu/image.png)
+![Imagen](https://steemitimages.com/DQmVeDeygtYLqj23BNAJ7LofgRGKqU9UeGeqk77XgGVJTCu/imagePath.png)
 
 ## Herramientas utilizadas 
 

@@ -3,7 +3,6 @@ package Command;
 import Factory.CardFactory;
 import Factory.CreateCard;
 import Models.Card.PlayCard;
-import Models.Deck.Deck;
 import Models.Deck.PlayDeck;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
  */
 public class FillDeskCommand extends Command
 {
-    PlayDeck deck;
+    private PlayDeck deck;
     
     public FillDeskCommand(PlayDeck deck)
     {
@@ -24,7 +23,7 @@ public class FillDeskCommand extends Command
     public void execute() throws Exception
     {
         CreateCard c = new CardFactory();
-        deck.setPlayCards(c.createAll());
+        deck.setCards(c.createDeck());
     }
     
     @Override

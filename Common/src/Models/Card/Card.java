@@ -1,56 +1,52 @@
 package Models.Card;
 
+import Services.Strategies.Cards.PlayCardStrategy;
+
 /**
- * Clase que define el modelo de una carta, con todos sus
- * atributos y constructores necesarios para su creacion.
- *
- * @author Jose C.
- * @author Rolando A.
- * @see PlayCard
+ * Clase que define el modelo de una carta
  */
-public abstract class Card implements PlayCard
+public class Card implements PlayCard
 {
-    /**
-     * Final ya que el numero de la carta nunca puede cambiar
-     */
-    private final int number;
+    private final int cardNumber;
     
-    /**
-     * Valor de la carta, este no se define como final ya que si puede cambiar
-     * dependiendo de si la carta es perico o perica, este puede tomar diferentes valores.
-     */
-    private int value;
-    /**
-     * Ruta donde se encuentra la imagen de la carta.
-     */
-    private String image;
+    private PlayCardStrategy cardStrategy;
     
-    private String type;
+    private String imagePath;
     
+    private String typeOfCard;
     
-    /**
-     * Solo se define el tipo de carta que sera ya que el  valor, ruta
-     * de la imagen estaran dentro de la clase concreta
-     **/
-    public Card(int number, String image)
+    public Card(int cardNumber, String imagePath)
     {
-        this.number = number;
-        this.image = image;
+        this.cardNumber = cardNumber;
+        this.imagePath = imagePath;
+    }
+    
+    public Card(int cardNumber, String typeOfCard, PlayCardStrategy cardStrategy)
+    {
+        this.cardNumber = cardNumber;
+        this.imagePath = "Assets/"+typeOfCard+"/"+cardNumber+".jpeg";
+        this.typeOfCard = typeOfCard;
+        this.cardStrategy = cardStrategy;
     }
     
     //Estos constructores seran eliminados proximamente...
-    public Card(int number, String image, String type)
+    public Card(int cardNumber, String imagePath, String typeOfCard)
     {
-        this.number = number;
-        this.image = image;
-        this.type = type;
+        this.cardNumber = cardNumber;
+        this.imagePath = imagePath;
+        this.typeOfCard = typeOfCard;
     }
     
     
-    public Card(int number, int value, String image)
+    public Card(int cardNumber, int value, String imagePath)
     {
-        this.number = number;
-        this.value = value;
-        this.image = image;
+        this.cardNumber = cardNumber;
+        this.imagePath = imagePath;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return this.cardNumber+" of "+this.typeOfCard;
     }
 }

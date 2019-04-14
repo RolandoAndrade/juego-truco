@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public interface CreateCard
 {
     
-    ArrayList<PlayCard> createAll();
+    ArrayList<PlayCard> createDeck();
     
     void createAllOne();
     
