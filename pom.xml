@@ -11,6 +11,7 @@
     <modules>
         <module>Common</module>
         <module>LogicLayer</module>
+        <module>View</module>
     </modules>
 
     <build>

@@ -24,7 +24,7 @@ public class Card implements PlayCard
     public Card(int cardNumber, String typeOfCard, PlayCardStrategy cardStrategy)
     {
         this.cardNumber = cardNumber;
-        this.imagePath = "Assets/"+typeOfCard+"/"+cardNumber+".jpeg";
+        this.imagePath = "resources/"+typeOfCard+"/"+cardNumber+".jpeg";
         this.typeOfCard = typeOfCard;
         this.cardStrategy = cardStrategy;
     }
