@@ -1,5 +1,6 @@
 package Models.Player;
 
+import Models.Player.Hand.Hand;
 import Models.Player.Hand.PlayHand;
 
 public class Player implements PlayPlayer
@@ -10,6 +11,6 @@ public class Player implements PlayPlayer
     public Player(String name, PlayHand hand)
     {
         this.name = name;
-        this.hand = hand;
+        this.hand = new Hand();
     }
 }
