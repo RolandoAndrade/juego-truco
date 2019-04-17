@@ -11,6 +11,12 @@ public class GameRoom implements PlayGame
     private ArrayList<PlayPlayer> players;
     private PlayDeck deck;
     
+    public GameRoom()
+    {
+        this.players = new ArrayList<>();
+        this.deck = new Deck();
+    }
+    
     public GameRoom(ArrayList<PlayPlayer> players)
     {
         this.players = players;

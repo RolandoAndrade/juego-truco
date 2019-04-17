@@ -21,7 +21,8 @@ class InitGameRoomCommandTest
     @BeforeEach
     void init(){
         initList();
-        this.playGame = new GameRoom(players);
+        this.playGame = new GameRoom();
+        this.playGame.setPlayers(players);
         initGameRoomCommand = FactoryCommand.createInitGameRoomCommand(this.playGame);
     }
     
