@@ -19,4 +19,8 @@ public class Player implements PlayPlayer
         return hand;
     }
     
+    public String getName()
+    {
+        return name;
+    }
 }

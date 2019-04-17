@@ -104,10 +104,12 @@ nbdist/
 
 LogicLayer/target/test-classes/META-INF/
 
-*.xml
-
 View/target/
 
 Common/target/
 
 *.jar
+
+LogicLayer/target/test-classes/
+
+LogicLayer/target/surefire-reports/
