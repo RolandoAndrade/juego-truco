@@ -102,14 +102,12 @@ nbdist/
 # End of https://www.gitignore.io/api/netbeans,intellij+all
 *.lst
 
-LogicLayer/target/test-classes/META-INF/
 
-View/target/
-
-Common/target/
 
 *.jar
 
-LogicLayer/target/test-classes/
 
-LogicLayer/target/surefire-reports/
+.classpath
+.project
+.settings/
+target/
