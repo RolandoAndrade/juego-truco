@@ -24,7 +24,7 @@ public class Card implements PlayCard
     public Card(int cardNumber, String typeOfCard, PlayCardStrategy cardStrategy)
     {
         this.cardNumber = cardNumber;
-        this.imagePath = "resources/"+typeOfCard+"/"+cardNumber+".jpeg";
+        this.imagePath = typeOfCard+"/"+cardNumber+".jpeg";
         this.typeOfCard = typeOfCard;
         this.cardStrategy = cardStrategy;
     }
@@ -48,5 +48,10 @@ public class Card implements PlayCard
     public String toString()
     {
         return this.cardNumber+" of "+this.typeOfCard;
+    }
+    
+    public String getImagePath()
+    {
+        return imagePath;
     }
 }
