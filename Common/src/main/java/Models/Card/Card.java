@@ -29,21 +29,6 @@ public class Card implements PlayCard
         this.cardStrategy = cardStrategy;
     }
     
-    //Estos constructores seran eliminados proximamente...
-    public Card(int cardNumber, String imagePath, String typeOfCard)
-    {
-        this.cardNumber = cardNumber;
-        this.imagePath = imagePath;
-        this.typeOfCard = typeOfCard;
-    }
-    
-    
-    public Card(int cardNumber, int value, String imagePath)
-    {
-        this.cardNumber = cardNumber;
-        this.imagePath = imagePath;
-    }
-    
     @Override
     public String toString()
     {

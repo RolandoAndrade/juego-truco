@@ -30,7 +30,7 @@ public class Frame implements FrameControl
         this.frame.setVisible(true);
         
         this.frame.setLocationRelativeTo(null);
-        this.frame.add(new Board(icon));
+        this.frame.add(new Board());
     }
     
     
