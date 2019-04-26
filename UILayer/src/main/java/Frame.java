@@ -7,7 +7,7 @@ public class Frame implements FrameControl
     
     private static final int FRAME_WIDTH = 700;
     
-    private static final String ICON_PATH="View/src/main/resources/sword/12.jpeg";
+    private static final String ICON_PATH="UILayer/src/main/resources/sword/12.jpeg";
     
     private JFrame frame;
     
