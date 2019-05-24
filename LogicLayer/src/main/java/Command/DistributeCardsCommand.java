@@ -10,6 +10,7 @@ public class DistributeCardsCommand extends Command
 {
     private PlayDeck deck;
     private ArrayList<PlayPlayer> players;
+    private final int NUMBER_OF_CARDS = 3;
     
     public DistributeCardsCommand(PlayDeck deck, ArrayList<PlayPlayer> players)
     {
@@ -22,12 +23,10 @@ public class DistributeCardsCommand extends Command
     {
         for (PlayPlayer player : players)
         {
-            for (int i = 0; i < players.size(); i++)
+            for (int i = 0; i < NUMBER_OF_CARDS; i++)
             {
-                player.getHand().addCard(deck.getCards().get(i));
-                this.deck.remove(i); //Eliminamos del deck la carta que el usuario toma.
+                player.getHand().addCard(deck.pickCard());
             }
-            //se pasa al siguiente usuario
         }
     }
     
