@@ -25,7 +25,7 @@ public class DistributeCardsCommand extends Command
         {
             for (int i = 0; i < NUMBER_OF_CARDS; i++)
             {
-                player.getHand().addCard(deck.pickCard());
+                player.giveCard(deck.pickCard());
             }
         }
     }

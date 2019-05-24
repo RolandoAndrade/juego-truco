@@ -1,5 +1,6 @@
 package Models.Player;
 
+import Models.Card.PlayCard;
 import Models.Player.Hand.PlayHand;
 
 public class Player implements PlayPlayer
@@ -21,5 +22,11 @@ public class Player implements PlayPlayer
     public String getName()
     {
         return name;
+    }
+    
+    @Override
+    public void giveCard(PlayCard card)
+    {
+        this.hand.addCard(card);
     }
 }
