@@ -13,6 +13,13 @@ public class GraphicPlayer implements Drawable
     @Override
     public void paint(Graphics g, ImageObserver observer)
     {
-    
+        try
+        {
+            ((Drawable)player.getHand()).paint(g,observer);
+        }
+        catch (Exception e)
+        {
+            System.err.println("Esta mano no se puede dibujar");
+        }
     }
 }
