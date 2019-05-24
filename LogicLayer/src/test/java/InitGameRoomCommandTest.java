@@ -2,6 +2,7 @@ import Command.Command;
 import Command.FactoryCommand;
 import Models.Game.GameRoom;
 import Models.Game.PlayGame;
+import Models.Player.Hand.Hand;
 import Models.Player.PlayPlayer;
 import Models.Player.Player;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,10 +29,10 @@ class InitGameRoomCommandTest
     
     public void initList(){
         players = new ArrayList<PlayPlayer>();
-        this.players.add(new Player("Jose"));
-        this.players.add(new Player("Manuel"));
-        this.players.add(new Player("Omar"));
-        this.players.add(new Player("Ramiro"));
+        this.players.add(new Player("Jose",new Hand()));
+        this.players.add(new Player("Manuel",new Hand()));
+        this.players.add(new Player("Omar",new Hand()));
+        this.players.add(new Player("Ramiro",new Hand()));
     }
     @Test
     void execute()
