@@ -38,7 +38,7 @@ public class CardFactory implements CreateCard
         this.playCards.add(new Card(1, "sword",new OneCardSword()));
         this.playCards.add(new Card(1, "gold", new GoldSevenCard()));
         this.playCards.add(new Card(1, "cup", new OneCardCup()));
-        this.playCards.add(new Card(1, "coarse", new OneCardCoarse()));
+        this.playCards.add(new Card(1, "course", new OneCardCoarse()));
     }
     
     private void createSimple(int cardNumber, PlayCardStrategy cardStrategy)

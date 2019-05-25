@@ -27,10 +27,11 @@ public class Frame implements FrameControl
         this.frame.setIconImage(icon);
         this.frame.setSize(FRAME_WIDTH,FRAME_HEIGHT);
         
-        this.frame.setVisible(true);
+        
         
         this.frame.setLocationRelativeTo(null);
         this.frame.add(new Board());
+        this.frame.setVisible(true);
     }
     
     

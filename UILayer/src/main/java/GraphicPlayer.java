@@ -1,17 +1,20 @@
+import Models.Card.PlayCard;
+import Models.Player.Hand.PlayHand;
 import Models.Player.PlayPlayer;
+import Models.Player.Player;
+
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
-public class GraphicPlayer implements Drawable
+public class GraphicPlayer extends Player implements Drawable
 {
-    private PlayPlayer player;
     private int number, x,y;
     private static final int FONT_SIZE=15;
-    public GraphicPlayer(int number, PlayPlayer player)
+    public GraphicPlayer(int number, String name, PlayHand hand)
     {
+        super(name, hand);
         this.number = number;
-        this.player = player;
-        int len = player.getName().length();
+        int len = name.length();
         switch (number)
         {
             case 0:
@@ -37,10 +40,10 @@ public class GraphicPlayer implements Drawable
     public void paint(Graphics g, ImageObserver observer)
     {
         g.setFont(new Font("Arial", Font.BOLD, FONT_SIZE));
-        g.drawString(this.player.getName(),this.x,this.y);
+        g.drawString(getName(),this.x,this.y);
         try
         {
-            ((Drawable)player.getHand()).paint(g,observer);
+            ((Drawable)getHand()).paint(g,observer);
         }
         catch (Exception e)
         {

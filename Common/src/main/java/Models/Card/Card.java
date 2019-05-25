@@ -39,4 +39,22 @@ public class Card implements PlayCard
     {
         return imagePath;
     }
+    
+    @Override
+    public int getNumber()
+    {
+        return this.cardNumber;
+    }
+    
+    @Override
+    public PlayCardStrategy getStrategy()
+    {
+        return cardStrategy;
+    }
+    
+    @Override
+    public String getColor()
+    {
+        return this.typeOfCard;
+    }
 }
