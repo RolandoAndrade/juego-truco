@@ -18,19 +18,19 @@ public class GraphicPlayer extends Player implements Drawable
         switch (number)
         {
             case 0:
-                this.x=10;
+                this.x=15;
                 this.y=460;
                 break;
             case 1:
-                this.x=690-20*(len)+(len-1)*10;
+                this.x=685-20*(len)+(len-1)*10;
                 this.y=460;
                 break;
             case 2:
-                this.x=690-20*(len)+(len-1)*10;
+                this.x=685-20*(len)+(len-1)*10;
                 this.y=25;
                 break;
             case 3:
-                this.x=10;
+                this.x=15;
                 this.y=25;
                 break;
         }

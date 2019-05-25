@@ -25,18 +25,17 @@ public class Board extends JPanel
         try
         {
             fillDeskCommand.execute();
+            deck.mix();
             this.player0=new GraphicPlayer(0,"ROLANDO", new GraphicHand());
             this.player1=new GraphicPlayer(1,"JOSÉ", new GraphicHand());
             this.player2=new GraphicPlayer(2,"ANDRADE", new GraphicHand());
             this.player3=new GraphicPlayer(3,"FERNÁNDEZ", new GraphicHand());
             for (int i=0;i<3;i++)
             {
-                PlayCard card=deck.pickCard();
-                System.out.println(card);
-                ((GraphicPlayer)player0).giveCard(new GraphicCard(card,60*i+10,300,true));
-                /*((GraphicPlayer)player1).giveCard(new GraphicCard(deck.pickCard(),60*i+450,300,true));
-                ((GraphicPlayer)player2).giveCard(new GraphicCard(deck.pickCard(),60*i+450,100,true));
-                ((GraphicPlayer)player3).giveCard(new GraphicCard(deck.pickCard(),60*i+10,100,true));*/
+                ((GraphicPlayer)player0).giveCard(new GraphicCard(deck.pickCard(),65*i+20,320,true));
+                ((GraphicPlayer)player1).giveCard(new GraphicCard(deck.pickCard(),65*i+485,320,false));
+                ((GraphicPlayer)player2).giveCard(new GraphicCard(deck.pickCard(),65*i+485,50,false));
+                ((GraphicPlayer)player3).giveCard(new GraphicCard(deck.pickCard(),65*i+20,50,false));
             }
             
         }
