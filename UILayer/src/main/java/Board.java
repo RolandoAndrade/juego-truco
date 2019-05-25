@@ -14,12 +14,15 @@ import java.awt.*;
 public class Board extends JPanel
 {
     PlayDeck deck;
-    private Drawable player0;
-    private Drawable player1;
-    private Drawable player2;
-    private Drawable player3;
+    private GraphicPlayer player0;
+    private GraphicPlayer player1;
+    private GraphicPlayer player2;
+    private GraphicPlayer player3;
+    private GraphicCard vira;
+    private GraphicCard gDeck;
     public Board()
     {
+        /**Aquí estou haciendo las pruebas de interfaz*/
         deck=new Deck();
         Command fillDeskCommand=new FillDeskCommand(deck);
         try
@@ -32,11 +35,13 @@ public class Board extends JPanel
             this.player3=new GraphicPlayer(3,"FERNÁNDEZ", new GraphicHand());
             for (int i=0;i<3;i++)
             {
-                ((GraphicPlayer)player0).giveCard(new GraphicCard(deck.pickCard(),65*i+20,320,true));
-                ((GraphicPlayer)player1).giveCard(new GraphicCard(deck.pickCard(),65*i+485,320,false));
-                ((GraphicPlayer)player2).giveCard(new GraphicCard(deck.pickCard(),65*i+485,50,false));
-                ((GraphicPlayer)player3).giveCard(new GraphicCard(deck.pickCard(),65*i+20,50,false));
+                player0.giveCard(new GraphicCard(deck.pickCard(),65*i+20,320,true));
+                player1.giveCard(new GraphicCard(deck.pickCard(),65*i+485,320,false));
+                player2.giveCard(new GraphicCard(deck.pickCard(),65*i+485,50,false));
+                player3.giveCard(new GraphicCard(deck.pickCard(),65*i+20,50,false));
             }
+            vira=new GraphicCard(deck.pickCard(),320,190,true);
+            //gDeck=new GraphicCard(new Card(1,"gold"),320,240,false);
             
         }
         catch (Exception e)
@@ -63,5 +68,7 @@ public class Board extends JPanel
         player1.paint(g, this);
         player2.paint(g, this);
         player3.paint(g, this);
+        vira.paint(g,this);
+        //gDeck.paint(g,this);
     }
 }
