@@ -11,7 +11,7 @@
     <modules>
         <module>Common</module>
         <module>LogicLayer</module>
-        <module>ViewLayer</module>
+        <module>UILayer</module>
     </modules>
 
     <packaging>pom</packaging>
