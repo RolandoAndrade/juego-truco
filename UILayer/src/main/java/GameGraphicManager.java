@@ -2,8 +2,11 @@ import Command.Command;
 import Models.Game.PlayGame;
 import Command.FillDeskCommand;
 import Command.DistributeCardsCommand;
+import Models.Player.PlayPlayer;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GameGraphicManager extends JPanel implements GameGraphicControl
 {
@@ -53,5 +56,16 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
     {
         super.paint(g);
         ((Paintable)gameRoom).paint(g,this);
+    }
+    
+    @Override
+    public ArrayList<Clickeable> getClickeables()
+    {
+        ArrayList<Clickeable> c=new ArrayList<>();
+        for(PlayPlayer player:gameRoom.getPlayers())
+        {
+            c.add((Clickeable)player);
+        }
+        return c;
     }
 }

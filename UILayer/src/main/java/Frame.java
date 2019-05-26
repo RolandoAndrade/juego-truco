@@ -1,10 +1,5 @@
-import Models.Game.GameRoom;
-import Models.Player.PlayPlayer;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class Frame extends JFrame implements FrameControl
 {
@@ -18,9 +13,8 @@ public class Frame extends JFrame implements FrameControl
     
     public Frame(GameGraphicControl gameGraphicControl)
     {
-        createFrame();
         this.gameManager=(JPanel)gameGraphicControl;
-        this.add(gameManager);
+        createFrame();
         this.setVisible(true);
     }
     
@@ -34,10 +28,9 @@ public class Frame extends JFrame implements FrameControl
         this.setIconImage(icon);
         this.setSize(FRAME_WIDTH,FRAME_HEIGHT);
         this.setLocationRelativeTo(null);
-        /*Board b=new Board();
-        this.add(b);
-        addMouseListener(new MouseClick(this,(Clickeable)b.getPlayer()));*/
-        addMouseListener(new MouseClick(this));
+        
+        this.add(gameManager);
+        addMouseListener(new MouseClick(this, (GameGraphicControl)this.gameManager));
     }
     
     @Override

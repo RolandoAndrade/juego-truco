@@ -8,10 +8,9 @@ public class MouseClick extends MouseAdapter
     private ArrayList<Clickeable> clickeables;
     private FrameControl frameControl;
     
-    public MouseClick(FrameControl frameControl, Clickeable...clickeables)
+    public MouseClick(FrameControl frameControl, GameGraphicControl control)
     {
-        this.clickeables=new ArrayList<Clickeable>();
-        Collections.addAll(this.clickeables, clickeables);
+        this.clickeables=control.getClickeables();
         this.frameControl=frameControl;
     }
     @Override
