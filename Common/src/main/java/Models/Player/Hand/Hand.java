@@ -8,6 +8,7 @@ public class Hand implements PlayHand
 {
 
     private ArrayList<PlayCard> cardList;
+    private PlayCard playedCard;
 
     public Hand()
     {
@@ -22,6 +23,25 @@ public class Hand implements PlayHand
     public void setCardList(ArrayList<PlayCard> cardList)
     {
         this.cardList = cardList;
+    }
+    
+    @Override
+    public int howManyCardsAre()
+    {
+        return this.cardList.size();
+    }
+    
+    @Override
+    public void putCard(int i)
+    {
+        this.playedCard=this.cardList.get(i);
+        this.cardList.remove(i);
+    }
+    
+    @Override
+    public PlayCard getPlayedCard()
+    {
+        return playedCard;
     }
     
     @Override

@@ -24,6 +24,7 @@ public class FillDeskCommand extends Command
     {
         CreateCard c = new CardFactory();
         deck.setCards(c.createDeck());
+        deck.mix();
     }
     
     @Override

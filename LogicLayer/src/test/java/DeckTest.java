@@ -4,6 +4,9 @@ import Exceptions.DeckEmptyException;
 import Models.Card.PlayCard;
 import Models.Deck.Deck;
 import Models.Deck.PlayDeck;
+import Models.Game.GameRoom;
+import Models.Game.PlayGame;
+import Models.Player.Hand.Hand;
 import Models.Player.PlayPlayer;
 import Models.Player.Player;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,14 +36,15 @@ class DeckTest
         initPlayers();
         fillPlayerList();
         this.fillDeskCommand = FactoryCommand.createFillDeskCommand(deck);
-        this.distributeCardsCommand = FactoryCommand.createDistributeCardsCommand(deck,playerList);
+        PlayGame game=new GameRoom(playerList);
+        this.distributeCardsCommand = FactoryCommand.createDistributeCardsCommand(game);
     }
     
     void initPlayers(){
-        this.p1 = new Player("Jose");
-        this.p2 = new Player("Pedro");
-        this.p3 = new Player("Ramiro");
-        this.p4 = new Player("Omar");
+        this.p1 = new Player("Jose",new Hand());
+        this.p2 = new Player("Pedro",new Hand());
+        this.p3 = new Player("Ramiro",new Hand());
+        this.p4 = new Player("Omar",new Hand());
     }
     
     void fillPlayerList(){

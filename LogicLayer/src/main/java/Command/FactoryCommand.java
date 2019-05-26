@@ -16,9 +16,9 @@ public class FactoryCommand
         return new FillDeskCommand(playDeck);
     }
     
-    public static DistributeCardsCommand createDistributeCardsCommand(PlayDeck deck, ArrayList<PlayPlayer> players)
+    public static DistributeCardsCommand createDistributeCardsCommand(PlayGame game)
     {
-        return new DistributeCardsCommand(deck, players);
+        return new DistributeCardsCommand(game);
     }
     
     public static InitGameRoomCommand createInitGameRoomCommand(PlayGame playGame){

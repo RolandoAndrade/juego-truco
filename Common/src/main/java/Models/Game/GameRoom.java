@@ -1,5 +1,6 @@
 package Models.Game;
 
+import Models.Card.PlayCard;
 import Models.Deck.Deck;
 import Models.Deck.PlayDeck;
 import Models.Player.PlayPlayer;
@@ -10,6 +11,7 @@ public class GameRoom implements PlayGame
 {
     private ArrayList<PlayPlayer> players;
     private PlayDeck deck;
+    private PlayCard vira;
     
     public GameRoom()
     {
@@ -41,6 +43,30 @@ public class GameRoom implements PlayGame
     public PlayDeck getDeck()
     {
         return deck;
+    }
+    
+    @Override
+    public void putVira()
+    {
+        try
+        {
+            vira=deck.pickCard();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    public void setVira(PlayCard vira)
+    {
+        this.vira = vira;
+    }
+    
+    public PlayCard getVira()
+    {
+        return vira;
     }
     
     public void setDeck(PlayDeck deck)

@@ -35,17 +35,17 @@ public class CardFactory implements CreateCard
     @Override
     public void createAllOne()
     {
-        this.playCards.add(new Card(1, "src/main/resources/sword",new OneCardSword()));
-        this.playCards.add(new Card(1, "src/main/resources/gold", new GoldSevenCard()));
-        this.playCards.add(new Card(1, "src/main/resources/cup", new OneCardCup()));
-        this.playCards.add(new Card(1, "src/main/resources/coarse", new OneCardCoarse()));
+        this.playCards.add(new Card(1, "sword",new OneCardSword()));
+        this.playCards.add(new Card(1, "gold", new GoldSevenCard()));
+        this.playCards.add(new Card(1, "cup", new OneCardCup()));
+        this.playCards.add(new Card(1, "course", new OneCardCoarse()));
     }
     
     private void createSimple(int cardNumber, PlayCardStrategy cardStrategy)
     {
-        this.playCards.add(new Card(cardNumber, "src/main/resources/sword",cardStrategy));
-        this.playCards.add(new Card(cardNumber, "src/main/resources/gold",cardStrategy));
-        this.playCards.add(new Card(cardNumber, "src/main/resources/cup",cardStrategy));
+        this.playCards.add(new Card(cardNumber, "sword",cardStrategy));
+        this.playCards.add(new Card(cardNumber, "gold",cardStrategy));
+        this.playCards.add(new Card(cardNumber, "cup",cardStrategy));
         this.playCards.add(new Card(cardNumber, "course",cardStrategy));
     }
     
@@ -82,9 +82,9 @@ public class CardFactory implements CreateCard
     @Override
     public void createAllSeven()
     {
-        this.playCards.add(new Card(7, "src/main/resources/sword",new SwordSevenCard()));
-        this.playCards.add(new Card(7, "src/main/resources/gold", new SwordSevenCard()));
-        this.playCards.add(new Card(7, "src/main/resources/cup", new SevenCard()));
+        this.playCards.add(new Card(7, "sword",new SwordSevenCard()));
+        this.playCards.add(new Card(7, "gold", new SwordSevenCard()));
+        this.playCards.add(new Card(7, "cup", new SevenCard()));
         this.playCards.add(new Card(7, "course", new SevenCard()));
     }
     
