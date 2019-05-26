@@ -52,8 +52,11 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
     @Override
     public boolean onClick(int x, int y)
     {
+        System.out.println(this.y);
+        System.out.println(x>this.x&&x<this.x+65*3&&y>this.y);
         if(x>this.x&&y>this.y&&x<this.x+65*3&&y<this.y+100)
         {
+            
             for(int i=0;i<howManyCardsAre();i++)
             {
                 PlayCard card=getCardList().get(i);
@@ -61,8 +64,7 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
                 {
                     
                     putCard(i);
-                    moveCardsToLeft(card,i);
-                    
+                    moveCardsToLeft(i);
                     return true;
                 }
             }
@@ -70,10 +72,8 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
         return false;
     }
     
-    private void moveCardsToLeft(PlayCard card, int i)
+    private void moveCardsToLeft(int i)
     {
-        int ax=((Drawable)card).getX();
-        int ay=((Drawable)card).getY();
         for (int j=i;j<howManyCardsAre();j++)
         {
             Drawable d=((Drawable)getCardList().get(j));

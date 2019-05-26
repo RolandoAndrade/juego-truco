@@ -83,7 +83,7 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     @Override
     public boolean onClick(int x, int y)
     {
-        if(this.number==0)
+        if(this.number==0||true)
         {
             if(((Clickeable)getHand()).onClick(x,y))
             {

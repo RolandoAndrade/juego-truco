@@ -1,15 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Frame implements FrameControl
+public class Frame extends JFrame implements FrameControl
 {
     private static final int FRAME_HEIGHT = 500;
     
     private static final int FRAME_WIDTH = 700;
     
     private static final String ICON_PATH="UILayer/src/main/resources/sword/12.jpeg";
-    
-    private JFrame frame;
+
     
     public Frame()
     {
@@ -18,40 +17,23 @@ public class Frame implements FrameControl
     
     private void createFrame()
     {
-        this.frame=new JFrame();
-        this.frame.setTitle("Truco");
-        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Truco");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /**Creamos un toolkit para usar la posición relativa de un archivo dentro del módulo*/
         Toolkit toolkit= Toolkit.getDefaultToolkit();
         Image icon=toolkit.getImage(ICON_PATH);
-        this.frame.setIconImage(icon);
-        this.frame.setSize(FRAME_WIDTH,FRAME_HEIGHT);
-        
-        
-        
-        this.frame.setLocationRelativeTo(null);
+        this.setIconImage(icon);
+        this.setSize(FRAME_WIDTH,FRAME_HEIGHT);
+        this.setLocationRelativeTo(null);
         Board b=new Board();
-        this.frame.add(b);
-        frame.addMouseListener(new MouseClick(this,(Clickeable)b.getPlayer()));
-        this.frame.setVisible(true);
-    }
-    
-    
-    @Override
-    public void show()
-    {
-        this.frame.setVisible(true);
-    }
-    
-    @Override
-    public void hide()
-    {
-        this.frame.setVisible(true);
+        this.add(b);
+        addMouseListener(new MouseClick(this,(Clickeable)b.getPlayer()));
+        this.setVisible(true);
     }
     
     @Override
     public void update()
     {
-        this.frame.repaint();
+        this.repaint();
     }
 }
