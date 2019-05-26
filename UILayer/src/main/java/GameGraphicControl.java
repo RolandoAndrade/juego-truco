@@ -1,3 +1,3 @@
-public interface GameGraphicControl extends Paintable
+public interface GameGraphicControl
 {
 }

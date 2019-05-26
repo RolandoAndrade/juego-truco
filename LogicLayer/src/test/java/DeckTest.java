@@ -4,6 +4,8 @@ import Exceptions.DeckEmptyException;
 import Models.Card.PlayCard;
 import Models.Deck.Deck;
 import Models.Deck.PlayDeck;
+import Models.Game.GameRoom;
+import Models.Game.PlayGame;
 import Models.Player.Hand.Hand;
 import Models.Player.PlayPlayer;
 import Models.Player.Player;
@@ -34,7 +36,8 @@ class DeckTest
         initPlayers();
         fillPlayerList();
         this.fillDeskCommand = FactoryCommand.createFillDeskCommand(deck);
-        this.distributeCardsCommand = FactoryCommand.createDistributeCardsCommand(deck,playerList);
+        PlayGame game=new GameRoom(playerList);
+        this.distributeCardsCommand = FactoryCommand.createDistributeCardsCommand(game);
     }
     
     void initPlayers(){

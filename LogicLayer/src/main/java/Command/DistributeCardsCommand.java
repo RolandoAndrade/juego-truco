@@ -1,6 +1,7 @@
 package Command;
 
 import Models.Deck.PlayDeck;
+import Models.Game.PlayGame;
 import Models.Player.PlayPlayer;
 import java.util.ArrayList;
 
@@ -10,10 +11,10 @@ public class DistributeCardsCommand extends Command
     private ArrayList<PlayPlayer> players;
     private final int NUMBER_OF_CARDS = 3;
     
-    public DistributeCardsCommand(PlayDeck deck, ArrayList<PlayPlayer> players)
+    public DistributeCardsCommand(PlayGame game)
     {
-        this.deck = deck;
-        this.players = players;
+        this.deck = game.getDeck();
+        this.players = game.getPlayers();
     }
     
     @Override

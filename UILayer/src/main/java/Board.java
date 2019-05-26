@@ -19,7 +19,7 @@ public class Board implements Paintable
     private GraphicCard vira;
     public Board()
     {
-        /**Aquí estou haciendo las pruebas de interfaz*/
+        /**Aquí estou haciendo las pruebas de interfaz
         deck=new Deck();
         deck.mix();
         Command fillDeskCommand=new FillDeskCommand(deck);
@@ -40,7 +40,7 @@ public class Board implements Paintable
         {
             System.out.println("Error");
         }
-        
+        */
         
         
     }
@@ -54,10 +54,11 @@ public class Board implements Paintable
     @Override
     public void paint(Graphics g, ImageObserver observer)
     {
+        /*
         for (PlayPlayer a:this.players)
         {
             ((Drawable)a).paint(g,observer);
         }
-        vira.paint(g,observer);
+        vira.paint(g,observer);*/
     }
 }

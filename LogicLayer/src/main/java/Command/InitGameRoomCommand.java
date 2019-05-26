@@ -18,7 +18,7 @@ public class InitGameRoomCommand extends Command
         this.commands.add(FactoryCommand.
                         createFillDeskCommand(gameRoom.getDeck()));
         this.commands.add(FactoryCommand.
-                createDistributeCardsCommand(gameRoom.getDeck(),gameRoom.getPlayers()));
+                createDistributeCardsCommand(gameRoom));
     }
     
     @Override
