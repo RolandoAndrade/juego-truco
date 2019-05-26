@@ -25,12 +25,18 @@ public class GraphicHand extends Hand implements Drawable
     }
     
     @Override
+    public void addCard(PlayCard card)
+    {
+        ((Drawable)card).setPosition(65*howManyCardsAre()+this.x,this.y);
+        super.addCard(card);
+    }
+    
+    @Override
     public void setPosition(int x, int y)
     {
         this.x=x;
         this.y=y;
     }
-    
     @Override
     public int getX()
     {

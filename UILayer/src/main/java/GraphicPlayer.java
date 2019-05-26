@@ -66,9 +66,7 @@ public class GraphicPlayer extends Player implements Drawable
     @Override
     public void giveCard(PlayCard card)
     {
-        Drawable d=(Drawable)getHand();
-        ((Drawable)card).setPosition(65*getHand().howManyCardsAre()+d.getX(),d.getY());
-        super.giveCard(card);
+        super.giveCard(new GraphicCard(card,0,0,this.number==0));
     }
     @Override
     public int getX()
