@@ -8,6 +8,7 @@ import java.awt.image.ImageObserver;
 public class GraphicHand extends Hand implements Drawable, Clickeable
 {
     private int x,y;
+    private int zoneX, zoneY;
     @Override
     public void paint(Graphics g, ImageObserver observer)
     {
@@ -21,6 +22,14 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
             {
                 System.err.println("Error, esta carta no se puede dibujar");
             }
+        }
+        try
+        {
+            ((Drawable) getPlayedCard()).paint(g, observer);
+        }
+        catch (Exception e)
+        {
+        
         }
     }
     
@@ -36,6 +45,8 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
     {
         this.x=x;
         this.y=y;
+        this.zoneX=x<350?250:390;
+        this.zoneY=y<250?130:250;
     }
     @Override
     public int getX()
@@ -62,6 +73,7 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
                 PlayCard card=getCardList().get(i);
                 if(((Clickeable)card).onClick(x,y))
                 {
+                    ((Drawable)card).setPosition(this.zoneX,this.zoneY);
                     putCard(i);
                     moveCardsToLeft(i);
                     return true;
