@@ -30,8 +30,9 @@ public class Frame implements FrameControl
         
         
         this.frame.setLocationRelativeTo(null);
-        this.frame.add(new Board());
-        frame.addMouseListener(new MouseClick());
+        Board b=new Board();
+        this.frame.add(b);
+        frame.addMouseListener(new MouseClick(this,(Clickeable)b.getPlayer()));
         this.frame.setVisible(true);
     }
     
@@ -46,5 +47,11 @@ public class Frame implements FrameControl
     public void hide()
     {
         this.frame.setVisible(true);
+    }
+    
+    @Override
+    public void update()
+    {
+        this.frame.repaint();
     }
 }

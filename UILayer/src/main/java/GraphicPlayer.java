@@ -85,7 +85,11 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     {
         if(this.number==0)
         {
-            ((Clickeable)getHand()).onClick(x,y);
+            if(((Clickeable)getHand()).onClick(x,y))
+            {
+                System.out.println("Ok");
+                return true;
+            }
         }
         return false;
     }

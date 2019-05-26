@@ -54,4 +54,9 @@ public class Board extends JPanel
         }
         vira.paint(g,this);
     }
+    
+    public PlayPlayer getPlayer()
+    {
+        return this.players.get(0);
+    }
 }
