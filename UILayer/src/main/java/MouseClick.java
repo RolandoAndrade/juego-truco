@@ -7,6 +7,7 @@ public class MouseClick extends MouseAdapter
 {
     private ArrayList<Clickeable> clickeables;
     private FrameControl frameControl;
+    
     public MouseClick(FrameControl frameControl, Clickeable...clickeables)
     {
         this.clickeables=new ArrayList<Clickeable>();

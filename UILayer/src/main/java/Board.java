@@ -9,9 +9,10 @@ import Services.Strategies.Cards.OneCardSword;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 
-public class Board extends JPanel
+public class Board implements Paintable
 {
     PlayDeck deck;
     private ArrayList<PlayPlayer> players;
@@ -41,22 +42,22 @@ public class Board extends JPanel
         }
         
         
-        this.setBackground(new Color(33, 33, 33));
+        
     }
-    
-    @Override
-    public void paint(Graphics g)
-    {
-        super.paint(g);
-        for (PlayPlayer a:this.players)
-        {
-            ((Drawable)a).paint(g,this);
-        }
-        vira.paint(g,this);
-    }
+
     
     public PlayPlayer getPlayer()
     {
         return this.players.get(0);
+    }
+    
+    @Override
+    public void paint(Graphics g, ImageObserver observer)
+    {
+        for (PlayPlayer a:this.players)
+        {
+            ((Drawable)a).paint(g,observer);
+        }
+        vira.paint(g,observer);
     }
 }
