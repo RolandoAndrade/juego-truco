@@ -1,9 +1,5 @@
-import java.awt.*;
-import java.awt.image.ImageObserver;
-
-public interface Drawable
+public interface Drawable extends Paintable
 {
-    void paint(Graphics g, ImageObserver observer);
     void setPosition(int x,int y);
     int getX();
     int getY();

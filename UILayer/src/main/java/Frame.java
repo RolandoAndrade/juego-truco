@@ -36,4 +36,11 @@ public class Frame extends JFrame implements FrameControl
     {
         this.repaint();
     }
+    
+    @Override
+    public void paint(Graphics g)
+    {
+        super.paint(g);
+        System.out.println("Hola");
+    }
 }
