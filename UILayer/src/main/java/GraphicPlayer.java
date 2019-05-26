@@ -66,8 +66,10 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     @Override
     public void giveCard(PlayCard card)
     {
-        super.giveCard(new GraphicCard(card,0,0,this.number==0));
+        //super.giveCard(new GraphicCard(card,0,0,this.number==0));
+        super.giveCard(new GraphicCard(card,0,0,true));
     }
+    
     @Override
     public int getX()
     {

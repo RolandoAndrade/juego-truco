@@ -62,7 +62,6 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
                 PlayCard card=getCardList().get(i);
                 if(((Clickeable)card).onClick(x,y))
                 {
-                    
                     putCard(i);
                     moveCardsToLeft(i);
                     return true;
