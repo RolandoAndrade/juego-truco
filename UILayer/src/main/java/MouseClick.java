@@ -7,6 +7,6 @@ public class MouseClick extends MouseAdapter
     @Override
     public void mouseClicked(MouseEvent e)
     {
-        System.out.println(e.getSource());
+        System.out.println(e.getX()+", "+e.getY());
     }
 }
