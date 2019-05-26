@@ -7,7 +7,7 @@ import java.awt.image.ImageObserver;
 
 public class GraphicHand extends Hand implements Drawable
 {
-    
+    private int x,y;
     @Override
     public void paint(Graphics g, ImageObserver observer)
     {
@@ -22,5 +22,24 @@ public class GraphicHand extends Hand implements Drawable
                 System.err.println("Error, esta carta no se puede dibujar");
             }
         }
+    }
+    
+    @Override
+    public void setPosition(int x, int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+    
+    @Override
+    public int getX()
+    {
+        return this.x;
+    }
+    
+    @Override
+    public int getY()
+    {
+        return this.y;
     }
 }

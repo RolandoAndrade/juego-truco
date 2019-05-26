@@ -25,6 +25,12 @@ public class Hand implements PlayHand
     }
     
     @Override
+    public int howManyCardsAre()
+    {
+        return this.cardList.size();
+    }
+    
+    @Override
     public void addCard(PlayCard card)
     {
         this.cardList.add(card);

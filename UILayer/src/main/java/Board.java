@@ -35,10 +35,10 @@ public class Board extends JPanel
             this.player3=new GraphicPlayer(3,"FERNÁNDEZ", new GraphicHand());
             for (int i=0;i<3;i++)
             {
-                player0.giveCard(new GraphicCard(deck.pickCard(),65*i+20,320,true));
-                player1.giveCard(new GraphicCard(deck.pickCard(),65*i+485,320,false));
-                player2.giveCard(new GraphicCard(deck.pickCard(),65*i+485,50,false));
-                player3.giveCard(new GraphicCard(deck.pickCard(),65*i+20,50,false));
+                player0.giveCard(new GraphicCard(deck.pickCard(),0,0,true));
+                player1.giveCard(new GraphicCard(deck.pickCard(),0,0,false));
+                player2.giveCard(new GraphicCard(deck.pickCard(),0,0,false));
+                player3.giveCard(new GraphicCard(deck.pickCard(),0,0,false));
             }
             vira=new GraphicCard(deck.pickCard(),320,190,true);
             //gDeck=new GraphicCard(new Card(1,"gold"),320,240,false);

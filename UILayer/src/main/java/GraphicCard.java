@@ -15,29 +15,13 @@ public class GraphicCard extends Card implements Drawable
     private boolean front;
     
     
-    private String imagePath;
-    
-    public GraphicCard(int number, String imagePath, int x, int y, boolean front)
-    {
-        super(number, imagePath);
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        this.image=toolkit.getImage("UILayer/src/main/resources/"+getImagePath());
-        BACK_IMAGE=toolkit.getImage(BACK_IMAGE_PATH);
-        this.x=x;
-        this.y=y;
-        this.w=WIDTH;
-        this.h=HEIGHT;
-        this.front=front;
-    }
-    
     public GraphicCard(PlayCard card, int x, int y, boolean front)
     {
         super(card.getNumber(),card.getColor(),card.getStrategy());
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         this.image=toolkit.getImage("UILayer/src/main/resources/"+getImagePath());
         BACK_IMAGE=toolkit.getImage(BACK_IMAGE_PATH);
-        this.x=x;
-        this.y=y;
+        setPosition(x,y);
         this.w=WIDTH;
         this.h=HEIGHT;
         this.front=front;
@@ -55,5 +39,24 @@ public class GraphicCard extends Card implements Drawable
         {
             g.drawImage(BACK_IMAGE,this.x,this.y,this.w,this.h,observer);
         }
+    }
+    
+    @Override
+    public void setPosition(int x, int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+    
+    @Override
+    public int getX()
+    {
+        return this.x;
+    }
+    
+    @Override
+    public int getY()
+    {
+        return this.y;
     }
 }
