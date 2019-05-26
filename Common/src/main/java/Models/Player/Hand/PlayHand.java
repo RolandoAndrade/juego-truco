@@ -9,4 +9,5 @@ public interface PlayHand
     void addCard(PlayCard card);
     void setCardList(ArrayList<PlayCard> cardList);
     int howManyCardsAre();
+    void putCard(int i);
 }

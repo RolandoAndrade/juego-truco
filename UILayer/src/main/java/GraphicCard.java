@@ -4,7 +4,7 @@ import Models.Card.PlayCard;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
-public class GraphicCard extends Card implements Drawable
+public class GraphicCard extends Card implements Drawable, Clickeable
 {
     private static final int WIDTH = 60;
     private static final int HEIGHT = 100;
@@ -58,5 +58,11 @@ public class GraphicCard extends Card implements Drawable
     public int getY()
     {
         return this.y;
+    }
+    
+    @Override
+    public boolean onClick(int x, int y)
+    {
+        return x>this.x&&x<this.x+this.w&&y>this.y&&y<this.y+this.h;
     }
 }

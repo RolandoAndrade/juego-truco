@@ -16,7 +16,6 @@ public class Board extends JPanel
     PlayDeck deck;
     private ArrayList<PlayPlayer> players;
     private GraphicCard vira;
-    private GraphicCard gDeck;
     public Board()
     {
         /**Aquí estou haciendo las pruebas de interfaz*/
@@ -35,8 +34,6 @@ public class Board extends JPanel
             fillDeskCommand.execute();
             distributeCardsCommand.execute();
             vira=new GraphicCard(deck.pickCard(),320,190,true);
-            //gDeck=new GraphicCard(new Card(1,"gold"),320,240,false);
-            
         }
         catch (Exception e)
         {
@@ -56,6 +53,5 @@ public class Board extends JPanel
             ((Drawable)a).paint(g,this);
         }
         vira.paint(g,this);
-        //gDeck.paint(g,this);
     }
 }

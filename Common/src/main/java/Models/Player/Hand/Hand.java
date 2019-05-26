@@ -31,6 +31,12 @@ public class Hand implements PlayHand
     }
     
     @Override
+    public void putCard(int i)
+    {
+        this.cardList.remove(i);
+    }
+    
+    @Override
     public void addCard(PlayCard card)
     {
         this.cardList.add(card);

@@ -31,6 +31,7 @@ public class Frame implements FrameControl
         
         this.frame.setLocationRelativeTo(null);
         this.frame.add(new Board());
+        frame.addMouseListener(new MouseClick());
         this.frame.setVisible(true);
     }
     

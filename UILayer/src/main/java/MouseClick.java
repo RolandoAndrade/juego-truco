@@ -3,6 +3,7 @@ import java.awt.event.MouseEvent;
 
 public class MouseClick extends MouseAdapter
 {
+    
     @Override
     public void mouseClicked(MouseEvent e)
     {

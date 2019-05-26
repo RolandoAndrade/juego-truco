@@ -5,7 +5,7 @@ import Models.Player.Hand.PlayHand;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
-public class GraphicHand extends Hand implements Drawable
+public class GraphicHand extends Hand implements Drawable, Clickeable
 {
     private int x,y;
     @Override
@@ -47,5 +47,22 @@ public class GraphicHand extends Hand implements Drawable
     public int getY()
     {
         return this.y;
+    }
+    
+    @Override
+    public boolean onClick(int x, int y)
+    {
+        if(x>this.x&&y>this.y&&x<this.x+65*3&&y<this.y+100)
+        {
+            for(int i=0;i<howManyCardsAre();i++)
+            {
+                if(((Clickeable)getCardList().get(i)).onClick(x,y))
+                {
+                    putCard(i);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

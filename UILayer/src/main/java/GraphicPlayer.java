@@ -6,7 +6,7 @@ import Services.Strategies.GameStates.Draw;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
-public class GraphicPlayer extends Player implements Drawable
+public class GraphicPlayer extends Player implements Drawable, Clickeable
 {
     private int number, x,y;
     private static final int FONT_SIZE=15;
@@ -78,5 +78,15 @@ public class GraphicPlayer extends Player implements Drawable
     public int getY()
     {
         return this.y;
+    }
+    
+    @Override
+    public boolean onClick(int x, int y)
+    {
+        if(this.number==0)
+        {
+            ((Clickeable)getHand()).onClick(x,y);
+        }
+        return false;
     }
 }
