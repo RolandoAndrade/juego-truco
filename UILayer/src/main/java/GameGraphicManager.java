@@ -25,6 +25,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         try
         {
             distribute.execute();
+            gameRoom.putVira();
         }
         catch (Exception e)
         {

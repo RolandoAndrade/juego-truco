@@ -1,3 +1,4 @@
+import Models.Card.PlayCard;
 import Models.Game.GameRoom;
 import Models.Player.PlayPlayer;
 
@@ -13,11 +14,28 @@ public class GraphicGameRoom extends GameRoom implements Paintable
     }
     
     @Override
+    public void putVira()
+    {
+        try
+        {
+            PlayCard card = getDeck().pickCard();
+            setVira(new GraphicCard(card,320,200,true));
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        
+    }
+    
+    @Override
     public void paint(Graphics g, ImageObserver observer)
     {
         for(PlayPlayer player:getPlayers())
         {
             ((Drawable)player).paint(g,observer);
         }
+        ((Drawable)getVira()).paint(g,observer);
     }
 }
