@@ -6,6 +6,7 @@ public class MouseClick extends MouseAdapter
 {
     private ArrayList<Clickeable> clickeables;
     private FrameControl frameControl;
+    private static final int OFFSET=25;
     
     public MouseClick(FrameControl frameControl, GameGraphicControl control)
     {
@@ -15,10 +16,9 @@ public class MouseClick extends MouseAdapter
     @Override
     public void mouseClicked(MouseEvent e)
     {
-        System.out.println(e.getX()+", "+e.getY());
         for(Clickeable c:clickeables)
         {
-            if(c.onClick(e.getX(),e.getY()))
+            if(c.onClick(e.getX(),e.getY()-OFFSET))
                 this.frameControl.update();
         }
     }
