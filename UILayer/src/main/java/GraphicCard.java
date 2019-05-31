@@ -8,6 +8,8 @@ public class GraphicCard extends Card implements Drawable, Clickeable
 {
     private static final int WIDTH = 60;
     private static final int HEIGHT = 100;
+    private static final int HOVER_WIDTH = 62;
+    private static final int HOVER_HEIGHT = 102;
     private static final String BACK_IMAGE_PATH="UILayer/src/main/resources/back.png";
     private static Image BACK_IMAGE;
     private Image image;
@@ -64,5 +66,19 @@ public class GraphicCard extends Card implements Drawable, Clickeable
     public boolean onClick(int x, int y)
     {
         return x>this.x&&x<this.x+this.w&&y>this.y&&y<this.y+this.h;
+    }
+    
+    @Override
+    public boolean hover(int x, int y)
+    {
+        if(onClick(x,y))
+        {
+            this.w=HOVER_WIDTH;
+            this.h=HOVER_HEIGHT;
+            return true;
+        }
+        this.w=WIDTH;
+        this.h=HEIGHT;
+        return false;
     }
 }

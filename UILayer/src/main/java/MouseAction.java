@@ -2,12 +2,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class MouseClick extends MouseAdapter
+public class MouseAction extends MouseAdapter
 {
     private ArrayList<Clickeable> clickeables;
     private FrameControl frameControl;
+    private static final int OFFSET=25;
     
-    public MouseClick(FrameControl frameControl, GameGraphicControl control)
+    public MouseAction(FrameControl frameControl, GameGraphicControl control)
     {
         this.clickeables=control.getClickeables();
         this.frameControl=frameControl;
@@ -15,10 +16,19 @@ public class MouseClick extends MouseAdapter
     @Override
     public void mouseClicked(MouseEvent e)
     {
-        System.out.println(e.getX()+", "+e.getY());
         for(Clickeable c:clickeables)
         {
-            if(c.onClick(e.getX(),e.getY()))
+            if(c.onClick(e.getX(),e.getY()-OFFSET))
+                this.frameControl.update();
+        }
+    }
+    
+    @Override
+    public void mouseMoved(MouseEvent e)
+    {
+        for(Clickeable c:clickeables)
+        {
+            if(c.hover(e.getX(),e.getY()-OFFSET))
                 this.frameControl.update();
         }
     }

@@ -1,6 +1,8 @@
 import Models.Card.PlayCard;
 import Models.Player.Hand.PlayHand;
 import Models.Player.Player;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
@@ -90,6 +92,16 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
                 System.out.println("Ok");
                 return true;
             }
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean hover(int x, int y)
+    {
+        if(((Clickeable)getHand()).hover(x,y))
+        {
+            return true;
         }
         return false;
     }
