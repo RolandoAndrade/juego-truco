@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 public class Frame extends JFrame implements FrameControl
 {
@@ -30,7 +32,9 @@ public class Frame extends JFrame implements FrameControl
         this.setLocationRelativeTo(null);
         
         this.add(gameManager);
-        addMouseListener(new MouseClick(this, (GameGraphicControl)this.gameManager));
+        MouseListener a=new MouseAction(this, (GameGraphicControl)this.gameManager);
+        addMouseListener(a);
+        addMouseMotionListener((MouseMotionListener)a);
     }
     
     @Override

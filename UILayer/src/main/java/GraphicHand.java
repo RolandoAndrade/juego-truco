@@ -80,6 +80,34 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
         return false;
     }
     
+    @Override
+    public boolean hover(int x, int y)
+    {
+        if(x>this.x-20&&y>this.y-20&&x<this.x+65*3+20&&y<this.y+120)
+        {
+            for(int i=0;i<howManyCardsAre();i++)
+            {
+                PlayCard card=getCardList().get(i);
+                if(((Clickeable)card).hover(x,y))
+                {
+                    return true;
+                }
+            }
+            clean();
+            return true;
+        }
+        return false;
+    }
+    
+    private void clean()
+    {
+        for(int i=0;i<howManyCardsAre();i++)
+        {
+            PlayCard card=getCardList().get(i);
+            ((Clickeable)card).hover(0,0);
+        }
+    }
+    
     private void moveCardsToLeft(int i)
     {
         for (int j=i;j<howManyCardsAre();j++)
