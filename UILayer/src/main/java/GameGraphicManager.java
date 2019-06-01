@@ -13,6 +13,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
     private PlayGame gameRoom;
     private Command fillDeck;
     private Command distribute;
+    private Button button;
     
     public GameGraphicManager(PlayGame gameRoom)
     {
@@ -20,6 +21,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         this.setBackground(new Color(33,33,33));
         fillDeck=new FillDeskCommand(gameRoom.getDeck());
         distribute=new DistributeCardsCommand(gameRoom);
+        button=new Button(310,430,"truco");
         setUp();
     }
     
@@ -56,6 +58,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
     {
         super.paint(g);
         ((Paintable)gameRoom).paint(g,this);
+        ((Paintable)button).paint(g,this);
     }
     
     @Override
