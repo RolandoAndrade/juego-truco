@@ -12,12 +12,14 @@ public class Round implements PlayRound {
     private ArrayList<PlayPlayer> players;
 
 
-    public Round (){
+    public Round ()
+    {
         this.gameRoom = new GameRoom();
         this.winner = null;
         this.players = this.gameRoom.getPlayers();
     }
-    public Round (GameRoom gameRoom){
+    public Round (GameRoom gameRoom)
+    {
         this.gameRoom = gameRoom;
         this.winner = null;
         this.players = this.gameRoom.getPlayers();
@@ -42,7 +44,7 @@ public class Round implements PlayRound {
          * en card1.
          * Obtener el valor de la carta del player2 y se guarda
          * en card2.
-         */ 
+         
         int card1 = ;
         int card2 = ;
         
@@ -54,7 +56,8 @@ public class Round implements PlayRound {
 
             return player2;
 
-        }
+        }*/
+        return null;
     }
 
     @Override
