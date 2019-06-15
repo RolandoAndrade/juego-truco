@@ -9,5 +9,5 @@ public interface PlayCard
     int getNumber();
     PlayCardStrategy getStrategy();
     String getColor();
-    GameState play(PlayCard card);
+    int getPoints();
 }

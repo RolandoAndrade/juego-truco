@@ -2,9 +2,6 @@ package Models.Game;
 
 import Models.Card.Card;
 import Models.Card.PlayCard;
-import Services.Strategies.GameStates.GameState;
-
-import java.util.ArrayList;
 
 public class GameManager
 {
@@ -26,19 +23,28 @@ public class GameManager
         NUMBER_OF_TURNS++;
         if (NUMBER_OF_TURNS==4)
         {
-            System.out.println("Termino");
+            TURN_OF_PLAYER=whoWins();
+            NUMBER_OF_TURNS=0;
+            System.out.println("Gana Jugador "+TURN_OF_PLAYER);
         }
     }
     
     private static int whoWins()
     {
-        boolean someoneWins=false;
+        int max=-1;
+        boolean draw=false;
         int winner=0;
-        for (int i=0;i<cards.length-1;i++)
+        for(int i=0;i<cards.length;i++)
         {
-            GameState s = cards[i].play(cards[i+1]);
-            
+            int a = cards[i].getPoints();
+            draw=a==max;
+            if(a>max)
+            {
+                max=a;
+                draw=false;
+                winner=i;
+            }
         }
-        return 0;
+        return !draw?winner:0;
     }
 }

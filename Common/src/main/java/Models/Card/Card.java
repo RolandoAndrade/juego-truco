@@ -60,8 +60,8 @@ public class Card implements PlayCard
     }
     
     @Override
-    public GameState play(PlayCard card)
+    public int getPoints()
     {
-        return this.cardStrategy.play(card.getStrategy());
+        return this.cardStrategy.getValue();
     }
 }
