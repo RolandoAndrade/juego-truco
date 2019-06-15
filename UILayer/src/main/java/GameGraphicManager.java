@@ -20,7 +20,9 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         this.gameRoom=gameRoom;
         this.setBackground(new Color(33,33,33));
         fillDeck=new FillDeskCommand(gameRoom.getDeck());
+        
         distribute=new DistributeCardsCommand(gameRoom);
+        GameManager.setFill(distribute);
         button=new Button(310,430,"truco");
         setUp();
     }
