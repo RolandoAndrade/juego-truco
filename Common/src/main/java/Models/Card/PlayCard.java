@@ -1,6 +1,7 @@
 package Models.Card;
 
 import Services.Strategies.Cards.PlayCardStrategy;
+import Services.Strategies.GameStates.GameState;
 
 public interface PlayCard
 {
@@ -8,4 +9,5 @@ public interface PlayCard
     int getNumber();
     PlayCardStrategy getStrategy();
     String getColor();
+    int getPoints();
 }

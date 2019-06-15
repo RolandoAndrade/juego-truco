@@ -1,6 +1,7 @@
 import Models.Card.PlayCard;
 import Models.Player.Hand.PlayHand;
 import Models.Player.Player;
+
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
@@ -83,13 +84,23 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     @Override
     public boolean onClick(int x, int y)
     {
-        if(this.number==0||true)
+        if(GameManager.isMyTurn(this.number))
         {
             if(((Clickeable)getHand()).onClick(x,y))
             {
-                System.out.println("Ok");
+                GameManager.finishMyTurn(getHand().getPlayedCard());
                 return true;
             }
+        }
+        return false;
+    }
+    
+    @Override
+    public boolean hover(int x, int y)
+    {
+        if(((Clickeable)getHand()).hover(x,y))
+        {
+            return true;
         }
         return false;
     }
