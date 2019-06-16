@@ -1,6 +1,7 @@
 import Command.Command;
 import Models.Card.Card;
 import Models.Card.PlayCard;
+import Models.Game.PlayGame;
 
 public class GameManager
 {
@@ -8,6 +9,7 @@ public class GameManager
     private static int NUMBER_OF_TURNS=0;
     private static int NUMBER_OF_ROUNDS=0;
     private static PlayCard[] cards = {null,null,null,null};
+    private static PlayGame gameRoom = null;
     private static Card vira = null;
     private static Command fill=null;
     
@@ -43,6 +45,7 @@ public class GameManager
                 System.out.println(e.getMessage());
             }
         NUMBER_OF_ROUNDS=(NUMBER_OF_ROUNDS+1)%3;
+        gameRoom.getDeck().mix();   // se mezcla el deck al finalizar la ronda
     }
     
     private static int whoWins()
@@ -67,5 +70,9 @@ public class GameManager
     public static void setFill(Command fill)
     {
         GameManager.fill = fill;
+    }
+
+    public static void setGameRoom(PlayGame gameRoom) {
+        GameManager.gameRoom = gameRoom;
     }
 }

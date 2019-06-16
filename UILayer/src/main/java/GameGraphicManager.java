@@ -23,6 +23,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         
         distribute=new DistributeCardsCommand(gameRoom);
         GameManager.setFill(distribute);
+        GameManager.setGameRoom(gameRoom);
         button=new Button(310,430,"truco");
         setUp();
     }
