@@ -51,6 +51,10 @@ public class GameRoom implements PlayGame
         try
         {
             vira=deck.pickCard();
+            for (PlayPlayer p: players)
+            {
+                p.getHand().searchForSpecial(vira);
+            }
         }
         catch (Exception e)
         {

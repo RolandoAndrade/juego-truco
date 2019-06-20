@@ -20,6 +20,10 @@ public class GraphicGameRoom extends GameRoom implements Paintable
         {
             PlayCard card = getDeck().pickCard();
             setVira(new GraphicCard(card,320,200,true));
+            for (PlayPlayer p: getPlayers())
+            {
+                p.getHand().searchForSpecial(getVira());
+            }
         }
         catch (Exception e)
         {

@@ -1,13 +1,14 @@
 package Models.Card;
 
 import Services.Strategies.Cards.PlayCardStrategy;
-import Services.Strategies.GameStates.GameState;
 
 public interface PlayCard
 {
     String getImagePath();
     int getNumber();
     PlayCardStrategy getStrategy();
+    void setStrategy(PlayCardStrategy strategy);
     String getColor();
     int getPoints();
+    boolean isSameColor(PlayCard card);
 }

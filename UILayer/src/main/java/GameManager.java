@@ -1,10 +1,6 @@
 import Command.Command;
-import Models.Card.Card;
 import Models.Card.PlayCard;
 import Models.Game.PlayGame;
-import Models.Player.PlayPlayer;
-
-import java.util.ArrayList;
 
 public class GameManager
 {
@@ -57,6 +53,7 @@ public class GameManager
         int max=-1;
         boolean draw=false;
         int winner=0;
+        
         for(int i=0;i<cards.length;i++)
         {
             int a = cards[i].getPoints();
