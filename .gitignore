@@ -111,3 +111,4 @@ nbdist/
 .project
 .settings/
 target/
+\.vscode/
