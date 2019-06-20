@@ -20,6 +20,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         init=new InitGameRoomCommand(gameRoom);
         button=new Button(310,430,"truco");
         GameManager.setFill(init);
+        GameManager.setGameRoom(gameRoom);
         setUp();
     }
     

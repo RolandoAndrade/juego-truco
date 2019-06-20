@@ -1,6 +1,7 @@
 import Command.Command;
 import Models.Card.Card;
 import Models.Card.PlayCard;
+import Models.Game.PlayGame;
 import Models.Player.PlayPlayer;
 
 import java.util.ArrayList;
@@ -11,8 +12,7 @@ public class GameManager
     private static int NUMBER_OF_TURNS=0;
     private static int NUMBER_OF_ROUNDS=0;
     private static PlayCard[] cards = {null,null,null,null};
-    private static ArrayList<PlayPlayer> players;
-    private static Card vira;
+    private static PlayGame gameRoom;
     private static Command fill;
     private static FrameControl frameControl;
     
@@ -42,7 +42,8 @@ public class GameManager
             try
             {
                 fill.execute();
-                cleanBoard();
+                gameRoom.cleanPlayedCards();
+                frameControl.update();
             }
             catch (Exception e)
             {
@@ -70,27 +71,18 @@ public class GameManager
         return !draw?winner:0;
     }
     
-    private static void cleanBoard()
-    {
-        for (PlayPlayer p: players)
-        {
-            p.getHand().removePlayedCard();
-        }
-        frameControl.update();
-    }
-    
     public static void setFill(Command fill)
     {
         GameManager.fill = fill;
     }
     
-    public static void setPlayers(ArrayList<PlayPlayer> players)
-    {
-        GameManager.players = players;
-    }
-    
     public static void setFrameControl(FrameControl frameControl)
     {
         GameManager.frameControl = frameControl;
+    }
+    
+    public static void setGameRoom(PlayGame gameRoom)
+    {
+        GameManager.gameRoom=gameRoom;
     }
 }

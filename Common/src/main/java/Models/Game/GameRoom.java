@@ -69,6 +69,15 @@ public class GameRoom implements PlayGame
         return vira;
     }
     
+    @Override
+    public void cleanPlayedCards()
+    {
+        for(PlayPlayer p:players)
+        {
+            p.getHand().removePlayedCard();
+        }
+    }
+    
     public void setDeck(PlayDeck deck)
     {
         this.deck = deck;
