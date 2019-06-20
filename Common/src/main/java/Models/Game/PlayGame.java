@@ -13,5 +13,7 @@ public interface PlayGame
     void setPlayers(ArrayList<PlayPlayer> players);
     PlayDeck getDeck();
     void putVira();
+    PlayCard getVira();
+    void cleanPlayedCards();
     
 }

@@ -1,6 +1,7 @@
 package Models.Player.Hand;
 
 import Models.Card.PlayCard;
+import Services.Strategies.Cards.*;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,54 @@ public class Hand implements PlayHand
     public PlayCard getPlayedCard()
     {
         return playedCard;
+    }
+    
+    @Override
+    public void removePlayedCard()
+    {
+        this.playedCard=null;
+    }
+    
+    @Override
+    public void searchForSpecial(PlayCard vira)
+    {
+        for (PlayCard card:cardList)
+        {
+            if(!(vira.getStrategy() instanceof TenCard) && !(vira.getStrategy() instanceof ElevenCard))
+            {
+                if(card.getStrategy()instanceof TenCard && card.isSameColor(vira))
+                {
+                    card.setStrategy(new PericaStrategy());
+                }
+                else if(card.getStrategy() instanceof ElevenCard && card.isSameColor(vira))
+                {
+                    card.setStrategy(new PericoStrategy());
+                }
+            }
+            else if ((vira.getStrategy() instanceof TenCard))
+            {
+                if(card.getStrategy()instanceof ElevenCard && card.isSameColor(vira))
+                {
+                    card.setStrategy(new PericaStrategy());
+                }
+                else if(card.getStrategy() instanceof TwelveCard && card.isSameColor(vira))
+                {
+                    card.setStrategy(new PericoStrategy());
+                }
+            }
+            else
+            {
+                if(card.getStrategy()instanceof TenCard && card.isSameColor(vira))
+                {
+                    card.setStrategy(new PericaStrategy());
+                }
+                else if(card.getStrategy() instanceof TwelveCard && card.isSameColor(vira))
+                {
+                    card.setStrategy(new PericoStrategy());
+                }
+            }
+            
+        }
     }
     
     @Override

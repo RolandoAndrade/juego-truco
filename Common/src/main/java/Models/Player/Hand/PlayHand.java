@@ -11,4 +11,6 @@ public interface PlayHand
     int howManyCardsAre();
     void putCard(int i);
     PlayCard getPlayedCard();
+    void removePlayedCard();
+    void searchForSpecial(PlayCard vira);
 }

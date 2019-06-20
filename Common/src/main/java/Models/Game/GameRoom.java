@@ -51,6 +51,10 @@ public class GameRoom implements PlayGame
         try
         {
             vira=deck.pickCard();
+            for (PlayPlayer p: players)
+            {
+                p.getHand().searchForSpecial(vira);
+            }
         }
         catch (Exception e)
         {
@@ -67,6 +71,15 @@ public class GameRoom implements PlayGame
     public PlayCard getVira()
     {
         return vira;
+    }
+    
+    @Override
+    public void cleanPlayedCards()
+    {
+        for(PlayPlayer p:players)
+        {
+            p.getHand().removePlayedCard();
+        }
     }
     
     public void setDeck(PlayDeck deck)

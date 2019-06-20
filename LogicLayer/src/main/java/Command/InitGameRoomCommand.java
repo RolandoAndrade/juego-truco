@@ -28,6 +28,7 @@ public class InitGameRoomCommand extends Command
         {
             command.execute();
         }
+        gameRoom.putVira();
     }
     
     @Override

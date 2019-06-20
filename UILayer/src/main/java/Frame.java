@@ -30,7 +30,7 @@ public class Frame extends JFrame implements FrameControl
         this.setIconImage(icon);
         this.setSize(FRAME_WIDTH,FRAME_HEIGHT);
         this.setLocationRelativeTo(null);
-        
+        GameManager.setFrameControl(this);
         this.add(gameManager);
         MouseListener a=new MouseAction(this, (GameGraphicControl)this.gameManager);
         addMouseListener(a);

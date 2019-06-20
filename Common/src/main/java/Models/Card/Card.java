@@ -1,7 +1,6 @@
 package Models.Card;
 
 import Services.Strategies.Cards.PlayCardStrategy;
-import Services.Strategies.GameStates.GameState;
 
 /**
  * Clase que define el modelo de una carta
@@ -54,6 +53,12 @@ public class Card implements PlayCard
     }
     
     @Override
+    public void setStrategy(PlayCardStrategy strategy)
+    {
+        this.cardStrategy=strategy;
+    }
+    
+    @Override
     public String getColor()
     {
         return this.typeOfCard;
@@ -64,4 +69,11 @@ public class Card implements PlayCard
     {
         return this.cardStrategy.getValue();
     }
+    
+    @Override
+    public boolean isSameColor(PlayCard card)
+    {
+        return card.getColor().equals(getColor());
+    }
+    
 }

@@ -1,7 +1,6 @@
 import Command.Command;
 import Models.Game.PlayGame;
-import Command.FillDeskCommand;
-import Command.DistributeCardsCommand;
+import Command.InitGameRoomCommand;
 import Models.Player.PlayPlayer;
 
 import javax.swing.*;
@@ -11,43 +10,25 @@ import java.util.ArrayList;
 public class GameGraphicManager extends JPanel implements GameGraphicControl
 {
     private PlayGame gameRoom;
-    private Command fillDeck;
-    private Command distribute;
+    private Command init;
     private Button button;
     
     public GameGraphicManager(PlayGame gameRoom)
     {
         this.gameRoom=gameRoom;
         this.setBackground(new Color(33,33,33));
-        fillDeck=new FillDeskCommand(gameRoom.getDeck());
-        
-        distribute=new DistributeCardsCommand(gameRoom);
-        GameManager.setFill(distribute);
-        GameManager.setGameRoom(gameRoom);
+        init=new InitGameRoomCommand(gameRoom);
         button=new Button(310,430,"truco");
+        GameManager.setFill(init);
+        GameManager.setGameRoom(gameRoom);
         setUp();
-    }
-    
-    private void distribute()
-    {
-        try
-        {
-            distribute.execute();
-            gameRoom.putVira();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        
     }
     
     private void setUp()
     {
         try
         {
-            fillDeck.execute();
-            this.distribute();
+            init.execute();
         }
         catch (Exception e)
         {
