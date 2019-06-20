@@ -11,6 +11,7 @@ public class GraphicGameRoom extends GameRoom implements Paintable
     public GraphicGameRoom(ArrayList<PlayPlayer> players)
     {
         super(players);
+        GameManager.setPlayers(players);
     }
     
     @Override
