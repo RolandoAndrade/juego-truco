@@ -13,7 +13,7 @@ public class UITest
     {
         String[] portNames = SerialPortList.getPortNames();
         for (String portName : portNames) System.out.println(portName);
-        /**Cree en VSPE un par con puertos COM5 y COM6*/
+        /**Cree en VSPE un par con puertos COM4 y COM5*/
         SerialPort serialPort=new SerialPort("COM5");
         try
         {
