@@ -44,6 +44,10 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     public void paint(Graphics g, ImageObserver observer)
     {
         g.setFont(new Font("Arial", Font.BOLD, FONT_SIZE));
+        if (GameManager.isMyTurn(this.number))
+            g.setColor(Color.CYAN);
+        else
+            g.setColor(Color.GRAY);
         g.drawString(getName(),this.x,this.y);
         try
         {
