@@ -67,4 +67,10 @@ public class Score implements PlayScore
         System.out.println("<------MARCADOR ACTUAL------>");
         System.out.println("EQUIPO A "+TeamAScore+" - "+TeamBScore+" EQUIPO B");
     }
+    
+    @Override
+    public String actualTrick()
+    {
+        return trickMaker.actualTrick();
+    }
 }

@@ -4,6 +4,8 @@ import Models.Game.PlayGame;
 import Models.Score.PlayScore;
 import Models.Score.Score;
 
+import javax.swing.*;
+
 public class GameManager
 {
     private static int TURN_OF_PLAYER=0;
@@ -40,7 +42,8 @@ public class GameManager
                 else
                     TeamBScore++;
                 TURN_OF_PLAYER=ww;
-                System.out.println("Gana jugador "+gameRoom.getPlayer(TURN_OF_PLAYER).getName());
+                JOptionPane.showMessageDialog((JFrame)frameControl,
+                        "Ha ganado "+gameRoom.getPlayer(TURN_OF_PLAYER).getName());
                 if(TeamAScore==2||TeamBScore==2)
                 {
                     NUMBER_OF_ROUNDS=2;
@@ -48,7 +51,8 @@ public class GameManager
             }
             else
             {
-                System.out.println("Empate");
+                JOptionPane.showMessageDialog((JFrame)frameControl,
+                        "Empate");
                 TURN_OF_PLAYER=(TURN_OF_PLAYER+1)%4;
             }
             NUMBER_OF_TURNS=0;
@@ -143,6 +147,22 @@ public class GameManager
     
     public static void trick()
     {
-        score.trick();
+        String[] s = {"Sí quiero", "No quiero"};
+        if(score.actualTrick()!=null)
+        {
+            int n=JOptionPane.showOptionDialog((JFrame)frameControl,score.actualTrick(),
+                    "Hay una propuesta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,
+                    null, s,s[1]);
+            if(n==JOptionPane.YES_OPTION)
+            {
+                score.trick();
+            }
+            else
+            {
+                //giveup
+            }
+        }
+        
+        
     }
 }

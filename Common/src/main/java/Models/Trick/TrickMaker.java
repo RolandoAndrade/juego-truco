@@ -39,4 +39,25 @@ public class TrickMaker
         }
         return trickRate;
     }
+    
+    public String actualTrick()
+    {
+        if(this.trickRate instanceof NoneTrick)
+        {
+            return "¿Truco?";
+        }
+        else if(this.trickRate instanceof Trick)
+        {
+            return "¿Retruco?";
+        }
+        else if(this.trickRate instanceof RedoTrick)
+        {
+            return "¿Vale nueve?";
+        }
+        else if(this.trickRate instanceof LetsForNine)
+        {
+            return "¿¡VALE JUEGO!?";
+        }
+        return null;
+    }
 }
