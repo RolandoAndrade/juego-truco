@@ -83,7 +83,7 @@ public class CardFactory implements CreateCard
     public void createAllSeven()
     {
         this.playCards.add(new Card(7, "sword",new SwordSevenCard()));
-        this.playCards.add(new Card(7, "gold", new SwordSevenCard()));
+        this.playCards.add(new Card(7, "gold", new GoldSevenCard()));
         this.playCards.add(new Card(7, "cup", new SevenCard()));
         this.playCards.add(new Card(7, "course", new SevenCard()));
     }

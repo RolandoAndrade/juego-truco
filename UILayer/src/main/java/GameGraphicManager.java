@@ -12,6 +12,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
     private PlayGame gameRoom;
     private Command init;
     private Button button;
+    private GraphicScore score;
     
     public GameGraphicManager(PlayGame gameRoom)
     {
@@ -19,8 +20,10 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         this.setBackground(new Color(33,33,33));
         init=new InitGameRoomCommand(gameRoom);
         button=new TrickButton(310,430,"truco");
+        score=new GraphicScore();
         GameManager.setFill(init);
         GameManager.setGameRoom(gameRoom);
+        GameManager.setScore(score);
         setUp();
     }
     
@@ -43,6 +46,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         super.paint(g);
         ((Paintable)gameRoom).paint(g,this);
         ((Paintable)button).paint(g,this);
+        ((Paintable)score).paint(g,this);
     }
     
     @Override

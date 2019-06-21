@@ -73,4 +73,14 @@ public class Score implements PlayScore
     {
         return trickMaker.actualTrick();
     }
+    
+    public int getTeamAScore()
+    {
+        return TeamAScore;
+    }
+    
+    public int getTeamBScore()
+    {
+        return TeamBScore;
+    }
 }

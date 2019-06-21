@@ -2,7 +2,6 @@ import Command.Command;
 import Models.Card.PlayCard;
 import Models.Game.PlayGame;
 import Models.Score.PlayScore;
-import Models.Score.Score;
 
 import javax.swing.*;
 
@@ -19,7 +18,7 @@ public class GameManager
     private static int TeamAScore=0;
     private static int TeamBScore=0;
     
-    private static PlayScore score = new Score();
+    private static PlayScore score;
     
     
     public static boolean isMyTurn(int numberOfPlayer)
@@ -148,21 +147,25 @@ public class GameManager
     public static void trick()
     {
         String[] s = {"Sí quiero", "No quiero"};
-        if(score.actualTrick()!=null)
+        if (score.actualTrick() != null)
         {
-            int n=JOptionPane.showOptionDialog((JFrame)frameControl,score.actualTrick(),
-                    "Hay una propuesta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,
-                    null, s,s[1]);
-            if(n==JOptionPane.YES_OPTION)
+            int n = JOptionPane.showOptionDialog((JFrame) frameControl, score.actualTrick(),
+                    "Hay una propuesta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                    null, s, s[1]);
+            if (n == JOptionPane.YES_OPTION)
             {
                 score.trick();
-            }
-            else
+            } else
             {
                 //giveup
             }
         }
-        
-        
     }
+    
+    public static void setScore(PlayScore score)
+    {
+        GameManager.score=score;
+    }
+        
+    
 }
