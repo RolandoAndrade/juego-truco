@@ -15,20 +15,42 @@ public class Score implements PlayScore
         this.TeamBScore=0;
     }
     
-    @Override
-    public boolean teamAWins()
+    private boolean teamAWins()
     {
         TeamAScore+=this.trickMaker.getTrickRate();
         this.trickMaker.reset();
         return TeamAScore>23;
     }
     
-    @Override
-    public boolean teamBWins()
+    private boolean teamBWins()
     {
         TeamBScore+=this.trickMaker.getTrickRate();
         this.trickMaker.reset();
         return TeamBScore>23;
+    }
+    
+    @Override
+    public int endRound(int a, int b)
+    {
+        if(a>b)
+        {
+            System.out.println("Gana ronda equipo A");
+            if(teamAWins())
+            {
+                System.out.println("Gana partida equipo A");
+                return 1;
+            }
+        }
+        else if(a<b)
+        {
+            System.out.println("Gana ronda equipo B");
+            if(teamBWins())
+            {
+                System.out.println("Gana partida equipo B");
+                return 2;
+            }
+        }
+        return 0;
     }
     
     @Override

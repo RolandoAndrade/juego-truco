@@ -66,22 +66,7 @@ public class GameManager
                 fill.execute();
                 gameRoom.cleanPlayedCards();
                 frameControl.update();
-                if(TeamAScore>TeamBScore)
-                {
-                    System.out.println("Gana ronda equipo A");
-                    if(score.teamAWins())
-                    {
-                        System.out.println("Gana partida equipo A");
-                    }
-                }
-                else
-                {
-                    System.out.println("Gana equipo B");
-                    if(score.teamBWins())
-                    {
-                        System.out.println("Gana partida equipo B");
-                    }
-                }
+                score.endRound(TeamAScore,TeamBScore);
                 TeamAScore=0;
                 TeamBScore=0;
             }

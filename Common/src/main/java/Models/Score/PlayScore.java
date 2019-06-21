@@ -2,8 +2,7 @@ package Models.Score;
 
 public interface PlayScore
 {
-    boolean teamAWins();
-    boolean teamBWins();
+    int endRound(int a, int b);
     void trick();
     void currentScore();
 }
