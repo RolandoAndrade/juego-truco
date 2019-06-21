@@ -1,6 +1,8 @@
 import Command.Command;
 import Models.Card.PlayCard;
 import Models.Game.PlayGame;
+import Models.Trick.TrickMaker;
+import Models.Trick.TrickRate;
 
 public class GameManager
 {
@@ -18,7 +20,7 @@ public class GameManager
     private static int TeamAScore=0;
     private static int TeamBScore=0;
     
-    private static int trickRate=1;
+    private static TrickMaker trickRate = new TrickMaker();
     
     public static boolean isMyTurn(int numberOfPlayer)
     {
@@ -69,12 +71,12 @@ public class GameManager
                 if(TeamAScore>TeamBScore)
                 {
                     System.out.println("Gana equipo A");
-                    globalScoreTeamA+=trickRate;
+                    globalScoreTeamA+=trickRate.getTrickRate();
                 }
                 else
                 {
                     System.out.println("Gana equipo B");
-                    globalScoreTeamB+=trickRate;
+                    globalScoreTeamB+=trickRate.getTrickRate();
                 }
                 TeamAScore=0;
                 TeamBScore=0;
@@ -148,5 +150,10 @@ public class GameManager
     public static void setGameRoom(PlayGame gameRoom)
     {
         GameManager.gameRoom=gameRoom;
+    }
+    
+    public static void trick()
+    {
+    
     }
 }
