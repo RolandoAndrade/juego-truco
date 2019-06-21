@@ -12,8 +12,8 @@ public class UITest
         Collections.addAll(players,
                 new GraphicPlayer(0,"ROLANDO", new GraphicHand()),
                 new GraphicPlayer(1,"JOSÉ", new GraphicHand()),
-                new GraphicPlayer(2,"ANDRADE", new GraphicHand()),
-                new GraphicPlayer(3,"FERNÁNDEZ", new GraphicHand()));
+                new GraphicPlayer(2,"ÓSCAR", new GraphicHand()),
+                new GraphicPlayer(3,"INVITADO", new GraphicHand()));
         FrameControl f=new Frame(new GameGraphicManager(new GraphicGameRoom(players)));
     }
 }
