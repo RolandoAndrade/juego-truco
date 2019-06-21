@@ -1,5 +1,6 @@
 package Command;
 
+import Models.Card.PlayCard;
 import Models.Deck.PlayDeck;
 import Models.Game.PlayGame;
 import Models.Player.PlayPlayer;
@@ -22,6 +23,7 @@ public class DistributeCardsCommand extends Command
     {
         for (PlayPlayer player : players)
         {
+            player.getHand().setCardList(new ArrayList<PlayCard>());
             for (int i = 0; i < NUMBER_OF_CARDS; i++)
             {
                 player.giveCard(deck.pickCard());

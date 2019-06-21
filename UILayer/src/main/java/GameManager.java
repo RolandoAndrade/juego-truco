@@ -32,14 +32,24 @@ public class GameManager
         NUMBER_OF_TURNS++;
         if (NUMBER_OF_TURNS==4)
         {
-            TURN_OF_PLAYER=whoWins();
-            if(TURN_OF_PLAYER>-1)
+            int ww=whoWins();
+            if(ww>-1)
             {
+                if(ww%2==0)
+                    TeamAScore++;
+                else
+                    TeamBScore++;
+                TURN_OF_PLAYER=ww;
                 System.out.println("Gana jugador "+gameRoom.getPlayer(TURN_OF_PLAYER).getName());
+                if(TeamAScore==2||TeamBScore==2)
+                {
+                    NUMBER_OF_ROUNDS=2;
+                }
             }
             else
             {
                 System.out.println("Empate");
+                TURN_OF_PLAYER=(TURN_OF_PLAYER+1)%4;
             }
             NUMBER_OF_TURNS=0;
             endRound();
@@ -48,18 +58,34 @@ public class GameManager
     
     private static void endRound()
     {
+        //Verifica que se jugaran las 3 rondas de cartas
         if(NUMBER_OF_ROUNDS==2)
+        {
             try
             {
                 fill.execute();
                 gameRoom.cleanPlayedCards();
                 frameControl.update();
+                if(TeamAScore>TeamBScore)
+                {
+                    System.out.println("Gana equipo A");
+                    globalScoreTeamA+=trickRate;
+                }
+                else
+                {
+                    System.out.println("Gana equipo B");
+                    globalScoreTeamB+=trickRate;
+                }
+                TeamAScore=0;
+                TeamBScore=0;
             }
             catch (Exception e)
             {
                 System.out.println(e.getMessage());
             }
+        }
         NUMBER_OF_ROUNDS=(NUMBER_OF_ROUNDS+1)%3;
+        
     }
     
     private static int whoWins()
@@ -71,7 +97,7 @@ public class GameManager
         for(int i=0;i<cards.length;i++)
         {
             int a = cards[i].getPoints();
-            draw=a==max;
+            draw=draw||a==max;
             if(a>max)
             {
                 max=a;
@@ -81,10 +107,6 @@ public class GameManager
         }
         if(!draw)
         {
-            if(winner%2==0)
-                TeamAScore+=trickRate;
-            else
-                TeamBScore+=trickRate;
             return winner;
         }
         return resolveDraw();
@@ -96,8 +118,8 @@ public class GameManager
         int p1=cards[1].getPoints();
         int p2=cards[2].getPoints();
         int p3=cards[3].getPoints();
-        int TeamA[]={Math.max(p0,p2),Math.min(p0,p2)};
-        int TeamB[]={Math.max(p1,p3),Math.min(p1,p3)};
+        int[] TeamA = {Math.max(p0, p2), Math.min(p0, p2)};
+        int[] TeamB = {Math.max(p1, p3), Math.min(p1, p3)};
         if(TeamA[0]>TeamB[0])
         {
             //Empate entre compañeros
@@ -108,6 +130,7 @@ public class GameManager
             //Empate entre compañeros
             return 1;
         }
+        //Empate entre rivales
         return -1;
         
     }
