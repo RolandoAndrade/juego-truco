@@ -143,6 +143,6 @@ public class GameManager
     
     public static void trick()
     {
-    
+        score.trick();
     }
 }

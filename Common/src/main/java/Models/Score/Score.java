@@ -50,6 +50,7 @@ public class Score implements PlayScore
                 return 2;
             }
         }
+        currentScore();
         return 0;
     }
     
@@ -57,11 +58,13 @@ public class Score implements PlayScore
     public void trick()
     {
         trickMaker.trick();
+        System.out.println("Truco. Ronda vale: "+trickMaker.getTrickRate());
     }
     
     @Override
     public void currentScore()
     {
+        System.out.println("<------MARCADOR ACTUAL------>");
         System.out.println("EQUIPO A "+TeamAScore+" - "+TeamBScore+" EQUIPO B");
     }
 }

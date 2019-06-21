@@ -33,7 +33,7 @@ public class TrickMaker
         {
             this.trickRate=new LetsForNine();
         }
-        else if(this.trickRate instanceof LetsForGame)
+        else if(this.trickRate instanceof LetsForNine)
         {
             this.trickRate=new LetsForGame();
         }

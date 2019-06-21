@@ -18,7 +18,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         this.gameRoom=gameRoom;
         this.setBackground(new Color(33,33,33));
         init=new InitGameRoomCommand(gameRoom);
-        button=new Button(310,430,"truco");
+        button=new TrickButton(310,430,"truco");
         GameManager.setFill(init);
         GameManager.setGameRoom(gameRoom);
         setUp();
@@ -53,6 +53,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         {
             c.add((Clickeable)player);
         }
+        c.add(button);
         return c;
     }
 }

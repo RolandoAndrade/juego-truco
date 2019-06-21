@@ -5,6 +5,8 @@ public class Button implements Clickeable,Drawable
 {
     private static final int WIDTH = 80;
     private static final int HEIGHT = 30;
+    private static final int HOVER_WIDTH = 83;
+    private static final int HOVER_HEIGHT = 33;
     private int x,y,w,h;
     private Image image;
     public Button(int x, int y, String name)
@@ -19,12 +21,20 @@ public class Button implements Clickeable,Drawable
     @Override
     public boolean onClick(int x, int y)
     {
-        return false;
+        return x>this.x&&x<this.x+this.w&&y>this.y&&y<this.y+this.h;
     }
     
     @Override
     public boolean hover(int x, int y)
     {
+        if(x>this.x&&x<this.x+this.w&&y>this.y&&y<this.y+this.h)
+        {
+            this.w=HOVER_WIDTH;
+            this.h=HOVER_HEIGHT;
+            return true;
+        }
+        this.w=WIDTH;
+        this.h=HEIGHT;
         return false;
     }
     
