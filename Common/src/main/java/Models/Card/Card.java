@@ -34,6 +34,12 @@ public class Card implements PlayCard
     {
         return this.cardNumber+" of "+this.typeOfCard;
     }
+
+    @Override
+    public String getTypeOfCard()
+    {
+        return typeOfCard;
+    }
     
     public String getImagePath()
     {

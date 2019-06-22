@@ -11,4 +11,5 @@ public interface PlayCard
     String getColor();
     int getPoints();
     boolean isSameColor(PlayCard card);
+    String getTypeOfCard(); 
 }
