@@ -3,6 +3,8 @@ package Serial;
 import jssc.SerialPort;
 import jssc.SerialPortList;
 
+import javax.swing.*;
+
 public class SerialManager
 {
     
@@ -20,10 +22,12 @@ public class SerialManager
      * FINAL DE TRAMA       (%%)
      * */
     private static SerialPort serialPort;
-    public static void start(String s)
+    public static void start()
     {
         String[] portNames = SerialPortList.getPortNames();
-        for (String portName : portNames) System.out.println(portName);
+        String s=(String) JOptionPane.showInputDialog(new JFrame("NADA"),"Introduce el puerto",
+                "Configuración de puerto", JOptionPane.QUESTION_MESSAGE,null,
+                portNames,portNames[0]);
         /**Cree en VSPE un par con puertos COM4 y COM5*/
         serialPort=new SerialPort(s);
         try
@@ -40,6 +44,10 @@ public class SerialManager
         catch (Exception e)
         {
             System.err.println("Error al abrir puerto");
+            JOptionPane.showMessageDialog(new JFrame("NADA"),
+                    "Error al abrir puerto, el puerto que ha seleccionado no se encuantra disponible",
+                    "Error al abrir puerto",JOptionPane.ERROR_MESSAGE);
+            start();
         }
     }
     

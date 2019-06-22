@@ -1,8 +1,6 @@
 import Models.Player.PlayPlayer;
 import Serial.SerialManager;
 
-
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -10,11 +8,8 @@ public class UITest
 {
     public static void main(String []args)
     {
-        String options[]={"COM4","COM5"};
-        String s=(String)JOptionPane.showInputDialog(new JFrame("NADA"),"Introduce el puerto",
-                "Título", JOptionPane.QUESTION_MESSAGE,null,
-                options,options[0]);
-        SerialManager.start(s);
+        //Para saltar configuración de puertos, comentar línea de abajo
+        SerialManager.start();
         ArrayList<PlayPlayer> players=new ArrayList<PlayPlayer>();
         Collections.addAll(players,
                 new GraphicPlayer(0,"ROLANDO", new GraphicHand()),
