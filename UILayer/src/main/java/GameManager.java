@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class GameManager
 {
+    private static int PLAYER;
     private static int TURN_OF_PLAYER=0;
     private static int NUMBER_OF_TURNS=0;
     private static int NUMBER_OF_ROUNDS=0;
@@ -14,10 +15,8 @@ public class GameManager
     private static PlayGame gameRoom;
     private static Command fill;
     private static FrameControl frameControl;
-    
     private static int TeamAScore=0;
     private static int TeamBScore=0;
-    
     private static PlayScore score;
     
     
@@ -166,6 +165,17 @@ public class GameManager
     {
         GameManager.score=score;
     }
-        
     
+    public static void selectPlayer()
+    {
+        String[] players = {"0","1","2","3"};
+        PLAYER=Integer.parseInt((String)JOptionPane.showInputDialog(new JFrame("NADA"),"Introduce el jugador",
+                "Configuración de puerto", JOptionPane.QUESTION_MESSAGE,null,
+                players,players[0]));
+    }
+    
+    public static int getPLAYER()
+    {
+        return PLAYER;
+    }
 }
