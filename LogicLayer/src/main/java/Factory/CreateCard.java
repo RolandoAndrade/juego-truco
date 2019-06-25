@@ -28,4 +28,6 @@ public interface CreateCard
     void createAllEleven();
     
     void createAllTwelve();
+    
+    ArrayList<PlayCard> createFromTrama(String s);
 }
