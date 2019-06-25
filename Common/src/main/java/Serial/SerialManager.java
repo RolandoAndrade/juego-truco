@@ -1,5 +1,6 @@
 package Serial;
 
+import Factory.CardFactory;
 import Models.Card.PlayCard;
 import Models.Deck.PlayDeck;
 import Models.Player.PlayPlayer;
@@ -90,6 +91,7 @@ public class SerialManager
     public static void setCardsFromMessage(String cards)
     {
         char c=cards.charAt(0);
+        new CardFactory().createFromTrama(cards.substring(1));
     }
     
     public static void sentTurno()
