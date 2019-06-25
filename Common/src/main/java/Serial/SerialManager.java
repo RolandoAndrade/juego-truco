@@ -1,9 +1,13 @@
 package Serial;
 
+import Models.Card.PlayCard;
+import Models.Deck.PlayDeck;
+import Models.Player.PlayPlayer;
 import jssc.SerialPort;
 import jssc.SerialPortList;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class SerialManager
 {
@@ -51,11 +55,21 @@ public class SerialManager
         }
     }
     
-    public static void giveCards()
+    public static void giveCards(ArrayList<PlayPlayer> players)
     {
         try
         {
-                serialPort.writeString("Enviado mensaje");
+            for(PlayPlayer p: players)
+            {
+                ArrayList<PlayCard> cards= p.getHand().getCards();
+                StringBuilder msg= new StringBuilder();
+                for (PlayCard c: cards)
+                {
+                    msg.append(c.getNumber() > 9 ? "#" + c.getNumber() : "" + c.getNumber()).append(c.getTypeOfCard().charAt(0));
+                }
+                System.out.println(msg);
+            }
+            //serialPort.writeString("$$");
         }
         catch (Exception e)
         {

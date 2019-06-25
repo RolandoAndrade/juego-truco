@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class GameManager
 {
+    public static int SERVER_PLAYER=0;
     private static int PLAYER;
     private static int TURN_OF_PLAYER=0;
     private static int NUMBER_OF_TURNS=0;

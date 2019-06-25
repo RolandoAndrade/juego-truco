@@ -28,6 +28,12 @@ public class Hand implements PlayHand
         this.cardList = cardList;
     }
     
+    @Override
+    public ArrayList<PlayCard> getCards()
+    {
+        return cardList;
+    }
+    
     public int getEnvido(){
 
         return envido;

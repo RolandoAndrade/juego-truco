@@ -8,6 +8,7 @@ public interface PlayHand
 {
     void addCard(PlayCard card);
     void setCardList(ArrayList<PlayCard> cardList);
+    ArrayList<PlayCard> getCards();
     int howManyCardsAre();
     void putCard(int i);
     PlayCard getPlayedCard();
