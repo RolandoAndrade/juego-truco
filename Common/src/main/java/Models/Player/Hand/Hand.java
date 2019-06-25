@@ -10,10 +10,12 @@ public class Hand implements PlayHand
 
     private ArrayList<PlayCard> cardList;
     private PlayCard playedCard;
+    private int envido;
 
     public Hand()
     {
         this.cardList = new ArrayList<PlayCard>();
+        this.envido = 0;
     }
     
     public ArrayList<PlayCard> getCardList()
@@ -26,6 +28,45 @@ public class Hand implements PlayHand
         this.cardList = cardList;
     }
     
+    public int getEnvido(){
+
+        return envido;
+    }
+    // Creo una lista de las cartas sin el perico o perica
+    public ArrayList<PlayCard> noSpecialCards(){
+        ArrayList<PlayCard> cards = new ArrayList<PlayCard>();
+        for (PlayCard card:cardList){
+            if (card.getStrategy() == null)
+                cards.add(card);
+        }
+        return cards;
+    }
+    public Boolean haveFlor(){
+        
+        ArrayList<PlayCard> cards = noSpecialCards();
+        if (cardList.get(0).getTypeOfCard() == cardList.get(1).getTypeOfCard() && cardList.get(0).getTypeOfCard() == cardList.get(2).getTypeOfCard())
+            return true;
+        if (cards.get(0).getTypeOfCard() == cards.get(1).getTypeOfCard()){
+            return true;
+        }
+        return false;
+    
+    }
+
+    public void setEnvido(){
+
+        if (!haveFlor()){
+            
+            if (cardList.get(0).getTypeOfCard() == cardList.get(1).getTypeOfCard()){
+                this.envido = cardList.get(0).getNumber() + cardList.get(1).getNumber();
+            }else if (cardList.get(0).getTypeOfCard() == cardList.get(2).getTypeOfCard()){
+                this.envido = cardList.get(0).getNumber() + cardList.get(2).getNumber();
+            }else{
+                this.envido = cardList.get(1).getNumber() + cardList.get(2).getNumber();
+            }
+        }
+    }
+
     @Override
     public int howManyCardsAre()
     {
