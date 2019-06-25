@@ -51,6 +51,18 @@ public class SerialManager
         }
     }
     
+    public static void giveCards()
+    {
+        try
+        {
+                serialPort.writeString("Enviado mensaje");
+        }
+        catch (Exception e)
+        {
+            System.err.println("Error al enviar mensaje");
+        }
+        
+    }
     
     public static void sentTurno()
     {
