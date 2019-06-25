@@ -63,26 +63,33 @@ public class SerialManager
         {
             Map<String,String> selector = new HashMap<>();
             selector.put("gold", "O");
-            selector.put("coarse", "B");
+            selector.put("course", "B");
             selector.put("sword", "E");
             selector.put("cup", "C");
-            for(PlayPlayer p: players)
+            String[] px={"A","B","C","D"};
+            for(int i=0;i<players.size();i++)
             {
-                
-                ArrayList<PlayCard> cards= p.getHand().getCards();
-                StringBuilder msg= new StringBuilder();
+                ArrayList<PlayCard> cards= players.get(i).getHand().getCards();//Pecado
+                StringBuilder msg= new StringBuilder("$$$S"+px[i]);
                 for (PlayCard c: cards)
                 {
                     msg.append(c.getNumber() < 10 ? "#" + c.getNumber() : "" + c.getNumber()).append(selector.get(c.getTypeOfCard()));
                 }
-                System.out.println(msg);
+                msg.append("%%");
+                serialPort.purgePort(SerialPort.PURGE_TXCLEAR | SerialPort.PURGE_RXCLEAR);
+                serialPort.writeString(msg.toString());
+                
             }
         }
         catch (Exception e)
         {
             System.err.println("Error al enviar mensaje");
         }
-        
+    }
+    
+    public static void setCardsFromMessage(String cards)
+    {
+        char c=cards.charAt(0);
     }
     
     public static void sentTurno()

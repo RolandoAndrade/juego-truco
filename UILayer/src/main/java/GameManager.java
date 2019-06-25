@@ -1,9 +1,11 @@
 import Command.Command;
 import Models.Card.PlayCard;
 import Models.Game.PlayGame;
+import Models.Player.PlayPlayer;
 import Models.Score.PlayScore;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class GameManager
 {
@@ -178,5 +180,12 @@ public class GameManager
     public static int getPLAYER()
     {
         return PLAYER;
+    }
+    
+    public static void setPlayersCards(ArrayList<PlayCard> cards, int i)
+    {
+        System.out.println(gameRoom.getPlayer(i).getHand());
+        gameRoom.getPlayer(i).getHand().setCardList(cards);
+        System.out.println(gameRoom.getPlayer(i).getHand());
     }
 }
