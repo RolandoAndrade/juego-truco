@@ -8,6 +8,8 @@ import jssc.SerialPortList;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SerialManager
 {
@@ -59,17 +61,22 @@ public class SerialManager
     {
         try
         {
+            Map<String,String> selector = new HashMap<>();
+            selector.put("gold", "O");
+            selector.put("coarse", "B");
+            selector.put("sword", "E");
+            selector.put("cup", "C");
             for(PlayPlayer p: players)
             {
+                
                 ArrayList<PlayCard> cards= p.getHand().getCards();
                 StringBuilder msg= new StringBuilder();
                 for (PlayCard c: cards)
                 {
-                    msg.append(c.getNumber() > 9 ? "#" + c.getNumber() : "" + c.getNumber()).append(c.getTypeOfCard().charAt(0));
+                    msg.append(c.getNumber() < 10 ? "#" + c.getNumber() : "" + c.getNumber()).append(selector.get(c.getTypeOfCard()));
                 }
                 System.out.println(msg);
             }
-            //serialPort.writeString("$$");
         }
         catch (Exception e)
         {
