@@ -1,4 +1,5 @@
 import Factory.CardFactory;
+import Models.Card.Card;
 import Models.Card.PlayCard;
 import Models.Player.PlayPlayer;
 import jssc.SerialPort;
@@ -65,6 +66,16 @@ public class SerialManager
         return selector;
     }
     
+    private static HashMap<String,String> deParser()
+    {
+        HashMap<String,String> selector = new HashMap<>();
+        selector.put("O","gold");
+        selector.put("B","course");
+        selector.put("E","sword");
+        selector.put("C","cup");
+        return selector;
+    }
+    
     public static void giveCards(ArrayList<PlayPlayer> players)
     {
 
@@ -111,16 +122,19 @@ public class SerialManager
     public static void playCard(PlayCard card, int player)
     {
         String number=card.getNumber()<10?"0"+card.getNumber():""+card.getNumber();
-        String type=card.getTypeOfCard();
+        String type=parser().get(card.getTypeOfCard());
         String message="$$$$$$$$$"+translateNumbers(player)+"T"+number+type+"%%";
         sentMessage(message);
     }
     
-    public static void playCard(String cards)
+    public static void playCard(String card)
     {
-        char c=cards.charAt(0);
+        char c=card.charAt(0);
         int d=translateLetters(c);
-        
+        int number=Integer.parseInt(card.substring(2,4));
+        PlayCard car=new Card(number,deParser().get(card.substring(4)));
+        System.out.println(car);
+        GameManager.playCard(d,car);
     }
     
     private static void sentMessage(String message)
