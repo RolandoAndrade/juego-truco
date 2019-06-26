@@ -12,6 +12,7 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     public GraphicPlayer(int number, String name, PlayHand hand)
     {
         super(name, hand);
+        getHand().setNumber(number);
         this.number = number;
         int len = name.length();
         setLocation(len);

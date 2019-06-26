@@ -10,6 +10,7 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
 {
     private int x,y;
     private int zoneX, zoneY;
+    
     @Override
     public void paint(Graphics g, ImageObserver observer)
     {
@@ -124,6 +125,6 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
     {
         super.setCardList(new ArrayList<PlayCard>());
         for (PlayCard card: cardList)
-            addCard(new GraphicCard(card,0,0,true));
+            addCard(new GraphicCard(card,0,0,GameManager.getPLAYER()==getNumber()));
     }
 }

@@ -11,6 +11,7 @@ public class Hand implements PlayHand
     private ArrayList<PlayCard> cardList;
     private PlayCard playedCard;
     private int envido;
+    private int number;
 
     public Hand()
     {
@@ -138,6 +139,18 @@ public class Hand implements PlayHand
             }
             
         }
+    }
+    
+    @Override
+    public void setNumber(int number)
+    {
+        this.number=number;
+    }
+    
+    @Override
+    public int getNumber()
+    {
+        return 0;
     }
     
     @Override
