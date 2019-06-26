@@ -2,7 +2,6 @@ import Command.Command;
 import Models.Card.PlayCard;
 import Models.Game.PlayGame;
 import Models.Player.Hand.PlayHand;
-import Models.Player.PlayPlayer;
 import Models.Score.PlayScore;
 
 import javax.swing.*;
@@ -11,6 +10,8 @@ import java.util.ArrayList;
 public class GameManager
 {
     public static int SERVER_PLAYER=0;
+    
+    private static int trickPower = -1;
     private static int PLAYER;
     private static int TURN_OF_PLAYER=0;
     private static int NUMBER_OF_TURNS=0;
@@ -80,6 +81,7 @@ public class GameManager
                 score.endRound(TeamAScore,TeamBScore);
                 TeamAScore=0;
                 TeamBScore=0;
+                trickPower=-1;
             }
             catch (Exception e)
             {
@@ -154,20 +156,39 @@ public class GameManager
     
     public static void trick()
     {
-        String[] s = {"Sí quiero", "No quiero"};
-        if (score.actualTrick() != null)
+        if(trickPower==-1||trickPower!=TURN_OF_PLAYER%2)
         {
-            int n = JOptionPane.showOptionDialog((JFrame) frameControl, score.actualTrick(),
-                    "Hay una propuesta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
-                    null, s, s[1]);
-            if (n == JOptionPane.YES_OPTION)
+            trickPower=TURN_OF_PLAYER%2;
+            String[] s = {"Sí quiero", "No quiero"};
+            if (score.actualTrick() != null)
             {
-                score.trick();
-            } else
-            {
-                //giveup
+                int n = JOptionPane.showOptionDialog((JFrame) frameControl, score.actualTrick(),
+                        "Hay una propuesta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                        null, s, s[1]);
+                if (n == JOptionPane.YES_OPTION)
+                {
+                    score.trick();
+                }
+                else
+                {
+                    NUMBER_OF_ROUNDS=2;
+                    if(TURN_OF_PLAYER%2==0)
+                    {
+                        TeamAScore=60;
+                    }
+                    else
+                    {
+                        TeamBScore=60;
+                    }
+                    endRound();
+                }
             }
         }
+        else
+        {
+            JOptionPane.showMessageDialog((JFrame) frameControl,"No tienes la voz");
+        }
+        
     }
     
     public static void setScore(PlayScore score)
