@@ -55,15 +55,21 @@ public class SerialManager
         }
     }
     
+    private static HashMap<String,String> parser()
+    {
+        HashMap<String,String> selector = new HashMap<>();
+        selector.put("gold", "O");
+        selector.put("course", "B");
+        selector.put("sword", "E");
+        selector.put("cup", "C");
+        return selector;
+    }
+    
     public static void giveCards(ArrayList<PlayPlayer> players)
     {
         try
         {
-            Map<String,String> selector = new HashMap<>();
-            selector.put("gold", "O");
-            selector.put("course", "B");
-            selector.put("sword", "E");
-            selector.put("cup", "C");
+            Map<String,String> selector = parser();
             String[] px={"A","B","C","D"};
             for(int i=0;i<players.size();i++)
             {
@@ -97,6 +103,13 @@ public class SerialManager
             case 'D': d=3; break;
         }
         GameManager.setPlayersCards(new CardFactory().createFromTrama(cards.substring(1)),d);
+    }
+    
+    public static void playCard(PlayCard card)
+    {
+        String number=card.getNumber()<10?"0"+card.getNumber():""+card.getNumber();
+        String type=card.getTypeOfCard();
+        
     }
     
     public static void sentTurno()
