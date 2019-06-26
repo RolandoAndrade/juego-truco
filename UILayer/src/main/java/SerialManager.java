@@ -133,7 +133,6 @@ public class SerialManager
         int d=translateLetters(c);
         int number=Integer.parseInt(card.substring(2,4));
         PlayCard car=new Card(number,deParser().get(card.substring(4)));
-        System.out.println(car);
         GameManager.playCard(d,car);
     }
     
@@ -150,5 +149,19 @@ public class SerialManager
         }
     }
     
-
+    public static void setVira(PlayCard card)
+    {
+        String number=card.getNumber()<10?"0"+card.getNumber():""+card.getNumber();
+        String type=parser().get(card.getTypeOfCard());
+        String message="$$$$$$$$#"+"ST"+number+type+"%%";
+        sentMessage(message);
+    }
+    
+    public static void setVira(String message)
+    {
+        int number = Integer.parseInt(message.substring(0,2));
+        String type = deParser().get(message.substring(2));
+        PlayCard card=new Card(number,type);
+        GameManager.setVira(card);
+    }
 }

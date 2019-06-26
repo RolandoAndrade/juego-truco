@@ -28,11 +28,10 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
         try
         {
             ((Drawable) getPlayedCard()).paint(g, observer);
-            System.out.println("Entro aquí");
         }
         catch (Exception e)
         {
-            System.err.println(e.getMessage());
+        
         }
     }
     

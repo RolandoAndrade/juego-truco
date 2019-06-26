@@ -15,5 +15,6 @@ public interface PlayGame
     void putVira();
     PlayCard getVira();
     void cleanPlayedCards();
+    void setVira(PlayCard card);
     
 }

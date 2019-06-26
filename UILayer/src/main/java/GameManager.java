@@ -206,4 +206,10 @@ public class GameManager
         }
         
     }
+    
+    public static void setVira(PlayCard card)
+    {
+        gameRoom.setVira(card);
+        frameControl.update();
+    }
 }

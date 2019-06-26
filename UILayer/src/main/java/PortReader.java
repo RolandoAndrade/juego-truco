@@ -43,6 +43,10 @@ public class PortReader implements SerialPortEventListener
         {
             SerialManager.playCard(s.substring(9,14));
         }
+        else if(s.substring(0,3).equals("$$$$$$$$#"))
+        {
+            SerialManager.setVira(s.substring(11,14));
+        }
         else if(s.substring(0,3).equals("$$$"))
         {
             SerialManager.giveCards(s.substring(4,14));
