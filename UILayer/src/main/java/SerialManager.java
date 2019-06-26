@@ -67,49 +67,66 @@ public class SerialManager
     
     public static void giveCards(ArrayList<PlayPlayer> players)
     {
-        try
+
+        Map<String,String> selector = parser();
+        String[] px={"A","B","C","D"};
+        for(int i=0;i<players.size();i++)
         {
-            Map<String,String> selector = parser();
-            String[] px={"A","B","C","D"};
-            for(int i=0;i<players.size();i++)
+            ArrayList<PlayCard> cards = players.get(i).getHand().getCards();//Pecado
+            StringBuilder msg = new StringBuilder("$$$S" + px[i]);
+            for (PlayCard c : cards)
             {
-                ArrayList<PlayCard> cards= players.get(i).getHand().getCards();//Pecado
-                StringBuilder msg= new StringBuilder("$$$S"+px[i]);
-                for (PlayCard c: cards)
-                {
-                    msg.append(c.getNumber() < 10 ? "0" + c.getNumber() : "" + c.getNumber()).append(selector.get(c.getTypeOfCard()));
-                }
-                msg.append("%%");
-                serialPort.purgePort(SerialPort.PURGE_TXCLEAR | SerialPort.PURGE_RXCLEAR);
-                serialPort.writeString(msg.toString());
-                
+                msg.append(c.getNumber() < 10 ? "0" + c.getNumber() : "" + c.getNumber()).append(selector.get(c.getTypeOfCard()));
             }
+            msg.append("%%");
+            sentMessage(msg.toString());
         }
-        catch (Exception e)
+    }
+    
+    private static String translateNumbers(int n)
+    {
+        String[]s={"A","B","C","D"};
+        return s[n];
+    }
+    
+    private static int translateLetters(char c)
+    {
+        switch (c)
         {
-            System.err.println("Error al enviar mensaje");
+            case 'A': return 0;
+            case 'B': return 1;
+            case 'C': return 2;
+            case 'D': return 3;
         }
+        return 0;
     }
     
     public static void setCardsFromMessage(String cards)
     {
         char c=cards.charAt(0);
-        int d=0;
-        switch (c)
-        {
-            case 'A': d=0; break;
-            case 'B': d=1; break;
-            case 'C': d=2; break;
-            case 'D': d=3; break;
-        }
+        int d=translateLetters(c);
         GameManager.setPlayersCards(new CardFactory().createFromTrama(cards.substring(1)),d);
     }
     
-    public static void playCard(PlayCard card)
+    public static void playCard(PlayCard card, int player)
     {
         String number=card.getNumber()<10?"0"+card.getNumber():""+card.getNumber();
         String type=card.getTypeOfCard();
-        
+        String message="$$$$$$$$$"+translateNumbers(player)+"T"+number+type+"%%";
+        sentMessage(message);
+    }
+    
+    private static void sentMessage(String message)
+    {
+        try
+        {
+            serialPort.purgePort(SerialPort.PURGE_TXCLEAR | SerialPort.PURGE_RXCLEAR);
+            serialPort.writeString(message);
+        }
+        catch (Exception e)
+        {
+            System.err.println("Error al enviar mensaje: "+e.getMessage());
+        }
     }
     
     public static void sentTurno()
