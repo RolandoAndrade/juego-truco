@@ -28,6 +28,7 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
         try
         {
             ((Drawable) getPlayedCard()).paint(g, observer);
+            System.out.println("Entro aquí");
         }
         catch (Exception e)
         {
@@ -65,6 +66,7 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
     @Override
     public void putCard(int i)
     {
+        ((Drawable)getCardList().get(i)).setPosition(this.zoneX,this.zoneY);
         super.putCard(i);
         moveCardsToLeft(i);
         GameManager.finishMyTurn(getPlayedCard());
@@ -80,7 +82,6 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
                 PlayCard card=getCardList().get(i);
                 if(((Clickeable)card).onClick(x,y))
                 {
-                    ((Drawable)card).setPosition(this.zoneX,this.zoneY);
                     putCard(i);
                     return true;
                 }

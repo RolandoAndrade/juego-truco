@@ -195,10 +195,10 @@ public class GameManager
         int i=0;
         for(PlayCard c: h.getCards())
         {
+            System.out.println(c.getNumber()+" "+card.getNumber()+" "+c.getColor()+" "+card.getColor()+" "+i);
             if(c.getNumber()==card.getNumber()&&c.getColor().equals(card.getColor()))
             {
                 gameRoom.getPlayer(player).getHand().putCard(i);
-                System.out.println(gameRoom.getPlayer(player).getHand().getPlayedCard());
                 frameControl.update();
                 return;
             }
