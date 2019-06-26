@@ -38,13 +38,14 @@ public class PortReader implements SerialPortEventListener
     
     public void filter(String s)
     {
-        if(s.substring(0,3).equals("$$$"))
-        {
-            SerialManager.giveCards(s.substring(4,14));
-        }
-        else if(s.substring(0,9).equals("$$$$$$$$$"))
+        
+        if(s.substring(0,9).equals("$$$$$$$$$"))
         {
             SerialManager.playCard(s.substring(9,14));
+        }
+        else if(s.substring(0,3).equals("$$$"))
+        {
+            SerialManager.giveCards(s.substring(4,14));
         }
     }
 }

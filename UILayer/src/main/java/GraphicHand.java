@@ -31,7 +31,7 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
         }
         catch (Exception e)
         {
-        
+            System.err.println(e.getMessage());
         }
     }
     
@@ -63,6 +63,14 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
     }
     
     @Override
+    public void putCard(int i)
+    {
+        super.putCard(i);
+        moveCardsToLeft(i);
+        GameManager.finishMyTurn(getPlayedCard());
+    }
+    
+    @Override
     public boolean onClick(int x, int y)
     {
         if(x>this.x&&y>this.y&&x<this.x+65*3&&y<this.y+100)
@@ -74,7 +82,6 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
                 {
                     ((Drawable)card).setPosition(this.zoneX,this.zoneY);
                     putCard(i);
-                    moveCardsToLeft(i);
                     return true;
                 }
             }

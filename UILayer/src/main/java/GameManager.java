@@ -185,9 +185,7 @@ public class GameManager
     
     public static void setPlayersCards(ArrayList<PlayCard> cards, int i)
     {
-        System.out.println(gameRoom.getPlayer(i).getHand());
         gameRoom.getPlayer(i).getHand().setCardList(cards);
-        System.out.println(gameRoom.getPlayer(i).getHand());
         frameControl.update();
     }
     
@@ -199,7 +197,8 @@ public class GameManager
         {
             if(c.getNumber()==card.getNumber()&&c.getColor().equals(card.getColor()))
             {
-                h.putCard(i);
+                gameRoom.getPlayer(player).getHand().putCard(i);
+                System.out.println(gameRoom.getPlayer(player).getHand().getPlayedCard());
                 frameControl.update();
                 return;
             }

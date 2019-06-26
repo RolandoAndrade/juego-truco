@@ -93,7 +93,7 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
         {
             if(((Clickeable)getHand()).onClick(x,y))
             {
-                GameManager.finishMyTurn(getHand().getPlayedCard());
+                SerialManager.playCard(getHand().getPlayedCard(),this.number);
                 return true;
             }
         }
