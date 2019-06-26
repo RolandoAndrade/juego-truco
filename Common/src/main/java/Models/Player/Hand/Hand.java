@@ -43,7 +43,7 @@ public class Hand implements PlayHand
     public ArrayList<PlayCard> noSpecialCards(){
         ArrayList<PlayCard> cards = new ArrayList<PlayCard>();
         for (PlayCard card:cardList){
-            if (card.getStrategy() == null)
+            if ( (card.getStrategy() != new PericaStrategy()) && (card.getStrategy() != new PericoStrategy()) ) 
                 cards.add(card);
         }
         return cards;
