@@ -150,7 +150,7 @@ public class Hand implements PlayHand
     @Override
     public int getNumber()
     {
-        return 0;
+        return this.number;
     }
     
     @Override

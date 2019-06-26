@@ -125,6 +125,6 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
     {
         super.setCardList(new ArrayList<PlayCard>());
         for (PlayCard card: cardList)
-            addCard(new GraphicCard(card,0,0,GameManager.getPLAYER()==getNumber()));
+            addCard(new GraphicCard(card,0,0,true||GameManager.getPLAYER()==getNumber()));
     }
 }
