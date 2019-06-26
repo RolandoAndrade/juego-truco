@@ -1,5 +1,3 @@
-package Serial;
-
 public class Trama
 {
     private String sender="#";//1

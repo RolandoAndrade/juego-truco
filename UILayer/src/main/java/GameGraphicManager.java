@@ -2,7 +2,6 @@ import Command.Command;
 import Models.Game.PlayGame;
 import Command.InitGameRoomCommand;
 import Models.Player.PlayPlayer;
-import Serial.SerialManager;
 
 import javax.swing.*;
 import java.awt.*;

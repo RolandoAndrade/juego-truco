@@ -1,8 +1,5 @@
-package Serial;
-
 import Factory.CardFactory;
 import Models.Card.PlayCard;
-import Models.Deck.PlayDeck;
 import Models.Player.PlayPlayer;
 import jssc.SerialPort;
 import jssc.SerialPortList;
@@ -91,7 +88,15 @@ public class SerialManager
     public static void setCardsFromMessage(String cards)
     {
         char c=cards.charAt(0);
-        new CardFactory().createFromTrama(cards.substring(1));
+        int d=0;
+        switch (c)
+        {
+            case 'A': d=0; break;
+            case 'B': d=1; break;
+            case 'C': d=2; break;
+            case 'D': d=3; break;
+        }
+        GameManager.setPlayersCards(new CardFactory().createFromTrama(cards.substring(1)),d);
     }
     
     public static void sentTurno()
