@@ -71,6 +71,11 @@ public class GameManager
             {
                 fill.execute();
                 gameRoom.cleanPlayedCards();
+                if(PLAYER==SERVER_PLAYER)
+                {
+                    SerialManager.giveCards(gameRoom.getPlayers());
+                    SerialManager.setVira(gameRoom.getVira());
+                }
                 frameControl.update();
                 score.endRound(TeamAScore,TeamBScore);
                 TeamAScore=0;
