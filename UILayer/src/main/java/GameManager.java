@@ -1,6 +1,7 @@
 import Command.Command;
 import Models.Card.PlayCard;
 import Models.Game.PlayGame;
+import Models.Player.Hand.PlayHand;
 import Models.Player.PlayPlayer;
 import Models.Score.PlayScore;
 
@@ -188,5 +189,22 @@ public class GameManager
         gameRoom.getPlayer(i).getHand().setCardList(cards);
         System.out.println(gameRoom.getPlayer(i).getHand());
         frameControl.update();
+    }
+    
+    public static void playCard(int player, PlayCard card)
+    {
+        PlayHand h=gameRoom.getPlayer(player).getHand();
+        int i=0;
+        for(PlayCard c: h.getCards())
+        {
+            if(c.getNumber()==card.getNumber()&&c.getColor().equals(card.getColor()))
+            {
+                h.putCard(i);
+                frameControl.update();
+                return;
+            }
+            i++;
+        }
+        
     }
 }

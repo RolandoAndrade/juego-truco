@@ -101,7 +101,7 @@ public class SerialManager
         return 0;
     }
     
-    public static void setCardsFromMessage(String cards)
+    public static void giveCards(String cards)
     {
         char c=cards.charAt(0);
         int d=translateLetters(c);
@@ -114,6 +114,13 @@ public class SerialManager
         String type=card.getTypeOfCard();
         String message="$$$$$$$$$"+translateNumbers(player)+"T"+number+type+"%%";
         sentMessage(message);
+    }
+    
+    public static void playCard(String cards)
+    {
+        char c=cards.charAt(0);
+        int d=translateLetters(c);
+        
     }
     
     private static void sentMessage(String message)
@@ -129,8 +136,5 @@ public class SerialManager
         }
     }
     
-    public static void sentTurno()
-    {
 
-    }
 }

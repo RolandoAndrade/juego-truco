@@ -40,8 +40,11 @@ public class PortReader implements SerialPortEventListener
     {
         if(s.substring(0,3).equals("$$$"))
         {
-            SerialManager.setCardsFromMessage(s.substring(4,14));
-            
+            SerialManager.giveCards(s.substring(4,14));
+        }
+        else if(s.substring(0,9).equals("$$$$$$$$$"))
+        {
+            SerialManager.playCard(s.substring(9,14));
         }
     }
 }
