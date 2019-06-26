@@ -68,7 +68,6 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
         ((Drawable)getCardList().get(i)).setPosition(this.zoneX,this.zoneY);
         super.putCard(i);
         moveCardsToLeft(i);
-        GameManager.finishMyTurn(getPlayedCard());
     }
     
     @Override

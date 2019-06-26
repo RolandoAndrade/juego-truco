@@ -35,6 +35,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
             if(GameManager.getPLAYER()==GameManager.SERVER_PLAYER)
             {
                 SerialManager.giveCards(gameRoom.getPlayers());
+                SerialManager.setVira(gameRoom.getVira());
             }
         }
         catch (Exception e)

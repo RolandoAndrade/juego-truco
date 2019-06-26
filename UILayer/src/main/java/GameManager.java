@@ -199,6 +199,7 @@ public class GameManager
             if(c.getNumber()==card.getNumber()&&c.getColor().equals(card.getColor()))
             {
                 gameRoom.getPlayer(player).getHand().putCard(i);
+                finishMyTurn(gameRoom.getPlayer(player).getHand().getPlayedCard());
                 frameControl.update();
                 return;
             }
