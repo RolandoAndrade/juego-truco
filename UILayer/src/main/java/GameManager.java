@@ -187,5 +187,6 @@ public class GameManager
         System.out.println(gameRoom.getPlayer(i).getHand());
         gameRoom.getPlayer(i).getHand().setCardList(cards);
         System.out.println(gameRoom.getPlayer(i).getHand());
+        frameControl.update();
     }
 }

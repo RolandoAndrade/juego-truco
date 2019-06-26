@@ -4,6 +4,7 @@ import Models.Player.Hand.PlayHand;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
+import java.util.ArrayList;
 
 public class GraphicHand extends Hand implements Drawable, Clickeable
 {
@@ -116,5 +117,13 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
             d.setPosition(d.getX()-65,d.getY());
         }
         
+    }
+    
+    @Override
+    public void setCardList(ArrayList<PlayCard> cardList)
+    {
+        super.setCardList(new ArrayList<PlayCard>());
+        for (PlayCard card: cardList)
+            addCard(new GraphicCard(card,0,0,true));
     }
 }

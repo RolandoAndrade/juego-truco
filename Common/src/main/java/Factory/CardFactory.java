@@ -145,6 +145,7 @@ public class CardFactory implements CreateCard
     private PlayCard card(String s)
     {
         int number = Integer.parseInt(s.substring(0,2));
+        System.out.println();
         char type = s.charAt(2);
         String trans = translateType(type);
         switch (number)
@@ -156,13 +157,13 @@ public class CardFactory implements CreateCard
             case 2:
                 return new Card(2,trans,new TwoCard());
             case 3:
-                return new Card(2,trans,new TreeCard());
+                return new Card(3,trans,new TreeCard());
             case 4:
                 return new Card(4,trans,new FourCard());
             case 5:
-                return new Card(4,trans,new FiveCard());
+                return new Card(5,trans,new FiveCard());
             case 6:
-                return new Card(4,trans,new SixCard());
+                return new Card(6,trans,new SixCard());
             case 7:
                 Card x=new Card(7,trans);
                 return getMultipleOptionsCard(x,type,new GoldSevenCard(),
@@ -180,7 +181,9 @@ public class CardFactory implements CreateCard
     @Override
     public ArrayList<PlayCard> createFromTrama(String s)
     {
+        
         ArrayList<PlayCard> cards = new ArrayList<PlayCard>();
+        System.out.println(s);
         cards.add(card(s.substring(0,3)));
         cards.add(card(s.substring(3,6)));
         cards.add(card(s.substring(6,9)));

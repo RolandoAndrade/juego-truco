@@ -71,7 +71,7 @@ public class SerialManager
                 StringBuilder msg= new StringBuilder("$$$S"+px[i]);
                 for (PlayCard c: cards)
                 {
-                    msg.append(c.getNumber() < 10 ? "#" + c.getNumber() : "" + c.getNumber()).append(selector.get(c.getTypeOfCard()));
+                    msg.append(c.getNumber() < 10 ? "0" + c.getNumber() : "" + c.getNumber()).append(selector.get(c.getTypeOfCard()));
                 }
                 msg.append("%%");
                 serialPort.purgePort(SerialPort.PURGE_TXCLEAR | SerialPort.PURGE_RXCLEAR);

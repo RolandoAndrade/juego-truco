@@ -22,14 +22,16 @@ public class PortReader implements SerialPortEventListener
                 String data = this.serialPort.readString(serialPortEvent.getEventValue());
                 for(int i=0;i<data.length()/16;i++)
                 {
-                    System.out.println("Recibido: "+data.substring(i*16,i*16+16));
-                    filter(data.substring(i*16,i*16+16));
+                    String substring = data.substring(i * 16, i * 16 + 16);
+                    System.out.println("Recibido: "+ substring);
+                    filter(substring);
                 }
                 //System.out.println("Recibido: "+data);
             }
             catch (Exception e)
             {
                 System.out.println("Error recibiendo información");
+                System.err.println(e.getMessage());
             }
         }
     }
@@ -39,6 +41,7 @@ public class PortReader implements SerialPortEventListener
         if(s.substring(0,3).equals("$$$"))
         {
             SerialManager.setCardsFromMessage(s.substring(4,14));
+            
         }
     }
 }
