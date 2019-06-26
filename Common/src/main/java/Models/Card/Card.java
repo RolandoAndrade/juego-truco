@@ -15,10 +15,11 @@ public class Card implements PlayCard
     
     private String typeOfCard;
     
-    public Card(int cardNumber, String imagePath)
+    public Card(int cardNumber, String typeOfCard)
     {
         this.cardNumber = cardNumber;
         this.imagePath = imagePath;
+        this.typeOfCard = typeOfCard;
     }
     
     public Card(int cardNumber, String typeOfCard, PlayCardStrategy cardStrategy)
