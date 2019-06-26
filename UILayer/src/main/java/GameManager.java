@@ -162,26 +162,8 @@ public class GameManager
             String[] s = {"Sí quiero", "No quiero"};
             if (score.actualTrick() != null)
             {
-                int n = JOptionPane.showOptionDialog((JFrame) frameControl, score.actualTrick(),
-                        "Hay una propuesta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
-                        null, s, s[1]);
-                if (n == JOptionPane.YES_OPTION)
-                {
-                    score.trick();
-                }
-                else
-                {
-                    NUMBER_OF_ROUNDS=2;
-                    if(TURN_OF_PLAYER%2==0)
-                    {
-                        TeamAScore=60;
-                    }
-                    else
-                    {
-                        TeamBScore=60;
-                    }
-                    endRound();
-                }
+                SerialManager.trick(TURN_OF_PLAYER);
+                JOptionPane.showMessageDialog((JFrame) frameControl,"Acabas de enviar una oferta de truco");
             }
         }
         else
@@ -189,6 +171,42 @@ public class GameManager
             JOptionPane.showMessageDialog((JFrame) frameControl,"No tienes la voz");
         }
         
+    }
+    
+    public static void trick(int sender, int receiver)
+    {
+        if(PLAYER%2==sender)
+        {
+            JOptionPane.showMessageDialog((JFrame) frameControl,"Tu compañero acaba de pedir truco");
+        }
+        else if(PLAYER==receiver)
+        {
+            String[] s = {"Sí quiero", "No quiero"};
+            int n = JOptionPane.showOptionDialog((JFrame) frameControl, score.actualTrick(),
+                    "Hay una propuesta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                    null, s, s[1]);
+            if (n == JOptionPane.YES_OPTION)
+            {
+                score.trick();
+            }
+            else
+            {
+                NUMBER_OF_ROUNDS=2;
+                if(TURN_OF_PLAYER%2==0)
+                {
+                    TeamAScore=60;
+                }
+                else
+                {
+                    TeamBScore=60;
+                }
+                endRound();
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog((JFrame) frameControl,"Tu compañero acaba de recibir una oferta de truco");
+        }
     }
     
     public static void setScore(PlayScore score)

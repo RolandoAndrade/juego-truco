@@ -39,7 +39,11 @@ public class PortReader implements SerialPortEventListener
     public void filter(String s)
     {
         
-        if(s.substring(0,9).equals("$$$$$$$$$"))
+        if(s.substring(0,12).equals("$$$$$$$$$$$$"))
+        {
+            SerialManager.trick(s.substring(12,14));
+        }
+        else if(s.substring(0,9).equals("$$$$$$$$$"))
         {
             SerialManager.playCard(s.substring(9,14));
         }

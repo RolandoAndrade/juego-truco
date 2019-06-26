@@ -164,4 +164,17 @@ public class SerialManager
         PlayCard card=new Card(number,type);
         GameManager.setVira(card);
     }
+    
+    public static void trick(int player)
+    {
+        String message="$$$$$$$$$$$$"+translateNumbers(player)+translateNumbers((player+1)%4)+"%%";
+        sentMessage(message);
+    }
+    
+    public static void trick(String s)
+    {
+        int sender=translateLetters(s.charAt(0));
+        int receiver=translateLetters(s.charAt(1));
+        GameManager.trick(sender, receiver);
+    }
 }
