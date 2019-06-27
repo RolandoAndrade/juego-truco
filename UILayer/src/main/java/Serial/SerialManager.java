@@ -117,9 +117,12 @@ public class SerialManager
     
     public static void giveCards(String cards)
     {
-        char c=cards.charAt(0);
-        int d=translateLetters(c);
-        GameManager.setPlayersCards(new CardFactory().createFromTrama(cards.substring(1)),d);
+        int sender = translateLetters(cards.charAt(0));
+        if(sender != GameManager.getPLAYER())
+        {
+            int receiver = translateLetters(cards.charAt(1));
+            GameManager.setPlayersCards(new CardFactory().createFromTrama(cards.substring(2)),receiver);
+        }
     }
     
     public static void playCard(PlayCard card, int player)
@@ -132,11 +135,13 @@ public class SerialManager
     
     public static void playCard(String card)
     {
-        char c=card.charAt(0);
-        int d=translateLetters(c);
-        int number=Integer.parseInt(card.substring(2,4));
-        PlayCard car=new Card(number,deParser().get(card.substring(4)));
-        GameManager.playCard(d,car);
+        int sender = translateLetters(card.charAt(0));
+        if(sender!=GameManager.getPLAYER())
+        {
+            int number = Integer.parseInt(card.substring(2, 4));
+            PlayCard car = new Card(number, deParser().get(card.substring(4)));
+            GameManager.playCard(sender, car);
+        }
     }
     
     private static void sentMessage(String message)
@@ -154,18 +159,22 @@ public class SerialManager
     
     public static void setVira(PlayCard card)
     {
-        String number=card.getNumber()<10?"0"+card.getNumber():""+card.getNumber();
-        String type=parser().get(card.getTypeOfCard());
-        String message="$$$$$$$$#"+"ST"+number+type+"%%";
+        String number = card.getNumber() < 10 ? "0" + card.getNumber() : "" + card.getNumber();
+        String type = parser().get(card.getTypeOfCard());
+        String message = "$$$$$$$$#" + "ST" + number + type + "%%";
         sentMessage(message);
     }
     
     public static void setVira(String message)
     {
-        int number = Integer.parseInt(message.substring(0,2));
-        String type = deParser().get(message.substring(2));
-        PlayCard card=new Card(number,type);
-        GameManager.setVira(card);
+        int sender = translateLetters(message.charAt(0));
+        if(sender != GameManager.getPLAYER())
+        {
+            int number = Integer.parseInt(message.substring(2, 4));
+            String type = deParser().get(message.substring(4));
+            PlayCard card = new Card(number, type);
+            GameManager.setVira(card);
+        }
     }
     
     public static void trick(int player)
@@ -177,8 +186,11 @@ public class SerialManager
     public static void trick(String s)
     {
         int sender=translateLetters(s.charAt(0));
-        int receiver=translateLetters(s.charAt(1));
-        GameManager.trick(sender, receiver);
+        if(sender!=GameManager.getPLAYER())
+        {
+            int receiver=translateLetters(s.charAt(1));
+            GameManager.trick(sender, receiver);
+        }
     }
     
     public static void trickResponse(int player, boolean ans)
@@ -190,7 +202,10 @@ public class SerialManager
     public static void trickResponse(String s)
     {
         int sender=translateLetters(s.charAt(0));
-        boolean accept=s.charAt(2)=='S';
-        GameManager.trickResponse(sender, accept);
+        if(sender!=GameManager.getPLAYER())
+        {
+            boolean accept = s.charAt(2) == 'S';
+            GameManager.trickResponse(sender, accept);
+        }
     }
 }

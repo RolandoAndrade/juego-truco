@@ -54,11 +54,11 @@ public class PortReader implements SerialPortEventListener
         }
         else if(s.substring(0,9).equals("$$$$$$$$#"))//8$ + 1# poner vira
         {
-            SerialManager.setVira(s.substring(11,14));
+            SerialManager.setVira(s.substring(9,14));
         }
         else if(s.substring(0,3).equals("$$$"))//3$ dar cartas a jugador X.
         {
-            SerialManager.giveCards(s.substring(4,14));
+            SerialManager.giveCards(s.substring(3,14));
         }
     }
 }
