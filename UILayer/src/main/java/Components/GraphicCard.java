@@ -7,6 +7,7 @@ import UIElements.Drawable;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
+import java.net.URL;
 
 public class GraphicCard extends Card implements Drawable, Clickeable
 {
@@ -14,7 +15,7 @@ public class GraphicCard extends Card implements Drawable, Clickeable
     private static final int HEIGHT = 100;
     private static final int HOVER_WIDTH = 62;
     private static final int HOVER_HEIGHT = 102;
-    private static final String BACK_IMAGE_PATH="UILayer/src/main/resources/back.png";
+    private static final URL BACK_IMAGE_PATH=ClassLoader.getSystemResource("back.png");
     private static Image BACK_IMAGE;
     private Image image;
     private int x,y,w,h;
@@ -25,7 +26,7 @@ public class GraphicCard extends Card implements Drawable, Clickeable
     {
         super(card.getNumber(),card.getColor(),card.getStrategy());
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        this.image=toolkit.getImage("UILayer/src/main/resources/"+getImagePath());
+        this.image=toolkit.getImage(ClassLoader.getSystemResource(getImagePath()));
         BACK_IMAGE=toolkit.getImage(BACK_IMAGE_PATH);
         setPosition(x,y);
         this.w=WIDTH;
