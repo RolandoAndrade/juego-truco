@@ -1,6 +1,10 @@
+package Components;
+
+import GameManager.GameManager;
 import Models.Card.PlayCard;
 import Models.Player.Hand.Hand;
-import Models.Player.Hand.PlayHand;
+import UIElements.Clickeable;
+import UIElements.Drawable;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
@@ -131,6 +135,6 @@ public class GraphicHand extends Hand implements Drawable, Clickeable
     {
         super.setCardList(new ArrayList<PlayCard>());
         for (PlayCard card: cardList)
-            addCard(new GraphicCard(card,0,0,true||GameManager.getPLAYER()==getNumber()));
+            addCard(new GraphicCard(card,0,0,true|| GameManager.getPLAYER()==getNumber()));
     }
 }

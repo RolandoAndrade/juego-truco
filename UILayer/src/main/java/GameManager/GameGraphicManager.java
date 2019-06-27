@@ -1,7 +1,12 @@
+package GameManager;
+
 import Command.Command;
 import Models.Game.PlayGame;
 import Command.InitGameRoomCommand;
 import Models.Player.PlayPlayer;
+import Serial.SerialManager;
+import UIElements.*;
+import UIElements.Button;
 
 import javax.swing.*;
 import java.awt.*;

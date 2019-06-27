@@ -1,3 +1,5 @@
+package UIElements;
+
 import Models.Score.Score;
 
 import java.awt.*;

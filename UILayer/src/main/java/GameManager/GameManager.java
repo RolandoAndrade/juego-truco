@@ -1,8 +1,12 @@
+package GameManager;
+
 import Command.Command;
 import Models.Card.PlayCard;
 import Models.Game.PlayGame;
 import Models.Player.Hand.PlayHand;
 import Models.Score.PlayScore;
+import Serial.SerialManager;
+import UIElements.FrameControl;
 
 import javax.swing.*;
 import java.util.ArrayList;

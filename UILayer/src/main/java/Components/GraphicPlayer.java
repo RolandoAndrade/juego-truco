@@ -1,6 +1,12 @@
+package Components;
+
+import GameManager.GameManager;
 import Models.Card.PlayCard;
 import Models.Player.Hand.PlayHand;
 import Models.Player.Player;
+import Serial.SerialManager;
+import UIElements.Clickeable;
+import UIElements.Drawable;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;
@@ -70,7 +76,7 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     @Override
     public void giveCard(PlayCard card)
     {
-        //super.giveCard(new GraphicCard(card,0,0,this.number==0));
+        //super.giveCard(new Components.GraphicCard(card,0,0,this.number==0));
         super.giveCard(new GraphicCard(card,0,0,true));
     }
     

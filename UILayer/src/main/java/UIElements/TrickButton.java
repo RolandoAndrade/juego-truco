@@ -1,3 +1,8 @@
+package UIElements;
+
+import GameManager.GameManager;
+import UIElements.Button;
+
 public class TrickButton extends Button
 {
     public TrickButton(int x, int y, String name)

@@ -1,3 +1,5 @@
+package UIElements;
+
 import java.awt.*;
 import java.awt.image.ImageObserver;
 

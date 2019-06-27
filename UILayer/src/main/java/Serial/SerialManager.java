@@ -1,4 +1,7 @@
+package Serial;
+
 import Factory.CardFactory;
+import GameManager.GameManager;
 import Models.Card.Card;
 import Models.Card.PlayCard;
 import Models.Player.PlayPlayer;

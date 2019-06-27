@@ -1,5 +1,9 @@
+package Components;
+
 import Models.Card.Card;
 import Models.Card.PlayCard;
+import UIElements.Clickeable;
+import UIElements.Drawable;
 
 import java.awt.*;
 import java.awt.image.ImageObserver;

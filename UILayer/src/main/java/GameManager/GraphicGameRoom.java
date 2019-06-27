@@ -1,7 +1,11 @@
+package GameManager;
+
+import Components.GraphicCard;
 import Models.Card.PlayCard;
 import Models.Game.GameRoom;
 import Models.Player.PlayPlayer;
-
+import UIElements.Drawable;
+import UIElements.Paintable;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;

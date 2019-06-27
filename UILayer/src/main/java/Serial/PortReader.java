@@ -1,3 +1,5 @@
+package Serial;
+
 import jssc.SerialPort;
 import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;

@@ -1,3 +1,5 @@
+package UIElements;
+
 public interface Drawable extends Paintable
 {
     void setPosition(int x,int y);
