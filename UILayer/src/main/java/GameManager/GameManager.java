@@ -36,6 +36,7 @@ public class GameManager
     
     public static void finishMyTurn(PlayCard card)
     {
+        System.out.println(NUMBER_OF_TURNS);
         cards[TURN_OF_PLAYER]=card;
         TURN_OF_PLAYER=(TURN_OF_PLAYER+1)%4;
         NUMBER_OF_TURNS++;
@@ -86,6 +87,7 @@ public class GameManager
                 TeamAScore=0;
                 TeamBScore=0;
                 trickPower=-1;
+                NUMBER_OF_TURNS=0;
             }
             catch (Exception e)
             {
@@ -231,6 +233,7 @@ public class GameManager
             }
             else
             {
+                JOptionPane.showMessageDialog((JFrame) frameControl,"Truco rechazado");
                 trickRejected(PLAYER);
             }
         }
