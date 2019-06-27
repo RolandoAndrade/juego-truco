@@ -23,11 +23,7 @@ public class GraphicGameRoom extends GameRoom implements Paintable
         try
         {
             PlayCard card = getDeck().pickCard();
-            super.setVira(new GraphicCard(card,320,200,true));
-            for (PlayPlayer p: getPlayers())
-            {
-                p.getHand().searchForSpecial(getVira());
-            }
+            setVira(card);
         }
         catch (Exception e)
         {
@@ -51,5 +47,9 @@ public class GraphicGameRoom extends GameRoom implements Paintable
     public void setVira(PlayCard vira)
     {
         super.setVira(new GraphicCard(vira,320,200,true));
+        for (PlayPlayer p: getPlayers())
+        {
+            p.getHand().searchForSpecial(getVira());
+        }
     }
 }
