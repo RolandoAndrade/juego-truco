@@ -162,7 +162,7 @@ public class GameManager
             String[] s = {"Sí quiero", "No quiero"};
             if (score.actualTrick() != null)
             {
-                SerialManager.trick(TURN_OF_PLAYER);
+                SerialManager.trick(PLAYER);
                 JOptionPane.showMessageDialog((JFrame) frameControl,"Acabas de enviar una oferta de truco");
             }
         }
@@ -173,10 +173,10 @@ public class GameManager
         
     }
     
-    private static void trickRejected()
+    private static void trickRejected(int player)
     {
         NUMBER_OF_ROUNDS=2;
-        if(TURN_OF_PLAYER%2==0)
+        if(player%2==0)
         {
             TeamAScore=60;
         }
@@ -189,7 +189,6 @@ public class GameManager
 
     public static void trick(int sender, int receiver)
     {
-        System.out.println("Sender: "+sender+" "+"Receiver: "+receiver );
         if(PLAYER%2==sender%2)
         {
             JOptionPane.showMessageDialog((JFrame) frameControl,"Tu compañero acaba de pedir truco");
@@ -208,7 +207,7 @@ public class GameManager
             else
             {
                 SerialManager.trickResponse(PLAYER,false);
-                trickRejected();
+                trickRejected(sender);
             }
         }
         else
@@ -228,7 +227,7 @@ public class GameManager
             }
             else
             {
-                trickRejected();
+                trickRejected(PLAYER);
             }
         }
     }

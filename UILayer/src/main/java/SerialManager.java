@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class SerialManager
 {
-    
+    private static final int NUMBER_OF_PLAYERS=2;
     /**
      * Inicio de la trama   ($$)
      * Emisor               (A,B,C,D,S,T)
@@ -167,7 +167,7 @@ public class SerialManager
     
     public static void trick(int player)
     {
-        String message="$$$$$$$$$$$$"+translateNumbers(player)+translateNumbers((player+1)%4)+"%%";
+        String message="$$$$$$$$$$$$"+translateNumbers(player)+translateNumbers((player+1)%NUMBER_OF_PLAYERS)+"%%";
         sentMessage(message);
     }
     
