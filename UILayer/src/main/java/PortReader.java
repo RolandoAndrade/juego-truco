@@ -38,20 +38,23 @@ public class PortReader implements SerialPortEventListener
     
     public void filter(String s)
     {
-        
-        if(s.substring(0,12).equals("$$$$$$$$$$$$"))
+        if(s.substring(0,12).equals("$$$$$$$$$$$$"))//12$=pedir truco
         {
             SerialManager.trick(s.substring(12,14));
         }
-        else if(s.substring(0,9).equals("$$$$$$$$$"))
+        else if(s.substring(0,11).equals("$$$$$$$$$$$"))//11$ responder truco
+        {
+            SerialManager.trickResponse(s.substring(11,14));
+        }
+        else if(s.substring(0,9).equals("$$$$$$$$$"))//9$ poner carta en juego
         {
             SerialManager.playCard(s.substring(9,14));
         }
-        else if(s.substring(0,9).equals("$$$$$$$$#"))
+        else if(s.substring(0,9).equals("$$$$$$$$#"))//8$ + 1# poner vira
         {
             SerialManager.setVira(s.substring(11,14));
         }
-        else if(s.substring(0,3).equals("$$$"))
+        else if(s.substring(0,3).equals("$$$"))//3$ dar cartas a jugador X.
         {
             SerialManager.giveCards(s.substring(4,14));
         }

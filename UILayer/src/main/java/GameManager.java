@@ -173,9 +173,24 @@ public class GameManager
         
     }
     
+    private static void trickRejected()
+    {
+        NUMBER_OF_ROUNDS=2;
+        if(TURN_OF_PLAYER%2==0)
+        {
+            TeamAScore=60;
+        }
+        else
+        {
+            TeamBScore=60;
+        }
+        endRound();
+    }
+
     public static void trick(int sender, int receiver)
     {
-        if(PLAYER%2==sender)
+        System.out.println("Sender: "+sender+" "+"Receiver: "+receiver );
+        if(PLAYER%2==sender%2)
         {
             JOptionPane.showMessageDialog((JFrame) frameControl,"Tu compañero acaba de pedir truco");
         }
@@ -188,24 +203,33 @@ public class GameManager
             if (n == JOptionPane.YES_OPTION)
             {
                 score.trick();
+                SerialManager.trickResponse(PLAYER,true);
             }
             else
             {
-                NUMBER_OF_ROUNDS=2;
-                if(TURN_OF_PLAYER%2==0)
-                {
-                    TeamAScore=60;
-                }
-                else
-                {
-                    TeamBScore=60;
-                }
-                endRound();
+                SerialManager.trickResponse(PLAYER,false);
+                trickRejected();
             }
         }
         else
         {
             JOptionPane.showMessageDialog((JFrame) frameControl,"Tu compañero acaba de recibir una oferta de truco");
+        }
+    }
+    
+    public static void trickResponse(int sender, boolean accept)
+    {
+        if(PLAYER%2!=sender)
+        {
+            if(accept)
+            {
+                JOptionPane.showMessageDialog((JFrame) frameControl,"Truco aceptado");
+                score.trick();
+            }
+            else
+            {
+                trickRejected();
+            }
         }
     }
     

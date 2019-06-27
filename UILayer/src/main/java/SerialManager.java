@@ -177,4 +177,17 @@ public class SerialManager
         int receiver=translateLetters(s.charAt(1));
         GameManager.trick(sender, receiver);
     }
+    
+    public static void trickResponse(int player, boolean ans)
+    {
+        String message="$$$$$$$$$$$"+translateNumbers(player)+"T"+(ans?"S":"N")+"%%";
+        sentMessage(message);
+    }
+    
+    public static void trickResponse(String s)
+    {
+        int sender=translateLetters(s.charAt(0));
+        boolean accept=s.charAt(2)=='S';
+        GameManager.trickResponse(sender, accept);
+    }
 }
