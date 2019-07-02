@@ -86,4 +86,9 @@ public class GraphicCard extends Card implements Drawable, Clickeable
         this.h=HEIGHT;
         return false;
     }
+    
+    public void showMe()
+    {
+        this.front=true;
+    }
 }
