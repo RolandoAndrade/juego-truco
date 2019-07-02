@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class GameManager
 {
-    public static final boolean TESTING = false;
+    public static final boolean TESTING = true;
     public static int SERVER_PLAYER=0;
     
     private static int trickPower = -1;
-    private static int PLAYER;
+    private static int PLAYER=0;
     private static int TURN_OF_PLAYER=0;
     private static int NUMBER_OF_TURNS=0;
     private static int NUMBER_OF_ROUNDS=0;
@@ -76,10 +76,10 @@ public class GameManager
         {
             try
             {
-                fill.execute();
                 gameRoom.cleanPlayedCards();
                 if(PLAYER==SERVER_PLAYER)
                 {
+                    fill.execute();
                     SerialManager.giveCards(gameRoom.getPlayers());
                     SerialManager.setVira(gameRoom.getVira());
                 }
@@ -260,6 +260,7 @@ public class GameManager
     
     public static void setPlayersCards(ArrayList<PlayCard> cards, int i)
     {
+        gameRoom.cleanPlayedCards();
         gameRoom.getPlayer(i).getHand().setCardList(cards);
         frameControl.update();
     }
