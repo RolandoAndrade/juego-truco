@@ -77,7 +77,7 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     public void giveCard(PlayCard card)
     {
         //super.giveCard(new Components.GraphicCard(card,0,0,this.number==0));
-        super.giveCard(new GraphicCard(card,0,0,true));
+        super.giveCard(new GraphicCard(card,0,0,GameManager.TESTING||this.number==GameManager.getPLAYER()));
     }
     
     @Override
@@ -95,7 +95,7 @@ public class GraphicPlayer extends Player implements Drawable, Clickeable
     @Override
     public boolean onClick(int x, int y)
     {
-        if((true||this.number==GameManager.getPLAYER())&&GameManager.isMyTurn(this.number))
+        if((GameManager.TESTING||(this.number==GameManager.getPLAYER())&&GameManager.isMyTurn(this.number)))
         {
             if(((Clickeable)getHand()).onClick(x,y))
             {

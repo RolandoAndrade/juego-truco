@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class GameManager
 {
+    public static final boolean TESTING = false;
     public static int SERVER_PLAYER=0;
     
     private static int trickPower = -1;
