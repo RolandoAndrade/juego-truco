@@ -14,7 +14,7 @@ public class Button implements Clickeable,Drawable
     public Button(int x, int y, String name)
     {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        this.image=toolkit.getImage("UILayer/src/main/resources/buttons/"+name+".png");
+        this.image=toolkit.getImage(ClassLoader.getSystemResource("buttons/"+name+".png"));
         setPosition(x,y);
         this.w=WIDTH;
         this.h=HEIGHT;
