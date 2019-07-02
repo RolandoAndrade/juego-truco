@@ -39,7 +39,6 @@ public class PortReader implements SerialPortEventListener
             try
             {
                 String data = this.serialPort.readString(serialPortEvent.getEventValue());
-                System.out.println("Recibido: "+data);
                 receiveData(data);
                 
             }
@@ -53,7 +52,6 @@ public class PortReader implements SerialPortEventListener
     
     public void filter(String s)
     {
-        System.out.println("Entrada: "+s);
         if(s.substring(0,12).equals("$$pedirtruco"))//12 pedir truco
         {
             SerialManager.trick(s.substring(12,14));

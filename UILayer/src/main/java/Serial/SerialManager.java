@@ -15,6 +15,7 @@ import java.util.Map;
 
 public class SerialManager
 {
+    private static final boolean whenIsARingCannotReadMyOwnMessage = true;
     private static final int NUMBER_OF_PLAYERS=2;
     /**
      * Inicio de la trama   ($$)
@@ -117,7 +118,7 @@ public class SerialManager
     public static void giveCards(String cards)
     {
         int sender = translateLetters(cards.charAt(0));
-        if(sender != GameManager.getPLAYER())
+        if(sender != GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
         {
             int receiver = translateLetters(cards.charAt(1));
             GameManager.setPlayersCards(new CardFactory().createFromTrama(cards.substring(2)),receiver);
@@ -135,7 +136,7 @@ public class SerialManager
     public static void playCard(String card)
     {
         int sender = translateLetters(card.charAt(0));
-        if(sender!=GameManager.getPLAYER())
+        if(sender!=GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
         {
             int number = Integer.parseInt(card.substring(2, 4));
             PlayCard car = new Card(number, deParser().get(card.substring(4)));
@@ -167,7 +168,7 @@ public class SerialManager
     public static void setVira(String message)
     {
         int sender = translateLetters(message.charAt(0));
-        if(sender != GameManager.getPLAYER())
+        if(sender != GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
         {
             int number = Integer.parseInt(message.substring(2, 4));
             String type = deParser().get(message.substring(4));
@@ -185,7 +186,7 @@ public class SerialManager
     public static void trick(String s)
     {
         int sender=translateLetters(s.charAt(0));
-        if(sender!=GameManager.getPLAYER())
+        if(sender!=GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
         {
             int receiver=translateLetters(s.charAt(1));
             GameManager.trick(sender, receiver);
@@ -201,7 +202,7 @@ public class SerialManager
     public static void trickResponse(String s)
     {
         int sender=translateLetters(s.charAt(0));
-        if(sender!=GameManager.getPLAYER())
+        if(sender!=GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
         {
             boolean accept = s.charAt(2) == 'S';
             GameManager.trickResponse(sender, accept);
