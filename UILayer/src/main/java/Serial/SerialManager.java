@@ -41,13 +41,12 @@ public class SerialManager
         try
         {
             serialPort.openPort();
-            serialPort.setParams(SerialPort.BAUDRATE_9600,
+            serialPort.setParams(SerialPort.BAUDRATE_4800,
                     SerialPort.DATABITS_8,
                     SerialPort.STOPBITS_1,
                     SerialPort.PARITY_NONE);
             serialPort.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_IN | SerialPort.FLOWCONTROL_RTSCTS_OUT);
             serialPort.addEventListener(new PortReader(serialPort));
-            serialPort.writeString("Hola mundo");
         }
         catch (Exception e)
         {
@@ -87,7 +86,7 @@ public class SerialManager
         for(int i=0;i<players.size();i++)
         {
             ArrayList<PlayCard> cards = players.get(i).getHand().getCards();//Pecado
-            StringBuilder msg = new StringBuilder("$$$S" + px[i]);
+            StringBuilder msg = new StringBuilder("$$rS" + px[i]);
             for (PlayCard c : cards)
             {
                 msg.append(c.getNumber() < 10 ? "0" + c.getNumber() : "" + c.getNumber()).append(selector.get(c.getTypeOfCard()));
@@ -129,7 +128,7 @@ public class SerialManager
     {
         String number=card.getNumber()<10?"0"+card.getNumber():""+card.getNumber();
         String type=parser().get(card.getTypeOfCard());
-        String message="$$$$$$$$$"+translateNumbers(player)+"T"+number+type+"%%";
+        String message="$$jugar##"+translateNumbers(player)+"T"+number+type+"%%";
         sentMessage(message);
     }
     
@@ -161,7 +160,7 @@ public class SerialManager
     {
         String number = card.getNumber() < 10 ? "0" + card.getNumber() : "" + card.getNumber();
         String type = parser().get(card.getTypeOfCard());
-        String message = "$$$$$$$$#" + "ST" + number + type + "%%";
+        String message = "$$setvira" + "ST" + number + type + "%%";
         sentMessage(message);
     }
     
@@ -179,7 +178,7 @@ public class SerialManager
     
     public static void trick(int player)
     {
-        String message="$$$$$$$$$$$$"+translateNumbers(player)+translateNumbers((player+1)%NUMBER_OF_PLAYERS)+"%%";
+        String message="$$pedirtruco"+translateNumbers(player)+translateNumbers((player+1)%NUMBER_OF_PLAYERS)+"%%";
         sentMessage(message);
     }
     
@@ -195,7 +194,7 @@ public class SerialManager
     
     public static void trickResponse(int player, boolean ans)
     {
-        String message="$$$$$$$$$$$"+translateNumbers(player)+"T"+(ans?"S":"N")+"%%";
+        String message="$$resptruco"+translateNumbers(player)+"T"+(ans?"S":"N")+"%%";
         sentMessage(message);
     }
     
