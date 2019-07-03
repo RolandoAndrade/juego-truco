@@ -17,6 +17,8 @@ public class SerialManager
 {
     private static final boolean whenIsARingCannotReadMyOwnMessage = true;
     private static final int NUMBER_OF_PLAYERS=2;
+    private static boolean []ready = {false, false, false, false};
+    
     /**
      * Inicio de la trama   ($$)
      * Emisor               (A,B,C,D,S,T)
@@ -207,5 +209,22 @@ public class SerialManager
             boolean accept = s.charAt(2) == 'S';
             GameManager.trickResponse(sender, accept);
         }
+    }
+    
+    public static void handShake()
+    {
+        String message = "$$hand#shake"+translateNumbers(GameManager.getPLAYER())+"S"+"%%";
+        sentMessage(message);
+    }
+    
+    public static void handShake(String s)
+    {
+        if(!ready[translateLetters(s.charAt(0))])
+        {
+            handShake();
+        }
+        ready[translateLetters(s.charAt(0))] = true;
+        ready[GameManager.getPLAYER()] = true;
+        
     }
 }

@@ -29,7 +29,7 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
         GameManager.setFill(init);
         GameManager.setGameRoom(gameRoom);
         GameManager.setScore(score);
-        setUp();
+        //setUp();
     }
     
     private void setUp()
@@ -53,10 +53,18 @@ public class GameGraphicManager extends JPanel implements GameGraphicControl
     @Override
     public void paint(Graphics g)
     {
-        super.paint(g);
-        ((Paintable)gameRoom).paint(g,this);
-        ((Paintable)button).paint(g,this);
-        ((Paintable)score).paint(g,this);
+        try
+        {
+            super.paint(g);
+            ((Paintable)gameRoom).paint(g,this);
+            ((Paintable)button).paint(g,this);
+            ((Paintable)score).paint(g,this);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Todavía no se puede jugar");
+        }
+        
     }
     
     @Override

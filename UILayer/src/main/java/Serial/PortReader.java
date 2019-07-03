@@ -52,6 +52,7 @@ public class PortReader implements SerialPortEventListener
     
     public void filter(String s)
     {
+        System.out.println(s);
         if(s.substring(0,12).equals("$$pedirtruco"))//12 pedir truco
         {
             SerialManager.trick(s.substring(12,14));
@@ -71,6 +72,10 @@ public class PortReader implements SerialPortEventListener
         else if(s.substring(0,3).equals("$$r"))//Repartir cartas a jugadores
         {
             SerialManager.giveCards(s.substring(3,14));
+        }
+        else if(s.substring(0,12).equals("$$hand#shake"))
+        {
+            SerialManager.handShake(s.substring(12,14));
         }
     }
 }
