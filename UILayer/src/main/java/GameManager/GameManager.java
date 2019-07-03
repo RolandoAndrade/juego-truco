@@ -289,4 +289,25 @@ public class GameManager
         gameRoom.setVira(card);
         frameControl.update();
     }
+    
+    public static void setUp()
+    {
+        if(PLAYER == SERVER_PLAYER)
+        {
+            try
+            {
+                fill.execute();
+                if(GameManager.getPLAYER()==GameManager.SERVER_PLAYER)
+                {
+                    SerialManager.giveCards(gameRoom.getPlayers());
+                    SerialManager.setVira(gameRoom.getVira());
+                }
+                frameControl.update();
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
 }

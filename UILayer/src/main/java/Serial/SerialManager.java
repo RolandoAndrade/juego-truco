@@ -225,6 +225,11 @@ public class SerialManager
         }
         ready[translateLetters(s.charAt(0))] = true;
         ready[GameManager.getPLAYER()] = true;
-        
+        for(int i = 0; i < NUMBER_OF_PLAYERS; i++)
+        {
+            if(!ready[i])
+                return;
+        }
+        GameManager.setUp();
     }
 }
