@@ -117,14 +117,16 @@ public class SerialManager
         return 0;
     }
     
-    public static void giveCards(String cards)
+    public static boolean giveCards(String cards)
     {
         int sender = translateLetters(cards.charAt(0));
-        if(sender != GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
+        if(sender != GameManager.getPLAYER())
         {
             int receiver = translateLetters(cards.charAt(1));
             GameManager.setPlayersCards(new CardFactory().createFromTrama(cards.substring(2)),receiver);
+            return true;
         }
+        return false;
     }
     
     public static void playCard(PlayCard card, int player)
@@ -135,22 +137,24 @@ public class SerialManager
         sentMessage(message);
     }
     
-    public static void playCard(String card)
+    public static boolean playCard(String card)
     {
         int sender = translateLetters(card.charAt(0));
-        if(sender!=GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
+        if(sender!=GameManager.getPLAYER())
         {
             int number = Integer.parseInt(card.substring(2, 4));
             PlayCard car = new Card(number, deParser().get(card.substring(4)));
             GameManager.playCard(sender, car);
+            return true;
         }
+        return false;
     }
     
-    private static void sentMessage(String message)
+    public static void sentMessage(String message)
     {
         try
         {
-            serialPort.purgePort(SerialPort.PURGE_TXCLEAR | SerialPort.PURGE_RXCLEAR);
+            //serialPort.purgePort(SerialPort.PURGE_TXCLEAR | SerialPort.PURGE_RXCLEAR);
             serialPort.writeString(message);
         }
         catch (Exception e)
@@ -167,16 +171,18 @@ public class SerialManager
         sentMessage(message);
     }
     
-    public static void setVira(String message)
+    public static boolean setVira(String message)
     {
         int sender = translateLetters(message.charAt(0));
-        if(sender != GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
+        if(sender != GameManager.getPLAYER())
         {
             int number = Integer.parseInt(message.substring(2, 4));
             String type = deParser().get(message.substring(4));
             PlayCard card = new Card(number, type);
             GameManager.setVira(card);
+            return true;
         }
+        return false;
     }
     
     public static void trick(int player)
@@ -185,14 +191,16 @@ public class SerialManager
         sentMessage(message);
     }
     
-    public static void trick(String s)
+    public static boolean trick(String s)
     {
         int sender=translateLetters(s.charAt(0));
-        if(sender!=GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
+        if(sender!=GameManager.getPLAYER())
         {
             int receiver=translateLetters(s.charAt(1));
             GameManager.trick(sender, receiver);
+            return true;
         }
+        return false;
     }
     
     public static void trickResponse(int player, boolean ans)
@@ -201,14 +209,16 @@ public class SerialManager
         sentMessage(message);
     }
     
-    public static void trickResponse(String s)
+    public static boolean trickResponse(String s)
     {
         int sender=translateLetters(s.charAt(0));
-        if(sender!=GameManager.getPLAYER()|| whenIsARingCannotReadMyOwnMessage)
+        if(sender!=GameManager.getPLAYER())
         {
             boolean accept = s.charAt(2) == 'S';
             GameManager.trickResponse(sender, accept);
+            return true;
         }
+        return false;
     }
     
     public static void handShake()
@@ -219,17 +229,22 @@ public class SerialManager
     
     public static void handShake(String s)
     {
-        if(!ready[translateLetters(s.charAt(0))])
+        int sender = translateLetters(s.charAt(0));
+        System.out.println("Solicitud de handshake "+ sender+ " "+GameManager.SERVER_PLAYER);
+        if(sender == GameManager.SERVER_PLAYER&&GameManager.getPLAYER() == GameManager.SERVER_PLAYER)
         {
+            GameManager.setUp();
+        }
+        else if(GameManager.getPLAYER() == GameManager.SERVER_PLAYER)
+        {
+            System.out.println("Soy el servidor, espero respuesta");
             handShake();
         }
-        ready[translateLetters(s.charAt(0))] = true;
-        ready[GameManager.getPLAYER()] = true;
-        for(int i = 0; i < NUMBER_OF_PLAYERS; i++)
+        else
         {
-            if(!ready[i])
-                return;
+            System.out.println("No soy servidor, intento retransmitir");
+            sentMessage("$$hand#shake"+s+"%%");
         }
-        GameManager.setUp();
+        
     }
 }

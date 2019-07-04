@@ -294,6 +294,7 @@ public class GameManager
     {
         if(PLAYER == SERVER_PLAYER)
         {
+            System.out.println("Servidor reparte cartas");
             try
             {
                 fill.execute();
