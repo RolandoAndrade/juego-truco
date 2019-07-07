@@ -15,9 +15,8 @@ import java.util.Map;
 
 public class SerialManager
 {
-    private static final boolean whenIsARingCannotReadMyOwnMessage = true;
-    private static final int NUMBER_OF_PLAYERS=2;
-    private static boolean []ready = {false, false, false, false};
+    
+    private static final int NUMBER_OF_PLAYERS=4;
     
     /**
      * Inicio de la trama   ($$)
@@ -44,11 +43,11 @@ public class SerialManager
         try
         {
             serialPort.openPort();
-            serialPort.setParams(SerialPort.BAUDRATE_4800,
+            serialPort.setParams(SerialPort.BAUDRATE_1200,
                     SerialPort.DATABITS_8,
                     SerialPort.STOPBITS_1,
                     SerialPort.PARITY_NONE);
-            serialPort.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_IN | SerialPort.FLOWCONTROL_RTSCTS_OUT);
+            serialPort.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);
             serialPort.addEventListener(new PortReader(serialPort));
         }
         catch (Exception e)
