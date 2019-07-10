@@ -116,11 +116,12 @@ public class SerialManager
         return 0;
     }
     
-    public static boolean giveCards(String cards)
+    public static boolean giveCards(String cards, String message)
     {
         int sender = translateLetters(cards.charAt(0));
         if(sender != GameManager.getPLAYER())
         {
+            sentMessage(message);
             int receiver = translateLetters(cards.charAt(1));
             GameManager.setPlayersCards(new CardFactory().createFromTrama(cards.substring(2)),receiver);
             return true;
@@ -136,11 +137,12 @@ public class SerialManager
         sentMessage(message);
     }
     
-    public static boolean playCard(String card)
+    public static boolean playCard(String card, String message)
     {
         int sender = translateLetters(card.charAt(0));
         if(sender!=GameManager.getPLAYER())
         {
+            sentMessage(message);
             int number = Integer.parseInt(card.substring(2, 4));
             PlayCard car = new Card(number, deParser().get(card.substring(4)));
             GameManager.playCard(sender, car);
@@ -170,11 +172,12 @@ public class SerialManager
         sentMessage(message);
     }
     
-    public static boolean setVira(String message)
+    public static boolean setVira(String message, String s)
     {
         int sender = translateLetters(message.charAt(0));
         if(sender != GameManager.getPLAYER())
         {
+            sentMessage(s);
             int number = Integer.parseInt(message.substring(2, 4));
             String type = deParser().get(message.substring(4));
             PlayCard card = new Card(number, type);
@@ -190,11 +193,12 @@ public class SerialManager
         sentMessage(message);
     }
     
-    public static boolean trick(String s)
+    public static boolean trick(String s, String message)
     {
         int sender=translateLetters(s.charAt(0));
         if(sender!=GameManager.getPLAYER())
         {
+            SerialManager.sentMessage(message);
             int receiver=translateLetters(s.charAt(1));
             GameManager.trick(sender, receiver);
             return true;
@@ -208,11 +212,12 @@ public class SerialManager
         sentMessage(message);
     }
     
-    public static boolean trickResponse(String s)
+    public static boolean trickResponse(String s, String message)
     {
         int sender=translateLetters(s.charAt(0));
         if(sender!=GameManager.getPLAYER())
         {
+            sentMessage(message);
             boolean accept = s.charAt(2) == 'S';
             GameManager.trickResponse(sender, accept);
             return true;
